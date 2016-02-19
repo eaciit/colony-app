@@ -1,0 +1,57 @@
+INFO 2016/02/19 17:52:11 [testCSV] Service Running
+INFO 2016/02/19 17:52:16 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:52:24 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:52:24 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:52:24 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:52:45 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:52:47 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:52:47 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:52:47 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:53:07 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:53:08 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:53:08 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:53:08 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:53:28 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:53:29 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:53:29 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:53:29 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:53:49 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:53:50 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:53:50 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:53:50 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:54:10 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:54:12 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:54:12 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:54:12 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:54:33 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:54:34 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:54:34 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:54:34 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:54:54 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:54:56 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:54:56 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:54:56 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:55:16 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:55:17 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:55:17 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:55:17 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:55:37 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:55:40 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:55:40 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:55:40 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:56:00 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:56:01 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:56:01 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:56:01 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:56:21 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:56:21 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:56:21 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:56:21 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:56:41 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:56:42 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:56:42 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:56:42 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
+INFO 2016/02/19 17:57:02 [testCSV] Grab Started http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:57:03 [testCSV] Grab Success http://www.dce.com.cn/PublicWeb/MainServlet
+INFO 2016/02/19 17:57:03 [testCSV-GoldTab01] Fetch Data to destination started
+INFO 2016/02/19 17:57:03 [testCSV-GoldTab01] Fetch Data to destination finished with 15 record fetch
