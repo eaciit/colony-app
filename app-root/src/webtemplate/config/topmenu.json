@@ -1,0 +1,32 @@
+[{
+	"title":"Dashboard",
+	"href":"/template/index/",
+	"submenu":[],
+	"selected":true
+},
+{
+	"title":"Widget",
+	"href":"/template/widget",
+	"submenu":[],
+	"selected":false
+},
+{
+	"title":"Page",
+	"href":"#",
+	"submenu":[{
+		"title":"Blank",
+		"href":"#",
+		"submenu":[]
+	},{
+		"title":"Blank2",
+		"href":"#",
+		"submenu":[]
+	}],
+	"selected":false
+},
+{
+	"title":"Example",
+	"href":"#",
+	"submenu":[],
+	"selected":false
+}]
