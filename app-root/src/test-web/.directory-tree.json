@@ -1,21 +1,21 @@
 {
 	"_id": 1,
-	"text": "test",
+	"text": "test-web",
 	"expanded": true,
 	"spriteCssClass": "folder",
 	"items": [
 		{
 			"_id": 2,
-			"text": "main.go",
+			"text": "install.sh",
 			"expanded": false,
-			"spriteCssClass": "go",
+			"spriteCssClass": "sh",
 			"items": null
 		},
 		{
 			"_id": 3,
-			"text": "view.html",
+			"text": "main.go",
 			"expanded": false,
-			"spriteCssClass": "html",
+			"spriteCssClass": "go",
 			"items": null
 		}
 	]
