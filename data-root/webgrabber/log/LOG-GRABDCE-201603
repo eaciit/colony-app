@@ -1,0 +1,30 @@
+INFO 2016/03/01 19:03:29 Starting web grab data
+INFO 2016/03/01 19:03:29 Start fetch the config
+INFO 2016/03/01 19:03:29 Start fetch grabconf
+INFO 2016/03/01 19:03:29 Done fetch grabconf : {"Data":null,"URL":"http://www.dce.com.cn/PublicWeb/MainServlet","CallType":"POST","DataSettings":null,"FormValues":{"formvalues":{"Pu00231_Input.trade_date":"20160105","Pu00231_Input.trade_type":"0","Pu00231_Input.variety":"i","Submit":"Go","action":"Pu00231_result"}},"AuthType":"","AuthUserId":"","AuthPassword":"","LoginValues":null,"LoginUrl":"","LogoutUrl":""}
+INFO 2016/03/01 19:03:29 Start fetch datasettings
+INFO 2016/03/01 19:03:29 Start fetch histconf
+INFO 2016/03/01 19:03:29 Data grabber created : {"Data":null,"URL":"http://www.dce.com.cn/PublicWeb/MainServlet","CallType":"POST","DataSettings":{"Iron01":{"RowSelector":"table .table tbody tr","FilterCond":{"$or":[{"Contract":"Contract"},{"Contract":"Iron Ore Subtotal"},{"Contract":"Total"}]},"ColumnSettings":[{"Alias":"Contract","Selector":"td:nth-child(1)","ValueType":"","AttrName":""},{"Alias":"Open","Selector":"td:nth-child(2)","ValueType":"","AttrName":""},{"Alias":"High","Selector":"td:nth-child(3)","ValueType":"","AttrName":""},{"Alias":"Low","Selector":"td:nth-child(4)","ValueType":"","AttrName":""},{"Alias":"Close","Selector":"td:nth-child(5)","ValueType":"","AttrName":""},{"Alias":"Prev Settle","Selector":"td:nth-child(6)","ValueType":"","AttrName":""},{"Alias":"Settle","Selector":"td:nth-child(7)","ValueType":"","AttrName":""},{"Alias":"Chg","Selector":"td:nth-child(8)","ValueType":"","AttrName":""},{"Alias":"Volume","Selector":"td:nth-child(9)","ValueType":"","AttrName":""},{"Alias":"OI","Selector":"td:nth-child(10)","ValueType":"","AttrName":""},{"Alias":"OI Chg","Selector":"td:nth-child(11)","ValueType":"","AttrName":""},{"Alias":"Turnover","Selector":"td:nth-child(12)","ValueType":"","AttrName":""}]}},"FormValues":{"formvalues":{"Pu00231_Input.trade_date":"20160105","Pu00231_Input.trade_type":"0","Pu00231_Input.variety":"i","Submit":"Go","action":"Pu00231_result"}},"AuthType":"","AuthUserId":"","AuthPassword":"","LoginValues":null,"LoginUrl":"","LogoutUrl":"","LastExecuted":"0001-01-01T00:00:00Z","Response":null}
+INFO 2016/03/01 19:03:29 Fetch the config success
+INFO 2016/03/01 19:03:29 Get the data
+INFO 2016/03/01 19:03:31 Get data grab success
+INFO 2016/03/01 19:03:31 Start save data grab
+INFO 2016/03/01 19:03:31 [savedatagrab.Iron01] start save data
+INFO 2016/03/01 19:03:31 [savedatagrab.Iron01] Finish save data
+INFO 2016/03/01 19:03:31 Save data grab success
+INFO 2016/03/01 19:03:31 Finish grab data
+INFO 2016/03/01 19:04:01 Starting web grab data
+INFO 2016/03/01 19:04:01 Start fetch the config
+INFO 2016/03/01 19:04:01 Start fetch grabconf
+INFO 2016/03/01 19:04:01 Done fetch grabconf : {"Data":null,"URL":"http://www.dce.com.cn/PublicWeb/MainServlet","CallType":"POST","DataSettings":null,"FormValues":{"formvalues":{"Pu00231_Input.trade_date":"20160105","Pu00231_Input.trade_type":"0","Pu00231_Input.variety":"i","Submit":"Go","action":"Pu00231_result"}},"AuthType":"","AuthUserId":"","AuthPassword":"","LoginValues":null,"LoginUrl":"","LogoutUrl":""}
+INFO 2016/03/01 19:04:01 Start fetch datasettings
+INFO 2016/03/01 19:04:01 Start fetch histconf
+INFO 2016/03/01 19:04:01 Data grabber created : {"Data":null,"URL":"http://www.dce.com.cn/PublicWeb/MainServlet","CallType":"POST","DataSettings":{"Iron01":{"RowSelector":"table .table tbody tr","FilterCond":{"$or":[{"Contract":"Contract"},{"Contract":"Iron Ore Subtotal"},{"Contract":"Total"}]},"ColumnSettings":[{"Alias":"Contract","Selector":"td:nth-child(1)","ValueType":"","AttrName":""},{"Alias":"Open","Selector":"td:nth-child(2)","ValueType":"","AttrName":""},{"Alias":"High","Selector":"td:nth-child(3)","ValueType":"","AttrName":""},{"Alias":"Low","Selector":"td:nth-child(4)","ValueType":"","AttrName":""},{"Alias":"Close","Selector":"td:nth-child(5)","ValueType":"","AttrName":""},{"Alias":"Prev Settle","Selector":"td:nth-child(6)","ValueType":"","AttrName":""},{"Alias":"Settle","Selector":"td:nth-child(7)","ValueType":"","AttrName":""},{"Alias":"Chg","Selector":"td:nth-child(8)","ValueType":"","AttrName":""},{"Alias":"Volume","Selector":"td:nth-child(9)","ValueType":"","AttrName":""},{"Alias":"OI","Selector":"td:nth-child(10)","ValueType":"","AttrName":""},{"Alias":"OI Chg","Selector":"td:nth-child(11)","ValueType":"","AttrName":""},{"Alias":"Turnover","Selector":"td:nth-child(12)","ValueType":"","AttrName":""}]}},"FormValues":{"formvalues":{"Pu00231_Input.trade_date":"20160105","Pu00231_Input.trade_type":"0","Pu00231_Input.variety":"i","Submit":"Go","action":"Pu00231_result"}},"AuthType":"","AuthUserId":"","AuthPassword":"","LoginValues":null,"LoginUrl":"","LogoutUrl":"","LastExecuted":"0001-01-01T00:00:00Z","Response":null}
+INFO 2016/03/01 19:04:01 Fetch the config success
+INFO 2016/03/01 19:04:01 Get the data
+INFO 2016/03/01 19:04:03 Get data grab success
+INFO 2016/03/01 19:04:03 Start save data grab
+INFO 2016/03/01 19:04:03 [savedatagrab.Iron01] start save data
+INFO 2016/03/01 19:04:03 [savedatagrab.Iron01] Finish save data
+INFO 2016/03/01 19:04:03 Save data grab success
+INFO 2016/03/01 19:04:03 Finish grab data

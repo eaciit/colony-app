@@ -1,0 +1,439 @@
+INFO 2016/03/01 19:03:28 Start daemon grabbing, config path : /Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/config/webgrabbers.json
+INFO 2016/03/01 19:03:29 Run daemon
+INFO 2016/03/01 19:03:29 Fetch config grabbing started
+INFO 2016/03/01 19:03:29 Get data snapshot
+INFO 2016/03/01 19:03:29 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:29 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:29 Start grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:29 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:29 Start grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:29 [irondcecomcn] run at 2016-03-01 12-03-29, run : [/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/cli/sedotanw -config="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/config/webgrabbers.json" -snapshot="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/data-root/daemon/daemonsnapshot.csv" -id="irondcecomcn"]
+INFO 2016/03/01 19:03:29 [iopriceindices] run at 2016-03-01 12-03-29, run : [/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/cli/sedotans -config="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/config/webgrabbers.json" -snapshot="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/data-root/daemon/daemonsnapshot.csv" -id="iopriceindices"]
+ERROR 2016/03/01 19:03:29 [iopriceindices] run at 2016-03-01 12-03-29, found error : exit status 2
+INFO 2016/03/01 19:03:29 [iopriceindices] run at 2016-03-01 12-03-29, done with message : panic: interface conversion: interface is bool, not int
+
+goroutine 1 [running]:
+github.com/eaciit/dbox/dbc/xlsx.(*Connection).Connect(0xc8202842a0, 0x0, 0x0)
+	/Users/novalagung/Documents/go/src/github.com/eaciit/dbox/dbc/xlsx/xlsx_connection.go:70 +0x34b
+github.com/eaciit/sedotan/sedotan%2ev2.(*GetDatabase).ResultFromDatabase(0xc820085320, 0xc82021a8e0, 0x12, 0x3c81e0, 0xc82025eb80, 0x0, 0x0)
+	/Users/novalagung/Documents/go/src/github.com/eaciit/sedotan/sedotan.v2/getdatabase.go:88 +0xd2
+main.savedatagrab(0x0, 0x0)
+	/Users/novalagung/Documents/go/src/github.com/eaciit/sedotan/sedotan.v2/sedotans/main.go:405 +0x985
+main.main()
+	/Users/novalagung/Documents/go/src/github.com/eaciit/sedotan/sedotan.v2/sedotans/main.go:566 +0x104c
+
+goroutine 17 [syscall, locked to thread]:
+runtime.goexit()
+	/usr/local/go/src/runtime/asm_amd64.s:1721 +0x1
+
+goroutine 6 [sleep]:
+time.Sleep(0x1dcd6500)
+	/usr/local/go/src/runtime/time.go:59 +0xf9
+gopkg.in/mgo%2ev2.(*mongoCluster).syncServersLoop(0xc8201ec900)
+	/Users/novalagung/Documents/go/src/gopkg.in/mgo.v2/cluster.go:368 +0x2b1
+created by gopkg.in/mgo%2ev2.newCluster
+	/Users/novalagung/Documents/go/src/gopkg.in/mgo.v2/cluster.go:78 +0x1d0
+
+goroutine 23 [sleep]:
+time.Sleep(0x37e11d600)
+	/usr/local/go/src/runtime/time.go:59 +0xf9
+gopkg.in/mgo%2ev2.(*mongoServer).pinger(0xc820254000, 0x1)
+	/Users/novalagung/Documents/go/src/gopkg.in/mgo.v2/server.go:296 +0x1b0
+created by gopkg.in/mgo%2ev2.newServer
+	/Users/novalagung/Documents/go/src/gopkg.in/mgo.v2/server.go:89 +0x160
+
+INFO 2016/03/01 19:03:30 Run daemon
+INFO 2016/03/01 19:03:30 Fetch config grabbing started
+INFO 2016/03/01 19:03:30 Get data snapshot
+INFO 2016/03/01 19:03:30 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:30 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:30 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:30 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:30 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:31 Run daemon
+INFO 2016/03/01 19:03:31 Fetch config grabbing started
+INFO 2016/03/01 19:03:31 Get data snapshot
+INFO 2016/03/01 19:03:31 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:31 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:31 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:31 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:31 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:31 [irondcecomcn] run at 2016-03-01 12-03-29, done with message : 
+INFO 2016/03/01 19:03:32 Run daemon
+INFO 2016/03/01 19:03:32 Fetch config grabbing started
+INFO 2016/03/01 19:03:32 Get data snapshot
+INFO 2016/03/01 19:03:32 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:32 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:32 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:32 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:32 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:33 Run daemon
+INFO 2016/03/01 19:03:33 Fetch config grabbing started
+INFO 2016/03/01 19:03:33 Get data snapshot
+INFO 2016/03/01 19:03:33 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:33 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:33 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:33 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:33 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:34 Run daemon
+INFO 2016/03/01 19:03:34 Fetch config grabbing started
+INFO 2016/03/01 19:03:34 Get data snapshot
+INFO 2016/03/01 19:03:34 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:34 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:34 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:34 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:34 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:35 Run daemon
+INFO 2016/03/01 19:03:35 Fetch config grabbing started
+INFO 2016/03/01 19:03:35 Get data snapshot
+INFO 2016/03/01 19:03:35 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:35 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:35 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:35 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:35 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:36 Run daemon
+INFO 2016/03/01 19:03:36 Fetch config grabbing started
+INFO 2016/03/01 19:03:36 Get data snapshot
+INFO 2016/03/01 19:03:36 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:36 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:36 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:36 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:36 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:37 Run daemon
+INFO 2016/03/01 19:03:37 Fetch config grabbing started
+INFO 2016/03/01 19:03:37 Get data snapshot
+INFO 2016/03/01 19:03:37 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:37 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:37 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:37 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:37 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:38 Run daemon
+INFO 2016/03/01 19:03:38 Fetch config grabbing started
+INFO 2016/03/01 19:03:38 Get data snapshot
+INFO 2016/03/01 19:03:38 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:38 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:38 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:38 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:38 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:39 Run daemon
+INFO 2016/03/01 19:03:39 Fetch config grabbing started
+INFO 2016/03/01 19:03:39 Get data snapshot
+INFO 2016/03/01 19:03:39 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:39 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:39 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:39 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:39 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:40 Run daemon
+INFO 2016/03/01 19:03:40 Fetch config grabbing started
+INFO 2016/03/01 19:03:40 Get data snapshot
+INFO 2016/03/01 19:03:40 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:40 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:40 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:40 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:40 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:41 Run daemon
+INFO 2016/03/01 19:03:41 Fetch config grabbing started
+INFO 2016/03/01 19:03:41 Get data snapshot
+INFO 2016/03/01 19:03:41 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:41 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:41 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:41 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:41 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:42 Run daemon
+INFO 2016/03/01 19:03:42 Fetch config grabbing started
+INFO 2016/03/01 19:03:42 Get data snapshot
+INFO 2016/03/01 19:03:42 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:42 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:42 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:42 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:42 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:43 Run daemon
+INFO 2016/03/01 19:03:43 Fetch config grabbing started
+INFO 2016/03/01 19:03:43 Get data snapshot
+INFO 2016/03/01 19:03:43 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:43 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:43 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:43 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:43 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:44 Run daemon
+INFO 2016/03/01 19:03:44 Fetch config grabbing started
+INFO 2016/03/01 19:03:44 Get data snapshot
+INFO 2016/03/01 19:03:44 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:44 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:44 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:44 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:44 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:45 Run daemon
+INFO 2016/03/01 19:03:45 Fetch config grabbing started
+INFO 2016/03/01 19:03:45 Get data snapshot
+INFO 2016/03/01 19:03:45 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:45 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:45 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:45 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:45 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:46 Run daemon
+INFO 2016/03/01 19:03:46 Fetch config grabbing started
+INFO 2016/03/01 19:03:46 Get data snapshot
+INFO 2016/03/01 19:03:46 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:46 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:46 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:46 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:46 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:47 Run daemon
+INFO 2016/03/01 19:03:47 Fetch config grabbing started
+INFO 2016/03/01 19:03:47 Get data snapshot
+INFO 2016/03/01 19:03:47 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:47 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:47 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:47 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:47 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:48 Run daemon
+INFO 2016/03/01 19:03:48 Fetch config grabbing started
+INFO 2016/03/01 19:03:48 Get data snapshot
+INFO 2016/03/01 19:03:48 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:48 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:48 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:48 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:48 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:49 Run daemon
+INFO 2016/03/01 19:03:49 Fetch config grabbing started
+INFO 2016/03/01 19:03:49 Get data snapshot
+INFO 2016/03/01 19:03:49 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:49 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:49 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:49 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:49 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:50 Run daemon
+INFO 2016/03/01 19:03:50 Fetch config grabbing started
+INFO 2016/03/01 19:03:50 Get data snapshot
+INFO 2016/03/01 19:03:50 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:50 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:50 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:50 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:50 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:51 Run daemon
+INFO 2016/03/01 19:03:51 Fetch config grabbing started
+INFO 2016/03/01 19:03:51 Get data snapshot
+INFO 2016/03/01 19:03:51 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:51 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:51 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:51 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:51 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:52 Run daemon
+INFO 2016/03/01 19:03:52 Fetch config grabbing started
+INFO 2016/03/01 19:03:52 Get data snapshot
+INFO 2016/03/01 19:03:52 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:52 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:52 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:52 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:52 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:53 Run daemon
+INFO 2016/03/01 19:03:53 Fetch config grabbing started
+INFO 2016/03/01 19:03:53 Get data snapshot
+INFO 2016/03/01 19:03:53 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:53 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:53 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:53 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:53 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:54 Run daemon
+INFO 2016/03/01 19:03:54 Fetch config grabbing started
+INFO 2016/03/01 19:03:54 Get data snapshot
+INFO 2016/03/01 19:03:54 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:54 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:54 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:54 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:54 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:55 Run daemon
+INFO 2016/03/01 19:03:55 Fetch config grabbing started
+INFO 2016/03/01 19:03:55 Get data snapshot
+INFO 2016/03/01 19:03:55 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:55 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:55 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:55 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:55 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:56 Run daemon
+INFO 2016/03/01 19:03:56 Fetch config grabbing started
+INFO 2016/03/01 19:03:56 Get data snapshot
+INFO 2016/03/01 19:03:56 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:56 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:56 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:56 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:56 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:57 Run daemon
+INFO 2016/03/01 19:03:57 Fetch config grabbing started
+INFO 2016/03/01 19:03:57 Get data snapshot
+INFO 2016/03/01 19:03:57 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:57 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:57 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:57 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:57 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:58 Run daemon
+INFO 2016/03/01 19:03:58 Fetch config grabbing started
+INFO 2016/03/01 19:03:58 Get data snapshot
+INFO 2016/03/01 19:03:58 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:58 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:58 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:58 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:58 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:03:59 Run daemon
+INFO 2016/03/01 19:03:59 Fetch config grabbing started
+INFO 2016/03/01 19:03:59 Get data snapshot
+INFO 2016/03/01 19:03:59 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:03:59 Check config for id : irondcecomcn
+INFO 2016/03/01 19:03:59 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:03:59 Check config for id : iopriceindices
+INFO 2016/03/01 19:03:59 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:00 Run daemon
+INFO 2016/03/01 19:04:00 Fetch config grabbing started
+INFO 2016/03/01 19:04:00 Get data snapshot
+INFO 2016/03/01 19:04:00 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:00 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:00 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:00 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:00 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:01 Run daemon
+INFO 2016/03/01 19:04:01 Fetch config grabbing started
+INFO 2016/03/01 19:04:01 Get data snapshot
+INFO 2016/03/01 19:04:01 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:01 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:01 Start grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:01 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:01 [irondcecomcn] run at 2016-03-01 12-04-01, run : [/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/cli/sedotanw -config="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/config/webgrabbers.json" -snapshot="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/data-root/daemon/daemonsnapshot.csv" -id="irondcecomcn"]
+INFO 2016/03/01 19:04:01 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:02 Run daemon
+INFO 2016/03/01 19:04:02 Fetch config grabbing started
+INFO 2016/03/01 19:04:02 Get data snapshot
+INFO 2016/03/01 19:04:02 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:02 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:02 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:02 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:02 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:03 [irondcecomcn] run at 2016-03-01 12-04-01, done with message : 
+INFO 2016/03/01 19:04:03 Run daemon
+INFO 2016/03/01 19:04:03 Fetch config grabbing started
+INFO 2016/03/01 19:04:03 Get data snapshot
+INFO 2016/03/01 19:04:03 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:03 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:03 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:03 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:03 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:04 Run daemon
+INFO 2016/03/01 19:04:04 Fetch config grabbing started
+INFO 2016/03/01 19:04:04 Get data snapshot
+INFO 2016/03/01 19:04:04 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:04 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:04 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:04 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:04 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:05 Run daemon
+INFO 2016/03/01 19:04:05 Fetch config grabbing started
+INFO 2016/03/01 19:04:05 Get data snapshot
+INFO 2016/03/01 19:04:05 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:05 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:05 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:05 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:05 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:06 Run daemon
+INFO 2016/03/01 19:04:06 Fetch config grabbing started
+INFO 2016/03/01 19:04:06 Get data snapshot
+INFO 2016/03/01 19:04:06 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:06 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:06 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:06 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:06 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:07 Run daemon
+INFO 2016/03/01 19:04:07 Fetch config grabbing started
+INFO 2016/03/01 19:04:07 Get data snapshot
+INFO 2016/03/01 19:04:07 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:07 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:07 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:07 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:07 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:08 Run daemon
+INFO 2016/03/01 19:04:08 Fetch config grabbing started
+INFO 2016/03/01 19:04:08 Get data snapshot
+INFO 2016/03/01 19:04:08 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:08 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:08 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:08 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:08 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:09 Run daemon
+INFO 2016/03/01 19:04:09 Fetch config grabbing started
+INFO 2016/03/01 19:04:09 Get data snapshot
+INFO 2016/03/01 19:04:09 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:09 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:09 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:09 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:09 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:10 Run daemon
+INFO 2016/03/01 19:04:10 Fetch config grabbing started
+INFO 2016/03/01 19:04:10 Get data snapshot
+INFO 2016/03/01 19:04:10 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:10 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:10 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:10 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:10 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:11 Run daemon
+INFO 2016/03/01 19:04:11 Fetch config grabbing started
+INFO 2016/03/01 19:04:11 Get data snapshot
+INFO 2016/03/01 19:04:11 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:11 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:11 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:11 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:11 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:12 Run daemon
+INFO 2016/03/01 19:04:12 Fetch config grabbing started
+INFO 2016/03/01 19:04:12 Get data snapshot
+INFO 2016/03/01 19:04:12 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:12 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:12 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:12 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:12 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:13 Run daemon
+INFO 2016/03/01 19:04:13 Fetch config grabbing started
+INFO 2016/03/01 19:04:13 Get data snapshot
+INFO 2016/03/01 19:04:13 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:13 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:13 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:13 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:13 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:14 Run daemon
+INFO 2016/03/01 19:04:14 Fetch config grabbing started
+INFO 2016/03/01 19:04:14 Get data snapshot
+INFO 2016/03/01 19:04:14 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:14 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:14 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:14 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:14 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:15 Run daemon
+INFO 2016/03/01 19:04:15 Fetch config grabbing started
+INFO 2016/03/01 19:04:15 Get data snapshot
+INFO 2016/03/01 19:04:15 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:15 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:15 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:15 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:15 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:16 Run daemon
+INFO 2016/03/01 19:04:16 Fetch config grabbing started
+INFO 2016/03/01 19:04:16 Get data snapshot
+INFO 2016/03/01 19:04:16 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:16 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:16 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:16 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:16 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:17 Run daemon
+INFO 2016/03/01 19:04:17 Fetch config grabbing started
+INFO 2016/03/01 19:04:17 Get data snapshot
+INFO 2016/03/01 19:04:17 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:17 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:17 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:17 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:17 Skip grabbing for id : iopriceindices
+INFO 2016/03/01 19:04:18 Run daemon
+INFO 2016/03/01 19:04:18 Fetch config grabbing started
+INFO 2016/03/01 19:04:18 Get data snapshot
+INFO 2016/03/01 19:04:18 Ready to start grabbing, found 2 valid config and 2 active config
+INFO 2016/03/01 19:04:18 Check config for id : irondcecomcn
+INFO 2016/03/01 19:04:18 Skip grabbing for id : irondcecomcn
+INFO 2016/03/01 19:04:18 Check config for id : iopriceindices
+INFO 2016/03/01 19:04:18 Skip grabbing for id : iopriceindices
