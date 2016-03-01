@@ -1,1 +1,1 @@
-[{"AppsName":"test","DeployedTo":null,"Enable":false,"Type":"web","ZipName":"source-test.zip","_id":"test"}]
+[{"AppsName":"Test Web Colony","DeployedTo":["vagrant-using-userpass"],"Enable":false,"Port":"8080","Type":"web","ZipName":"/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/src/source-test-web.zip","_id":"test-web"}]

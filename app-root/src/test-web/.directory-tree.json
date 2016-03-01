@@ -1,0 +1,22 @@
+{
+	"_id": 1,
+	"text": "test-web",
+	"expanded": true,
+	"spriteCssClass": "folder",
+	"items": [
+		{
+			"_id": 2,
+			"text": "install.sh",
+			"expanded": false,
+			"spriteCssClass": "sh",
+			"items": null
+		},
+		{
+			"_id": 3,
+			"text": "main.go",
+			"expanded": false,
+			"spriteCssClass": "go",
+			"items": null
+		}
+	]
+}

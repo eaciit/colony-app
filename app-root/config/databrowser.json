@@ -1,90 +1,90 @@
-[{
-    "_id" : "CN2",
-    "browsername" : "Company Name",
-    "iddetails" : "CompanyName",
-    "description" : "Data Browser Company Name",
-    "connection" : "mongo",
-    "database" : "scmm",
-    "tablenames" : "CompanyName",
-    "querytype" : "Dbox",
-    "querytext" : "CompanyName",
-    "properties" : [ 
-        {
-            "field" : "_id",
-            "label" : "ID",
-            "format" : "",
-            "align" : "Left",
-            "showindex" : 1,
-            "sortable" : true,
-            "simplefilter" : true,
-            "advancefilter" : true,
-            "aggregate" : ""
-        }, 
-        {
-            "field" : "Country",
-            "label" : "Country",
-            "format" : "",
-            "align" : "Left",
-            "showindex" : 2,
-            "sortable" : true,
-            "simplefilter" : true,
-            "advancefilter" : true,
-            "aggregate" : ""
-        }, 
-        {
-            "field" : "CompanyName",
-            "label" : "Company Name",
-            "format" : "",
-            "align" : "Left",
-            "showindex" : 3,
-            "sortable" : true,
-            "simplefilter" : true,
-            "advancefilter" : true,
-            "aggregate" : ""
-        }, 
-        {
-            "field" : "GroupCountry",
-            "label" : "Group Country",
-            "format" : "",
-            "align" : "Left",
-            "showindex" : 4,
-            "sortable" : true,
-            "simplefilter" : true,
-            "advancefilter" : true,
-            "aggregate" : ""
-        }, 
-        {
-            "field" : "CompanyType",
-            "label" : "Company Type",
-            "format" : "",
-            "align" : "Left",
-            "showindex" : 5,
-            "sortable" : true,
-            "simplefilter" : true,
-            "advancefilter" : true,
-            "aggregate" : ""
-        }, 
-        {
-            "field" : "Company",
-            "label" : "Company",
-            "format" : "",
-            "align" : "Left",
-            "showindex" : 6,
-            "sortable" : true,
-            "simplefilter" : true,
-            "advancefilter" : true,
-            "aggregate" : ""
-        }, 
-        {
-            "field" : "Ratio",
-            "label" : "Ratio",
-            "format" : "N0",
-            "align" : "Right",
-            "showindex" : 7,
-            "sortable" : true,
-            "simplefilter" : false,
-            "advancefilter" : true,
-            "aggregate" : "Sum"
-        }
-    ]
-}]
+[  
+   {  
+      "BrowserName":"Company Name",
+      "ConnectionID":"test",
+      "Description":"Data Browser Company Name",
+      "QueryText":"",
+      "QueryType":"Dbox",
+      "MetaData":[  
+         {  
+            "AdvanceFilter":true,
+            "Aggregate":"",
+            "Align":"Left",
+            "Field":"_id",
+            "Format":"",
+            "Label":"ID",
+            "ShowIndex":1,
+            "SimpleFilter":true,
+            "Sortable":true
+         },
+         {  
+            "AdvanceFilter":true,
+            "Aggregate":"",
+            "Align":"Left",
+            "Field":"Country",
+            "Format":"",
+            "Label":"Country",
+            "ShowIndex":2,
+            "SimpleFilter":true,
+            "Sortable":true
+         },
+         {  
+            "AdvanceFilter":true,
+            "Aggregate":"",
+            "Align":"Left",
+            "Field":"CompanyName",
+            "Format":"",
+            "Label":"Company Name",
+            "ShowIndex":3,
+            "SimpleFilter":true,
+            "Sortable":true
+         },
+         {  
+            "AdvanceFilter":true,
+            "Aggregate":"",
+            "Align":"Left",
+            "Field":"GroupCountry",
+            "Format":"",
+            "Label":"Group Country",
+            "ShowIndex":4,
+            "SimpleFilter":true,
+            "Sortable":true
+         },
+         {  
+            "AdvanceFilter":true,
+            "Aggregate":"",
+            "Align":"Left",
+            "Field":"CompanyType",
+            "Format":"",
+            "Label":"Company Type",
+            "ShowIndex":5,
+            "SimpleFilter":true,
+            "Sortable":true
+         },
+         {  
+            "AdvanceFilter":true,
+            "Aggregate":"",
+            "Align":"Left",
+            "Field":"Company",
+            "Format":"",
+            "Label":"Company",
+            "ShowIndex":6,
+            "SimpleFilter":true,
+            "Sortable":true
+         },
+         {  
+            "AdvanceFilter":true,
+            "Aggregate":"Sum",
+            "Align":"Right",
+            "Field":"Ratio",
+            "Format":"N0",
+            "Label":"Ratio",
+            "ShowIndex":7,
+            "SimpleFilter":false,
+            "Sortable":true
+         }
+      ],
+      "TableNames":"CompanyName",
+      "_id":"CN1"
+   }
+]
