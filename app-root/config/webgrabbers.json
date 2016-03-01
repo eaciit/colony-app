@@ -1,131 +1,150 @@
 [
-  {
-    "_id": "irondcecomcn",
-    "sourcetype": "SourceType_HttpHtml",
-    "grabconf": 
-      {
-        "url": "http://www.dce.com.cn/PublicWeb/MainServlet",
-        "calltype": "POST",
-        "formvalues":
-          {
-            "Pu00231_Input.trade_date": "20160105",
-            "Pu00231_Input.variety": "i",
-            "Pu00231_Input.trade_type": "0",
-            "Submit": "Go",
-            "action": "Pu00231_result"
-          }
-      },
-    "intervalconf": 
-      {
-        "starttime":"2016-02-22 00-00-00",
-        "intervaltype": "seconds",
-        "grabinterval": 300,
-        "timeoutinterval": 5,
-        "cronconf" : ""
-      },
-    "logconf": 
-      {
-        "logpath": "E:\\data\\vale\\log",
-        "filename": "LOG-GRABDCE-%s",
-        "filepattern": "YYYYMMDD"
-      },
-    "histconf": 
-      {
-        "histpath": "E:\\data\\vale\\log",
-        "recpath": "E:\\data\\vale\\log",
-        "filename": "HIST-GRABDCE-%s",
-        "filepattern": "YYYYMMDD"
-      },
-    "datasettings": 
-      [
-        {
-          "name": "Iron01",
-          "rowselector": "table .table tbody tr",
-          "columnsettings": 
-            [
-              {
-                "index": 0,
-                "alias": "Contract",
-                "selector": "td:nth-child(1)"
-              },
-              {
-                "index": 0,
-                "alias": "Open",
-                "selector": "td:nth-child(2)"
-              },
-              {
-                "index": 0,
-                "alias": "High",
-                "selector": "td:nth-child(3)"
-              },
-              {
-                "index": 0,
-                "alias": "Low",
-                "selector": "td:nth-child(4)"
-              },
-              {
-                "index": 0,
-                "alias": "Close",
-                "selector": "td:nth-child(5)"
-              },
-              {
-                "index": 0,
-                "alias": "Prev Settle",
-                "selector": "td:nth-child(6)"
-              },
-              {
-                "index": 0,
-                "alias": "Settle",
-                "selector": "td:nth-child(7)"
-              },
-              {
-                "index": 0,
-                "alias": "Chg",
-                "selector": "td:nth-child(8)"
-              },
-              {
-                "index": 0,
-                "alias": "Volume",
-                "selector": "td:nth-child(9)"
-              },
-              {
-                "index": 0,
-                "alias": "OI",
-                "selector": "td:nth-child(10)"
-              },
-              {
-                "index": 0,
-                "alias": "OI Chg",
-                "selector": "td:nth-child(11)"
-              },
-              {
-                "index": 0,
-                "alias": "Turnover",
-                "selector": "td:nth-child(12)"
-              }
-            ],
-          "rowdeletecond":
-            { 
-              "$or":
-                [
-                  {"Contract": "Contract"},
-                  {"Contract": "Iron Ore Subtotal"},
-                  {"Contract": "Total"}
+    {
+        "_id":"STKOM",
+        "datasettings":[
+            {
+                "columnsettings":[
+                    {
+                        "alias":"Home",
+                        "attrname":"",
+                        "index":0,
+                        "selector":"li.selectedUtama:nth-child(1)",
+                        "valuetype":"string"
+                    }
+                ],
+                "connectioninfo":{
+                    "collection":"home",
+                    "database":"eccolmag",
+                    "host":"localhost",
+                    "password":"",
+                    "settings":null,
+                    "username":""
+                },
+                "desttype":"mongo",
+                "filtercond":{
+
+                },
+                "rowselector":"body \u003e div.container:nth-child(1) \u003e div#nav_containerUtama:nth-child(2)"
+            }
+        ],
+        "grabconf":{
+            "authtype":"AuthType_Basic",
+            "calltype":"GET",
+            "formvalues":{
+                "STK":"Date2String(time.Now(),'MMDDYYYY')"
+            },
+            "loginurl":"",
+            "logouturl":"",
+            "password":"",
+            "temp":{
+                "parameters":[
+                    {
+                        "format":"MMDDYYYY",
+                        "key":"STK",
+                        "pattern":"time.Now()",
+                        "value":"6"
+                    }
                 ]
             },
-          "desttype": "mongo",
-          "connectioninfo": 
+            "timeout":20,
+            "url":"http://www.stikom.edu/",
+            "username":""
+        },
+        "histconf":{
+            "filename":"HIST-STKOM",
+            "filepattern":"YYYYMMDD",
+            "histpath":"D:\\Eaciit\\src\\github.com\\eaciit\\colony-app\\data-root\\webgrabber\\history\\",
+            "recpath":"D:\\Eaciit\\src\\github.com\\eaciit\\colony-app\\data-root\\webgrabber\\historyrec\\"
+        },
+        "intervalconf":{
+            "cronconf":{
+
+                },
+            "grabinterval":20,
+            "intervaltype":"seconds",
+            "starttime":"2016-02-26T10:16:41.673Z",
+            "timeoutinterval":20
+        },
+        "logconf":{
+            "filename":"LOG-STKOM",
+            "filepattern":"201602",
+            "logpath":"D:\\Eaciit\\src\\github.com\\eaciit\\colony-app\\data-root\\webgrabber\\log\\"
+        },
+        "running":false,
+        "sourcetype":"SourceType_HttpHtml"
+    },
+    {
+        "_id":"google",
+        "datasettings":[
             {
-              "host": "localhost:27017",
-              "database": "valegrab",
-              "collection": "irondcecom",
-              "settings":
-                {
-                  "timeout": 1
-                }
+                "columnsettings":[
+                    {
+                        "alias":"telusuri",
+                        "attrname":"",
+                        "index":0,
+                        "selector":"b.gb1:nth-child(1)",
+                        "valuetype":""
+                    }
+                ],
+                "connectioninfo":{
+                    "collection":"",
+                    "database":"",
+                    "host":"",
+                    "password":"",
+                    "settings":null,
+                    "username":""
+                },
+                "desttype":"mongo",
+                "filtercond":{
+
+                },
+                "rowselector":"body \u003e div#mngb:nth-child(2) \u003e div#gbar:nth-child(1)"
             }
-        }
-      ],
-    "running": true
-  }
+        ],
+        "grabconf":{
+            "authtype":"AuthType_Basic",
+            "calltype":"GET",
+            "formvalues":{
+                "KK":"Date2String(time.Now(),'DDMMYYYY')"
+            },
+            "loginurl":"",
+            "logouturl":"",
+            "password":"",
+            "temp":{
+                "parameters":[
+                    {
+                        "format":"DDMMYYYY",
+                        "key":"KK",
+                        "pattern":"time.Now()",
+                        "value":"8"
+                    }
+                ]
+            },
+            "timeout":20,
+            "url":"http://www.google.com",
+            "username":""
+        },
+        "histconf":{
+            "filename":"HIST-google",
+            "filepattern":"YYYYMMDD",
+            "histpath":"D:\\Eaciit\\src\\github.com\\eaciit\\colony-app\\data-root\\webgrabber\\history\\",
+            "recpath":"D:\\Eaciit\\src\\github.com\\eaciit\\colony-app\\data-root\\webgrabber\\historyrec\\"
+        },
+        "intervalconf":{
+            "cronconf":{
+                
+                },
+            "grabinterval":20,
+            "intervaltype":"seconds",
+            "starttime":"2016-02-29T10:49:19.115Z",
+            "timeoutinterval":20
+        },
+        "logconf":{
+            "filename":"LOG-google",
+            "filepattern":"201602",
+            "logpath":"D:\\Eaciit\\src\\github.com\\eaciit\\colony-app\\data-root\\webgrabber\\log\\"
+        },
+        "running":true,
+        "sourcetype":"SourceType_HttpHtml"
+    }
 ]
