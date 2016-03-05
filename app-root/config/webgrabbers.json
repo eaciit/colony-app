@@ -40,7 +40,7 @@
     "datasettings": 
       [
         {
-          "_id": "Iron01",
+          "nameid": "Iron01",
           "rowselector": "table .table tbody tr",
           "columnsettings": 
             [
@@ -107,11 +107,11 @@
             ],
           "filtercond":
             { 
-              "$or":
+              "$and":
                 [
-                  {"Contract": "Contract"},
-                  {"Contract": "Iron Ore Subtotal"},
-                  {"Contract": "Total"}
+                  {"Contract": {"$ne" : "Contract"}},
+                  {"Contract": {"$ne" : "Iron Ore Subtotal"}},
+                  {"Contract": {"$ne" : "Total"}}
                 ]
             },
           "desttype": "mongo",
@@ -127,7 +127,7 @@
             }
         }
       ],
-    "running": true
+    "running": false
   },
   {
     "_id": "iopriceindices",
@@ -165,41 +165,57 @@
     "datasettings": 
       [
         {
-          "_id": "histiopriceindices",
-          "rowselector": "HIST",
-          "columnsettings": 
+          "nameid": "histiopriceindices",
+          "collection": "HIST",
+          "mapssettings": 
             [
               {
-                "alias": "Date",
-                "selector": "1"
+                "destination": "Date",
+                "destinationtype": "string",
+                "source": "1",
+                "sourcetype": "string"
               },
               {
-                "alias": "Platts 62% Fe IODEX",
-                "selector": "2"
+                "destination": "Platts 62% Fe IODEX",
+                "destinationtype": "string",
+                "source": "2",
+                "sourcetype": "string"
               },
               {
-                "alias": "Platts 65% Fe",
-                "selector": "4"
+                "destination": "Platts 65% Fe",
+                "destinationtype": "string",
+                "source": "4",
+                "sourcetype": "string"
               },
               {
-                "alias": "TSI 62% Fe",
-                "selector": "15"
+                "destination": "TSI 62% Fe",
+                "destinationtype": "string",
+                "source": "15",
+                "sourcetype": "string"
               },
               {
-                "alias": "TSI 65% Fe",
-                "selector": "16"
+                "destination": "TSI 65% Fe",
+                "destinationtype": "string",
+                "source": "16",
+                "sourcetype": "string"
               },
               {
-                "alias": "TSI 62% Fe LOW ALUMINA",
-                "selector": "17"
+                "destination": "TSI 62% Fe LOW ALUMINA",
+                "destinationtype": "string",
+                "source": "17",
+                "sourcetype": "string"
               },
               {
-                "alias": "MB 62% Fe",
-                "selector": "26"
+                "destination": "MB 62% Fe",
+                "destinationtype": "string",
+                "source": "26",
+                "sourcetype": "string"
               },
               {
-                "alias": "MB 65% Fe",
-                "selector": "29"
+                "destination": "MB 65% Fe",
+                "destinationtype": "string",
+                "source": "29",
+                "sourcetype": "string"
               }
             ],
           "filtercond":
@@ -226,6 +242,11 @@
             }
         }
       ],
+    "extcommand":
+      {
+        "pre" : "",
+        "post" : ""
+      },
     "running": true
   }
 ]
