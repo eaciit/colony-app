@@ -8,12 +8,11 @@ import (
 	"github.com/eaciit/toolkit"
 	"net/http"
 	"os"
-	"path/filepath"
 )
 
 var (
 	basePath   = func(dir string, err error) string { return dir }(os.Getwd())
-	layoutFile = "views/_template.html"
+	layoutFile = "_template.html"
 )
 
 func createResult(success bool, data interface{}, message string) map[string]interface{} {
@@ -34,7 +33,6 @@ type TestController struct {
 func main() {
 	server := new(knot.Server)
 	server.Address = "localhost:8200"
-	server.RouteStatic("res", filepath.Join(basePath, "assets"))
 	server.Register(new(TestController), "")
 	server.Route("/", func(r *knot.WebContext) interface{} {
 		http.Redirect(r.Writer, r.Request, "/test/index", 301)
@@ -46,7 +44,7 @@ func main() {
 func (w *TestController) Index(r *knot.WebContext) interface{} {
 	r.Config.OutputType = knot.OutputTemplate
 	r.Config.LayoutTemplate = layoutFile
-	r.Config.ViewName = "views/index.html"
+	r.Config.ViewName = "index.html"
 
 	return true
 }
