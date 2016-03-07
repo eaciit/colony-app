@@ -1,104 +1,4 @@
 [{
-    "ConnectionID": "connection_mongo_200_ecshell",
-    "MetaData": [{
-        "Format": "",
-        "Label": "_id",
-        "Lookup": {
-            "DataSourceID": "",
-            "DisplayField": "",
-            "IDField": "",
-            "LookupFields": [],
-            "_id": ""
-        },
-        "Sub": null,
-        "Type": "string",
-        "_id": "_id"
-    }, {
-        "Format": "",
-        "Label": "LastUpdate",
-        "Lookup": {
-            "DataSourceID": "",
-            "DisplayField": "",
-            "IDField": "",
-            "LookupFields": [],
-            "_id": ""
-        },
-        "Sub": null,
-        "Type": "string",
-        "_id": "LastUpdate"
-    }, {
-        "Format": "",
-        "Label": "UserName",
-        "Lookup": {
-            "DataSourceID": "",
-            "DisplayField": "",
-            "IDField": "",
-            "LookupFields": [],
-            "_id": ""
-        },
-        "Sub": null,
-        "Type": "string",
-        "_id": "UserName"
-    }, {
-        "Format": "",
-        "Label": "Email",
-        "Lookup": {
-            "DataSourceID": "",
-            "DisplayField": "",
-            "IDField": "",
-            "LookupFields": [],
-            "_id": ""
-        },
-        "Sub": null,
-        "Type": "string",
-        "_id": "Email"
-    }, {
-        "Format": "",
-        "Label": "Time",
-        "Lookup": {
-            "DataSourceID": "",
-            "DisplayField": "",
-            "IDField": "",
-            "LookupFields": [],
-            "_id": ""
-        },
-        "Sub": null,
-        "Type": "string",
-        "_id": "Time"
-    }, {
-        "Format": "",
-        "Label": "Duration",
-        "Lookup": {
-            "DataSourceID": "",
-            "DisplayField": "",
-            "IDField": "",
-            "LookupFields": [],
-            "_id": ""
-        },
-        "Sub": null,
-        "Type": "string",
-        "_id": "Duration"
-    }, {
-        "Format": "",
-        "Label": "LogType",
-        "Lookup": {
-            "DataSourceID": "",
-            "DisplayField": "",
-            "IDField": "",
-            "LookupFields": [],
-            "_id": ""
-        },
-        "Sub": null,
-        "Type": "string",
-        "_id": "LogType"
-    }],
-    "QueryInfo": {
-        "from": "WEISUserLog",
-        "select": "*",
-        "take": 20
-    },
-    "_id": "ds_mongo_200_ecshell_weisuserlogs"
-}, {
     "ConnectionID": "connection_JSONS_from_local",
     "MetaData": [{
         "Format": "",
@@ -509,4 +409,578 @@
         "select": "article_id,article_writer,article_date,article_title,article_visits"
     },
     "_id": "ds_local_mysql_db_yo"
+}, {
+    "ConnectionID": "connection_mongo_200_ecshell",
+    "MetaData": [{
+        "Format": "",
+        "Label": "_id",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "_id"
+    }, {
+        "Format": "",
+        "Label": "Title",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Title"
+    }, {
+        "Format": "",
+        "Label": "Type",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Type"
+    }, {
+        "Format": "",
+        "Label": "UserId",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "UserId"
+    }, {
+        "Format": "",
+        "Label": "Priority",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Priority"
+    }, {
+        "Format": "",
+        "Label": "LastUpdate",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "LastUpdate"
+    }, {
+        "Format": "",
+        "Label": "Status",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Status"
+    }, {
+        "Format": "",
+        "Label": "LogDescription",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "LogDescription"
+    }, {
+        "Format": "",
+        "Label": "Module",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Module"
+    }, {
+        "Format": "",
+        "Label": "Logs",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": [{
+            "Format": "",
+            "Label": "LastUpdate",
+            "Lookup": {
+                "DataSourceID": "",
+                "DisplayField": "",
+                "IDField": "",
+                "LookupFields": [],
+                "_id": ""
+            },
+            "Sub": null,
+            "Type": "string",
+            "_id": "LastUpdate"
+        }, {
+            "Format": "",
+            "Label": "_id",
+            "Lookup": {
+                "DataSourceID": "",
+                "DisplayField": "",
+                "IDField": "",
+                "LookupFields": [],
+                "_id": ""
+            },
+            "Sub": null,
+            "Type": "string",
+            "_id": "_id"
+        }, {
+            "Format": "",
+            "Label": "UserId",
+            "Lookup": {
+                "DataSourceID": "",
+                "DisplayField": "",
+                "IDField": "",
+                "LookupFields": [],
+                "_id": ""
+            },
+            "Sub": null,
+            "Type": "string",
+            "_id": "UserId"
+        }, {
+            "Format": "",
+            "Label": "Comment",
+            "Lookup": {
+                "DataSourceID": "",
+                "DisplayField": "",
+                "IDField": "",
+                "LookupFields": [],
+                "_id": ""
+            },
+            "Sub": null,
+            "Type": "string",
+            "_id": "Comment"
+        }],
+        "Type": "array-objects",
+        "_id": "Logs"
+    }],
+    "QueryInfo": {
+        "from": "AppIssue",
+        "select": "*"
+    },
+    "_id": "test_DS_0_0_160305013343"
+}, {
+    "ConnectionID": "connection_JSONS_from_local",
+    "MetaData": [{
+        "Format": "",
+        "Label": "question",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "question"
+    }, {
+        "Format": "",
+        "Label": "answer",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "answer"
+    }],
+    "QueryInfo": {
+        "from": "sample-json-1",
+        "select": "*"
+    },
+    "_id": "test_DS_1_0_160305013343"
+}, {
+    "ConnectionID": "connection_mongo_200_ecshell",
+    "MetaData": [{
+        "Format": "",
+        "Label": "_id",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "_id"
+    }, {
+        "Format": "",
+        "Label": "DefIdRef",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "DefIdRef"
+    }, {
+        "Format": "",
+        "Label": "RowName",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "RowName"
+    }, {
+        "Format": "",
+        "Label": "ResultBy",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "ResultBy"
+    }, {
+        "Format": "",
+        "Label": "Type",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Type"
+    }, {
+        "Format": "",
+        "Label": "Periods",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": [{
+            "Format": "",
+            "Label": "DateGroup",
+            "Lookup": {
+                "DataSourceID": "",
+                "DisplayField": "",
+                "IDField": "",
+                "LookupFields": [],
+                "_id": ""
+            },
+            "Sub": null,
+            "Type": "string",
+            "_id": "DateGroup"
+        }, {
+            "Format": "",
+            "Label": "Values",
+            "Lookup": {
+                "DataSourceID": "",
+                "DisplayField": "",
+                "IDField": "",
+                "LookupFields": [],
+                "_id": ""
+            },
+            "Sub": [{
+                "Format": "",
+                "Label": "Title",
+                "Lookup": {
+                    "DataSourceID": "",
+                    "DisplayField": "",
+                    "IDField": "",
+                    "LookupFields": [],
+                    "_id": ""
+                },
+                "Sub": null,
+                "Type": "string",
+                "_id": "Title"
+            }, {
+                "Format": "",
+                "Label": "Value",
+                "Lookup": {
+                    "DataSourceID": "",
+                    "DisplayField": "",
+                    "IDField": "",
+                    "LookupFields": [],
+                    "_id": ""
+                },
+                "Sub": null,
+                "Type": "string",
+                "_id": "Value"
+            }, {
+                "Format": "",
+                "Label": "Operand",
+                "Lookup": {
+                    "DataSourceID": "",
+                    "DisplayField": "",
+                    "IDField": "",
+                    "LookupFields": [],
+                    "_id": ""
+                },
+                "Sub": null,
+                "Type": "string",
+                "_id": "Operand"
+            }],
+            "Type": "array-objects",
+            "_id": "Values"
+        }],
+        "Type": "array-objects",
+        "_id": "Periods"
+    }],
+    "QueryInfo": {
+        "from": "DataPointResult2",
+        "select": "*"
+    },
+    "_id": "test_DS_0_1_160305013343"
+}, {
+    "ConnectionID": "connection_mongo_200_ecshell",
+    "MetaData": [{
+        "Format": "",
+        "Label": "_id",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "_id"
+    }, {
+        "Format": "",
+        "Label": "LastUpdate",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "LastUpdate"
+    }, {
+        "Format": "",
+        "Label": "UserName",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "UserName"
+    }, {
+        "Format": "",
+        "Label": "Email",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Email"
+    }, {
+        "Format": "",
+        "Label": "Time",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Time"
+    }, {
+        "Format": "",
+        "Label": "Duration",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Duration"
+    }, {
+        "Format": "",
+        "Label": "LogType",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "LogType"
+    }],
+    "QueryInfo": {
+        "from": "WEISUserLog",
+        "select": "*",
+        "take": 20
+    },
+    "_id": "ds_mongo_200_ecshell_weisuserlogs"
+}, {
+    "ConnectionID": "connection_JSONS_from_local",
+    "MetaData": [{
+        "Format": "",
+        "Label": "Duration",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Duration"
+    }, {
+        "Format": "",
+        "Label": "Email",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Email"
+    }, {
+        "Format": "",
+        "Label": "LastUpdate",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "LastUpdate"
+    }, {
+        "Format": "",
+        "Label": "LogType",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "LogType"
+    }, {
+        "Format": "",
+        "Label": "Time",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "Time"
+    }, {
+        "Format": "",
+        "Label": "UserName",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "UserName"
+    }, {
+        "Format": "",
+        "Label": "_id",
+        "Lookup": {
+            "DataSourceID": "",
+            "DisplayField": "",
+            "IDField": "",
+            "LookupFields": [],
+            "_id": ""
+        },
+        "Sub": null,
+        "Type": "string",
+        "_id": "_id"
+    }],
+    "QueryInfo": {
+        "from": "sample-json-3",
+        "select": "*"
+    },
+    "_id": "ds_local_JSONS_file_3"
 }]
