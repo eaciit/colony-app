@@ -62,7 +62,7 @@ func (w *TestController) GetData(r *knot.WebContext) interface{} {
 		return createResult(false, nil, err.Error())
 	}
 
-	c, err := connection.NewQuery().Select().From("sample-data-3").Cursor(nil)
+	c, err := connection.NewQuery().Select().From("sample-json-3").Cursor(nil)
 	if err != nil {
 		return createResult(false, nil, err.Error())
 	}
