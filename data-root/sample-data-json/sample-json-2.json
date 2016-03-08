@@ -1,0 +1,20 @@
+[
+	{ "className": "10 RPL 1", "totalStudents": 30 },
+	{ "className": "10 RPL 2", "totalStudents": 30 },
+	{ "className": "10 RPL 3", "totalStudents": 24 },
+	{ "className": "10 TKJ 1", "totalStudents": 30 },
+	{ "className": "10 TKJ 2", "totalStudents": 30 },
+	{ "className": "10 TKJ 3", "totalStudents": 28 },
+	{ "className": "11 RPL 1", "totalStudents": 30 },
+	{ "className": "11 RPL 2", "totalStudents": 30 },
+	{ "className": "11 RPL 3", "totalStudents": 25 },
+	{ "className": "11 TKJ 1", "totalStudents": 30 },
+	{ "className": "11 TKJ 2", "totalStudents": 30 },
+	{ "className": "11 TKJ 3", "totalStudents": 25 },
+	{ "className": "12 RPL 1", "totalStudents": 30 },
+	{ "className": "12 RPL 2", "totalStudents": 30 },
+	{ "className": "12 RPL 3", "totalStudents": 30 },
+	{ "className": "12 TKJ 1", "totalStudents": 30 },
+	{ "className": "12 TKJ 2", "totalStudents": 30 },
+	{ "className": "12 TKJ 3", "totalStudents": 25 }
+]
