@@ -1,1 +1,1 @@
-[{"AppsName":"test-1","Command":[{"key":"","value":""}],"DeployedTo":["server-local"],"Enable":false,"Port":"8200","Type":"web","Variable":[{"key":"","value":""}],"ZipName":"","_id":"test-1"},{"AppsName":"test-2","Command":[{"key":"","value":""}],"DeployedTo":["server-local"],"Enable":false,"Port":"8300","Type":"web","Variable":[{"key":"","value":""}],"ZipName":"","_id":"test-2"}]
+[{"AppsName":"test","Command":[{"key":"","value":""}],"DeployedTo":["server_local_noval"],"Enable":false,"Port":"8080","Type":"web","Variable":[{"key":"","value":""}],"ZipName":"","_id":"test"}]
