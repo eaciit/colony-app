@@ -127,7 +127,7 @@
             }
         }
       ],
-    "running": false
+    "running": true
   },
   {
     "_id": "iopriceindices",
@@ -238,7 +238,7 @@
         "pre" : "C:\\Users\\PC\\Desktop\\pre\\pre.exe",
         "post" : "C:\\Users\\PC\\Desktop\\post\\post.exe"
       },
-    "running": true
+    "running": false
   },
   {
     "_id": "testecshell",
@@ -352,6 +352,6 @@
         "pre" : "",
         "post" : ""
       },
-    "running": true
+    "running": false
   }
 ]
