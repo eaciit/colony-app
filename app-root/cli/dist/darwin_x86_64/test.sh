@@ -1,0 +1,1 @@
+./sedotand -config="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/app-root/config/webgrabbers.json" -logpath="/Users/novalagung/Documents/go/src/github.com/eaciit/colony-app/data-root/daemon"
