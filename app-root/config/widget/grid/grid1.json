@@ -1,0 +1,69 @@
+[
+    {
+        "outsider": {
+            "visiblePDF": true,
+            "visibleExcel": true
+        },
+        "aggregate": [
+            {
+                "field": "plan",
+                "aggregate": "min"
+            }
+        ],
+        "idGrid": "grid1",
+        "title": "grid 1",
+        "dataSourceID": "ds_json_from_web",
+        "pageSize": 10,
+        "groupable": true,
+        "sortable": true,
+        "filterable": true,
+        "pageable": {
+            "refresh": true,
+            "pageSize": false,
+            "buttonCount": 5
+        },
+        "columns": [
+            {
+                "template": "",
+                "field": "name",
+                "title": "name",
+                "format": "",
+                "width": "",
+                "menu": true,
+                "headerTemplate": "",
+                "headerAttributes": {
+                    "class": "",
+                    "style": ""
+                },
+                "footerTemplate": ""
+            },
+            {
+                "template": "",
+                "field": "country",
+                "title": "country",
+                "format": "",
+                "width": "",
+                "menu": true,
+                "headerTemplate": "",
+                "headerAttributes": {
+                    "class": "",
+                    "style": ""
+                },
+                "footerTemplate": "Min: #: min #"
+            }
+        ],
+        "columnMenu": true,
+        "toolbar": [
+            "pdf",
+            "excel"
+        ],
+        "pdf": {
+            "allPages": "",
+            "fileName": ""
+        },
+        "excel": {
+            "allPages": "",
+            "fileName": ""
+        }
+    }
+]
