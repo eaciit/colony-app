@@ -1,0 +1,55 @@
+[
+    {
+        "_id": "selector1",
+        "fields": [
+            {
+                "_id": "sl1452483159600",
+                "dataSource": "ds_json_from_web",
+                "field": "name"
+            }
+        ],
+        "masterDataSource": "ds_json_from_web",
+        "title": "selector 1"
+    },
+    {
+        "_id": "selector2",
+        "fields": [
+            {
+                "_id": "sl1452483159600",
+                "dataSource": "ds_json_from_web",
+                "field": "country"
+            }
+        ],
+        "masterDataSource": "ds_json_from_web",
+        "title": "selector 2"
+    },
+    {
+        "_id": "selector3",
+        "fields": [
+            {
+                "_id": "s1458709984676",
+                "dataSource": "ds_json_from_web",
+                "field": "message"
+            }
+        ],
+        "masterDataSource": "ds_json_from_web",
+        "title": "selector 3"
+    },
+    {
+        "_id": "selector4",
+        "fields": [
+            {
+                "_id": "s1458709984676",
+                "dataSource": "ds_json_from_web",
+                "field": "name"
+            },
+            {
+                "_id": "s1458709991605",
+                "dataSource": "ds_json_from_web",
+                "field": "country"
+            }
+        ],
+        "masterDataSource": "ds_json_from_web",
+        "title": "selector 4"
+    }
+]
