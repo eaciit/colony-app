@@ -1,0 +1,14 @@
+[
+  {
+    "_id": "c1452483184176",
+    "fields": "[{\"_id\":\"sl1452483159600\",\"dataSource\":\"ds_json_from_web\",\"field\":\"name\"}]",
+    "masterDataSource": "ds_json_from_web",
+    "title": "selector 1"
+  },
+  {
+    "_id": "c1452483184180",
+    "fields": "[{\"_id\":\"sl1452483159600\",\"dataSource\":\"ds_json_from_web\",\"field\":\"country\"}]",
+    "masterDataSource": "ds_json_from_web",
+    "title": "selector 2"
+  }
+]
