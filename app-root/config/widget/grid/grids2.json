@@ -10,7 +10,7 @@
                 "aggregate": "min"
             }
         ],
-        "idGrid": "grid2",
+        "_id": "grid2",
         "title": "grid 2",
         "dataSourceID": "ds_json_from_web",
         "pageSize": 10,

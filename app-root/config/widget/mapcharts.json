@@ -1,0 +1,12 @@
+[
+  {
+    "_id": "chart1",
+    "file": "chart1.json",
+    "title": "Chart 1"
+  },
+  {
+    "_id": "chart2",
+    "file": "chart2.json",
+    "title": "Chart 2"
+  }
+]
