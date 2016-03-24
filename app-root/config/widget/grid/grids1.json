@@ -10,10 +10,10 @@
                 "aggregate": "min"
             }
         ],
-        "_id": "grid1",
+        "_id": "grids1",
         "title": "grid 1",
         "dataSourceID": "ds_json_from_web",
-        "pageSize": 10,
+        "pageSize": 20,
         "groupable": true,
         "sortable": true,
         "filterable": true,
@@ -58,11 +58,11 @@
             "excel"
         ],
         "pdf": {
-            "allPages": "",
+            "allPages": false,
             "fileName": ""
         },
         "excel": {
-            "allPages": "",
+            "allPages": false,
             "fileName": ""
         }
     }
