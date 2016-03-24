@@ -10,7 +10,7 @@
                 "aggregate": "min"
             }
         ],
-        "_id": "grid2",
+        "_id": "grids2",
         "title": "grid 2",
         "dataSourceID": "ds_json_from_web",
         "pageSize": 10,
@@ -72,11 +72,11 @@
             "excel"
         ],
         "pdf": {
-            "allPages": "",
+            "allPages": false,
             "fileName": ""
         },
         "excel": {
-            "allPages": "",
+            "allPages": false,
             "fileName": ""
         }
     }
