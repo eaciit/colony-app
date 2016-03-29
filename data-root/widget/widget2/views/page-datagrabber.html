@@ -1,0 +1,210 @@
+<!-- core -->
+<script src="/res/core/page-datagrabber.js"></script>
+
+<!-- main area -->
+<div class="col-xs-12 col-sm-12" id="content" data-bind="with: dataGrabber">
+	<div class="col-md-12" data-bind="visible: (app.section() == 'scrapper')">
+		<h1>Data Grabber</h1>
+
+		<nav class="navbar" data-bind="visible: (app.mode() == '')">
+            <button class="btn btn-sm btn-primary navbar-btn" data-bind="click: dg.getScrapperData">
+	    		<span class="glyphicon glyphicon-refresh"></span> Refresh
+	    	</button>
+            <button class="btn btn-sm btn-success navbar-btn" data-bind="click: dg.createNewScrapper">
+	    		<span class="glyphicon glyphicon-plus"></span> Create New Data Grabber
+	    	</button>
+		</nav>
+
+		<nav class="navbar no-padding" data-bind="visible: (app.mode() == '')">
+		    <div class="col-md-4">
+		    	<label class="col-md-4 filter-label">
+		    		Search
+		    	</label>
+		    	<div class="col-md-8">
+		    		<input class="form-control input-sm" type="" name="" />
+		    	</div>
+		    </div>
+		</nav>
+
+		<div class="panel" data-bind="visible: (app.mode() == '')">
+		    <div class="panel-heading">
+		        <h1 class="panel-title">All Data Grabber</h1>
+		    </div>
+		    <div class="panel-body">
+		    	<div class="grid grid-data-grabber grid-service" data-bind="kendoGrid: { dataSource: { pageSize: 15 }, data: dg.scrapperData, columns: dg.scrapperColumns, filterfable: false, pageable: true, dataBound: app.gridBoundTooltipster('.grid-data-grabber') }"></div>
+		    </div>
+		</div>
+
+		<nav class="navbar" data-bind="visible: (app.mode() == 'editor')">
+			<button class="btn btn-sm btn-warning navbar-btn" data-bind="click: backToFront">
+	    		<span class="glyphicon glyphicon-chevron-left"></span> Back
+	    	</button>
+            <button class="btn btn-sm btn-success navbar-btn" data-bind="click: saveDataGrabber">
+	    		<span class="glyphicon glyphicon-save"></span> Save
+	    	</button>
+	    	<button class="btn btn-sm btn-success navbar-btn" data-bind="click: runTransformation(configScrapper._id())">
+	    		<span class="glyphicon glyphicon-play"></span> Execute Transformation
+	    	</button>
+		</nav>
+
+		<div class="panel" data-bind="visible: (app.mode() == 'editor')" style="width: 600px;">
+		    <div class="panel-heading">
+		        <h1 class="panel-title">
+		        	<span data-bind="text: (dg.scrapperMode() == '') ? 'Create New' : 'Edit'"></span>
+		        	Data Grabber
+	        	</h1>
+		    </div>
+		    <div class="panel-body">
+		    	<form class="form-horizontal form-datagrabber" data-bind="with: configScrapper" id="form-add-scrapper" novalidate>
+					<div class="col-md-12">
+						<div class="form-group">
+				        	<label class="col-md-4 filter-label">ID</label>
+				        	<div class="col-md-5">
+				        		<input required class="form-control input-sm full-width" type="text" name="ID" placeholder="Type ID here" data-bind="value: _id, enable: (dg.scrapperMode() == '')" />
+								<span class="k-invalid-msg" data-for="ID"></span>
+				        	</div>
+				        </div>
+						<div class="form-group">
+				        	<label class="col-md-4 filter-label">Data Source Origin</label>
+				        	<div class="col-md-5">
+				        		<select required data-required-msg="Data Source Origin cannot be empty" class="full-width" name="data-source-origin" data-bind="kendoDropDownList: { data: dg.dataSourcesData, value: DataSourceOrigin, dataValueField: '_id', dataTextField: '_id', optionLabel: 'Select one' }"></select>
+								<span class="k-invalid-msg" data-for="data-source-origin"></span>
+				        	</div>
+				        </div>
+				        <div class="form-group">
+				        	<label class="col-md-4 filter-label">Data Source Destination</label>
+				        	<div class="col-md-5">
+				        		<select required data-required-msg="Data Source Destination cannot be empty" class="full-width" name="data-source-destination" data-bind="kendoDropDownList: { data: dg.dataSourcesData, value: DataSourceDestination, dataValueField: '_id', dataTextField: '_id', optionLabel: 'Select one' }"></select>
+								<span class="k-invalid-msg" data-for="data-source-destination"></span>
+				        	</div>
+				        </div>
+				        <div class="form-group">
+				        	<label class="col-md-4 filter-label">Ignored Fields</label>
+				        	<div class="col-md-5">
+				        		<select class="full-width" data-bind="kendoMultiSelect: { data: dg.fieldOfDataSource('destination'), value: IgnoreFieldsDestination, dataValueField: '_id', dataTextField: 'Label', placeholder: 'Select one', enabled: dg.isDataSourceNotEmpty('destination') }"></select>
+				        	</div>
+				        </div>
+				        <div class="form-group">
+				        	<label class="col-md-4 filter-label">Interval Type</label>
+				        	<div class="col-md-5">
+				        		<select class="full-width" name="interval-type" required data-required-msg="Interval type cannot be empty" data-bind="kendoDropDownList: { data: dg.templateIntervalType, value: IntervalType, dataValueField: 'value', dataTextField: 'title', placeholder: 'Select one' }"></select>
+								<span class="k-invalid-msg" data-for="interval-type"></span>
+				        	</div>
+				        </div>
+				        <div class="form-group">
+				        	<label class="col-md-4 filter-label">Interval Duration</label>
+				        	<div class="col-md-5">
+				        		<input class="full-width" name="interval-duration" required data-required-msg="Interval duration cannot be empty" data-bind="kendoNumericTextBox: { value: GrabInterval, min: 0, format: '#', placeholder: 'Example: 20' }" />
+								<span class="k-invalid-msg" data-for="interval-duration"></span>
+				        	</div>
+				        </div>
+				        <div class="form-group">
+				        	<label class="col-md-4 filter-label">Timeout Duration</label>
+				        	<div class="col-md-5">
+				        		<input class="full-width" name="timeout-duration" required data-required-msg="Timeout duration cannot be empty" data-bind="kendoNumericTextBox: { value: TimeoutInterval, min: 0, format: '#', placeholder: 'Example: 20' }" />
+								<span class="k-invalid-msg" data-for="timeout-duration"></span>
+				        	</div>
+				        </div>
+				        <div class="form-group">
+				        	<label class="col-md-4 filter-label">Fields Mapping</label>
+				        	<div class="col-md-5">
+				        		<button class="btn btn-sm btn-primary" data-bind="click: dg.addMap">
+				        			<span class="glyphicon glyphicon-plus"></span> Add more
+				        		</button>
+				        	</div>
+				        </div>
+
+				        <div class="form-group">
+				        	<div class="col-md-12">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Field Origin</th>
+											<th>Field Destination</th>
+											<th>&nbsp;</th>
+										</tr>
+									</thead>
+									<tbody data-bind="foreach: dg.configScrapper.Map">
+										<tr>
+											<td>
+												<select required data-required-msg="Field Origin cannot be empty" class="full-width" data-bind="kendoComboBox: { data: dg.fieldOfDataSource('origin'), value: FieldOrigin, dataValueField: '_id', dataTextField: 'Label', placeholder: 'Select one', filter: 'contains', suggest: true, minLength: 2 }, attr: { 'name': 'scrapper-map-field-origin-' + $index() }"></select>
+												<span class="k-invalid-msg" data-bind="attr: { 'data-for': 'scrapper-map-field-origin-' + $index() }"></span>
+											</td>
+											<td>
+												<select required data-required-msg="Field Destination cannot be empty" class="full-width" data-bind="kendoComboBox: { data: dg.fieldOfDataSource('destination'), value: FieldDestination, dataValueField: '_id', dataTextField: 'Label', placeholder: 'Select one', filter: 'contains', suggest: true, minLength: 2 }, attr: { 'name': 'scrapper-map-field-destination-' + $index() }"></select>
+												<span class="k-invalid-msg" data-bind="attr: { 'data-for': 'scrapper-map-field-destination-' + $index() }"></span>
+											</td>
+											<td>
+												<button class="btn btn-sm btn-danger" data-bind="style: { 'visibility': ($index() > 0) ? 'visible' : 'hidden' }, click: dg.removeMap($index())">
+													<span class="glyphicon glyphicon-remove"></span>
+												</button>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+				        	</div>
+				        </div>
+		        	</div>
+		        </form>
+		    </div>
+		</div>
+
+		<nav class="navbar" data-bind="visible: (app.mode() == 'history')">
+			<button class="btn btn-sm btn-warning navbar-btn" data-bind="click: backToFront">
+	    		<span class="glyphicon glyphicon-chevron-left"></span> Back
+	    	</button>
+		</nav>
+
+		<div class="panel" data-bind="visible: (app.mode() == 'history')">
+		    <div class="panel-heading">
+		        <h1 class="panel-title">
+		        	All History Grabber of
+		        	<span data-bind="text: selectedDataGrabber" class="color-green"></span>
+		        </h1>
+		    </div>
+		    <div class="panel-body">
+		    	<div class="grid grid-history-grabber" data-bind="kendoGrid: { dataSource: { pageSize: 15 }, data: dg.historyData, columns: dg.historyColumns, filterfable: false, pageable: true, dataBound: app.gridBoundTooltipster('.grid-history-grabber') }"></div>
+		    </div>
+		</div>
+
+		<nav class="navbar" data-bind="visible: (app.mode() == 'log')">
+			<button class="btn btn-sm btn-warning navbar-btn" data-bind="click: backToHistory">
+	    		<span class="glyphicon glyphicon-chevron-left"></span> Back
+	    	</button>
+		</nav>
+
+		<div class="panel" data-bind="visible: (app.mode() == 'log')">
+		    <div class="panel-heading">
+		        <h1 class="panel-title">
+		        	Log Grabber of
+		        	<span data-bind="text: selectedDataGrabber" class="color-green"></span>
+		        	<span data-bind="text: dg.selectedLogDate"></span>
+	        	</h1>
+		    </div>
+		    <div class="panel-body">
+		    	<div class="col-md-12">
+		    		<ul data-bind="html: dg.logData"></ul>
+		    	</div>
+		    </div>
+		</div>
+
+		<nav class="navbar" data-bind="visible: (app.mode() == 'data')">
+			<button class="btn btn-sm btn-warning navbar-btn" data-bind="click: backToHistory">
+	    		<span class="glyphicon glyphicon-chevron-left"></span> Back
+	    	</button>
+		</nav>
+
+		<div class="panel" data-bind="visible: (app.mode() == 'data')">
+		    <div class="panel-heading">
+		        <h1 class="panel-title">
+		        	Transformed Data Grabber of
+		        	<span data-bind="text: selectedDataGrabber" class="color-green"></span>
+		        	<span data-bind="text: dg.selectedLogDate"></span>
+	        	</h1>
+		    </div>
+		    <div class="panel-body">
+	    		<div class="grid-transformed-data"></div>
+		    </div>
+		</div>
+	</div>
+</div>
