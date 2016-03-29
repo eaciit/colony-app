@@ -1,0 +1,1 @@
+[{"_id":"widget1","dataSourceId":["ds_json_from_web"],"description":"widget 1 description","title":"widget 1 title"},{"_id":"widget2","dataSourceId":["ds_json_from_web","ds_mongo_200_ecshell_weisuserlogs"],"description":"widget 2 description","title":"widget 2 title"}]
