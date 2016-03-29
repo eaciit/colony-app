@@ -1,1 +1,1 @@
-[{"AppsName":"test","Command":[{"key":"","value":""}],"DeployedTo":["server_local_noval"],"Enable":false,"Port":"8080","Type":"web","Variable":[{"key":"","value":""}],"ZipName":"","_id":"test"}]
+[{"AppsName":"test","Command":[{"key":"runcmd","value":"asdfasdfa"},{"key":"ssss","value":"dfdfdf"}],"DeployedTo":null,"Enable":false,"Port":"8080","Type":"web","Variable":[{"key":"","value":""}],"ZipName":"","_id":"test"}]
