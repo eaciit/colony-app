@@ -2,17 +2,17 @@
 	{
 		"name": "area_color",
 		"type": "text",
-		"value": "#B3ECFF",		
+		"value": "#B3ECFF"		
 	},
 	{
 		"name": "title",
 		"type": "text",
-		"value": "Example Widget 1",		
+		"value": "Example Widget 1"		
 	},
 	{
 		"name": "title_align",
 		"type": "dropdown",
 		"data": "left,right",
-		"value": "left",		
-	},
+		"value": "left"		
+	}
 ]
