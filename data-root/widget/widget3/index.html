@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Widget 1</title>
+	<script src="assets/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+	<!-- kendo-ui -->
+	<link href="assets/kendo-ui/styles/kendo.default.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.common-bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
+	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<div id="chartexample"></div>
+		</div>
+		<div class="col-md-12" style="padding: 10px;">
+			<div id="gridexample"></div>
+		</div>
+	</div>
+</body>
+</html>
+
+<script>
+	function Render(datasource, setting, settingpage){
+		$("#chartexample").kendoChart({
+			title: {
+				text: setting.title,
+				align: setting.title_align
+			},
+			chartArea: {
+				background: setting.area_color
+			},
+			categoryAxis: {
+				field: "year"
+			},
+			series: [
+				{ field: "value" }
+			],
+			dataSource: datasource[0].data,
+		});
+		$("#gridexample").kendoGrid({
+		    selectable: "multiple cell",
+		    allowCopy: true,
+		    columns: [
+		        { field: "productName" },
+		        { field: "category" }
+		    ],
+		    filterable: setting.filterable,
+		    columnMenu: setting.columnMenu,
+		    dataSource: datasource[1].data,
+		    pageable: {
+				pageSize: setting.pagesize
+			}
+		});
+	}
+	$(function() {
+		var dataSource = [
+			{
+				id: "datasource1",
+				data: [
+					{ year: "2012", value: 1 },
+					{ year: "2013", value: 2 }
+				],
+			},
+			{
+				id: "datasource2",
+				data: [
+					{ productName: "Tea", category: "Beverages" },
+			        { productName: "Coffee", category: "Beverages" },
+			        { productName: "Ham", category: "Food" },
+			        { productName: "Bread", category: "Food" }
+		        ],
+			}
+		];
+		var setting = {
+			area_color: "#B3ECFF", 
+			title: "Example Widget 1",
+			title_align: "left",
+			pagesize: 2, 
+			filterable: true,
+			columnMenu: true,
+		};
+		Render(dataSource,setting,{});
+	});
+</script>
