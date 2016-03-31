@@ -1,0 +1,12 @@
+[{
+	"_id": "colony.dashboard",
+	"title": "Dashboard",
+	"childrens": [],
+	"link": "/web/index"
+},
+{
+	"_id": "colony.dataSource",
+	"title": "Data Source",
+	"childrens": [],
+	"link": "/web/datasource"
+}]
