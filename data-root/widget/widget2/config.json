@@ -1,0 +1,17 @@
+[
+	{
+		"name": "pagesize",
+		"type": "number",
+		"value": "2"		
+	},
+	{
+		"name": "filterable",
+		"type": "bool",
+		"value": true		
+	},
+	{
+		"name": "columnMenu",
+		"type": "bool",
+		"value": true		
+	}
+]
