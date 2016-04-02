@@ -5,7 +5,6 @@
 	"childrens": [],
 	"link": "/web/index"
 },
-
 {
 	"_id": "colony.dataSource",
 	"accessId":"COLONY.DATASOURCE",
@@ -13,7 +12,7 @@
 	"childrens": [],
 	"link": "/web/datasource"
 },
-  {
+{
     "_id": "colony.datamanager",
     "accessId":"COLONY.DATAMANAGER",
     "title": "Data Manager",
