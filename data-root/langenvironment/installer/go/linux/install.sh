@@ -33,16 +33,16 @@ chmod +x tempextract.sh
 #sh tempextract.sh
 #end testing
 sudo cp tempextract.sh /usr/local/
-#rm extract.sh
-#rm tempextract.sh
+rm extract.sh
+rm tempextract.sh
 cd /usr/local/
 sudo sh tempextract.sh
-#sudo rm tempextract.sh
+sudo rm tempextract.sh
 #finish extract file
 
 #chmod
 destpathchmod="$destpath/go/"
-#sudo chmod -R 755 $destpathchmod
+sudo chmod -R 755 $destpathchmod
 
 #create folder project
 cd ~/
@@ -54,10 +54,15 @@ mkdir -p "$projectpathhome/$projectpath/src"
 #set environment go
 sed -i '/export GOPATH/d' ~/.bashrc
 echo "export GOPATH=$projectpathhome/$projectpath" >> ~/.bashrc
+#set profile
+pathprof=$destpath'go/bin'
+sed -i '/export PATH/d' ~/.profile
+echo "export PATH=$PATH:$pathprof" >> ~/.profile
+$BASH ~/.profile
 
 #testing run project golang
-#mkdir -p "~/$3/src/test"
-#touch "~/$3/src/test/main.go"
-#echo -e 'package main\n import "fmt"\n func main() {\nfmt.Println("Hello World .. ")\n}' >> "~/$3/src/test/main.go"
-#go run "~/$3/src/test/main.go"
+mkdir -p "$projectpathhome/$projectpath/src/test"
+touch "$projectpathhome/$projectpath/src/test/main.go"
+echo -e 'package main\n import "fmt"\n func main() {\nfmt.Println("Hello World .. ")\n}' >> "$projectpathhome/$projectpath/src/test/main.go"
+#go run "$projectpathhome/$projectpath/src/test/main.go"
 
