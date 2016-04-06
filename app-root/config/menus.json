@@ -1,65 +1,135 @@
-[{
-	"_id": "colony.dashboard",
-	"accessId":"COLONY.DASHBOARD",
-	"title": "Dashboard",
-	"childrens": [],
-	"link": "/web/index"
-},
-{
-	"_id": "colony.dataSource",
-	"accessId":"COLONY.DATASOURCE",
-	"title": "Data Source",
-	"childrens": [],
-	"link": "/web/datasource"
-},
-{
-    "_id": "colony.datamanager",
-    "accessId":"COLONY.DATAMANAGER",
-    "title": "Data Manager",
-    "childrens": [
-      {
-        "_id": "colony.databrowser",   
-   		"accessId":"COLONY.DATABROWSER",
-        "title": "Data Browser",
-        "childrens": [
-       
-        ],
-        "link": "/web/databrowser"
-      },
-      {
-        "_id": "colony.datagrabber",
-   		"accessId":"COLONY.DATAGRABBER",
-        "title": "Data Grabber",
-        "childrens": [
-          
-        ],
-        "link": "/web/datagrabber"
-      },
-      {
-        "_id": "colony.webgrabber",
-   		"accessId":"COLONY.WEBGRABBER",
-        "title": "Web Grabber",
-        "childrens": [
-          
-        ],
-        "link": "/web/webgrabber"
-      },
-      {
-        "_id": "colony.filebrowser",
-   		"accessId":"COLONY.FILEBROW",
-        "title": "File Browser",
-        "childrens": [
-          
-        ],
-        "link": "/web/filebrowser"
-      }
-    ],
-    "link": ""
-  },
-{
-	"_id": "colony.login",
-	"accessId":"COLONY.LOGIN",
-	"title": "Login",
-	"childrens": [],
-	"link": "/web/login"
-}]
+[
+   {
+      "_id":"colony.dashboard",
+      "accessId":"COLONY.DASHBOARD",
+      "title":"Dashboard",
+      "childrens":[
+
+      ],
+      "link":"/web/index"
+   },
+   {
+      "_id": "colony.datasource",
+      "accessId":"COLONY.DATASOURCE",
+      "title":"Data Source",
+      "childrens":[
+
+      ],
+      "link":"/web/datasource"
+   },
+   {
+      "_id":"colony.datamanager",
+      "accessId":"COLONY.DATAMANAGER",
+      "title":"Data Manager",
+      "childrens":[
+         {
+            "id":"databrowser",
+            "title":"Data Browser",
+            "childrens":[
+
+            ],
+            "link":"/web/databrowser"
+         },
+         {
+            "id":"datagrabber",
+            "title":"Data Serializer",
+            "childrens":[
+
+            ],
+            "link":"/web/datagrabber"
+         },
+         {
+            "id":"webgrabber",
+            "title":"Web Grabber",
+            "childrens":[
+
+            ],
+            "link":"/web/webgrabber"
+         },
+         {
+            "id":"filebrowser",
+            "title":"File Browser",
+            "childrens":[
+
+            ],
+            "link":"/web/filebrowser"
+         }
+      ],
+      "link":""
+   },
+   {
+      "_id":"colony.widget",
+      "accessId":"COLONY.WIDGET",
+      "title":"Widget",
+      "childrens":[
+         {
+            "id":"widget",
+            "title":"Widget List",
+            "childrens":[
+
+            ],
+            "link":"/web/widget"
+         },
+         {
+            "id":"widgetsetting",
+            "title":"Widget Setting",
+            "childrens":[
+
+            ],
+            "link":"/web/widgetsetting"
+         }
+      ],
+      "link":""
+   },
+   {
+      "_id":"colony.application",
+      "accessId":"COLONY.APPLICATION",
+      "title":"Application",
+      "childrens":[
+
+      ],
+      "link":"/web/application"
+   },
+   {
+      "_id":"colony.process",
+      "accessId":"COLONY.PROCESS",
+      "title":"Process",
+      "childrens":[
+
+      ],
+      "link":"/web/process"
+   },
+   {
+      "_id":"colony.workflow",
+      "accessId":"COLONY.WORKFLOW",
+      "title":"Workflow",
+      "childrens":[
+         {
+            "id":"dataflow",
+            "title":"Data Flow",
+            "childrens":[
+
+            ],
+            "link":"/web/dataflow"
+         },
+         {
+            "id":"businessflow",
+            "title":"Business Flow",
+            "childrens":[
+
+            ],
+            "link":"/web/businessflow"
+         }
+      ],
+      "link":""
+   },
+   {
+      "_id":"colony.administration",
+      "accessId":"COLONY.ADMINISTRATION",
+      "title":"Administration",
+      "childrens":[
+
+      ],
+      "link":"/web/administration"
+   }
+]
