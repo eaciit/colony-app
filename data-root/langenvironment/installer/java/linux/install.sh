@@ -3,7 +3,6 @@
 #destpath : /usr/local/
 sourcepath=$1
 destpath=$2
-projectpath=$3
 
 #extract file
 #self extracting script
@@ -31,24 +30,29 @@ sudo rm tempextract.sh
 #finish extract file
 
 #chmod
-destpathchmod="$destpath/java/"
+destpathchmod=$destpath'jdk1.8.0_77'
 sudo chmod -R 755 $destpathchmod
 
 #create folder project
 cd ~/
 projectpathhome=`pwd`
-mkdir -p "$projectpathhome/$projectpath/src"
+mkdir -p "$projectpathhome/testing/src"
 
 #set profile
+# export JAVA_HOME=/usr/local/jdk1.7.0_13
+# export PATH=$PATH:$JAVA_HOME/bin
 pathprof=$destpath'jdk1.8.0_77'
 sed -i '/export JAVA_HOME/d' ~/.profile
 echo "export JAVA_HOME=$pathprof" >> ~/.profile
 sed -i '/export PATH/d' ~/.profile
-echo "export PATH=$PATH:$JAVA_HOME/bin" >> ~/.profile
-# export JAVA_HOME=/usr/local/jdk1.7.0_13
-# export PATH=$PATH:$JAVA_HOME/bin
+echo "export PATH=$PATH:$pathprof/bin" >> ~/.profile
 $BASH ~/.profile
 
-#testing run project golang
-
+#testing run project java
+mkdir -p "$projectpathhome/testing/src/test"
+touch "$projectpathhome/testing/src/test/helloworld.java"
+echo -e 'package testing.src.test;\n public class helloworld {\n public static void main (String[] args) {\n System.out.println("Hello World"); \n} \n}' >> "$projectpathhome/testing/src/test/helloworld.java"
+javac "$projectpathhome/testing/src/test/helloworld.java"
+clear
+java "testing/src/test/helloworld"
 
