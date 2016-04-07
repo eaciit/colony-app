@@ -1,1 +1,33 @@
-[{"AppsName":"test","Command":[{"key":"runcmd","value":"asdfasdfa"},{"key":"ssss","value":"dfdfdf"}],"DeployedTo":null,"Enable":false,"Port":"8080","Type":"web","Variable":[{"key":"","value":""}],"ZipName":"","_id":"test"}]
+[{
+    "_id": "test",
+    "IsInternalApp": false,
+    "InstallScript": {},
+    "AppsName": "test",
+    "Port": "8080",
+    "Type": "web",
+    "ZipName": "",
+    "Enable": false,
+    "DeployedTo": [],
+    "Command": [{
+        "key": "runcmd",
+        "value": "asdfasdfa"
+    }, {
+        "key": "ssss",
+        "value": "dfdfdf"
+    }],
+    "Variable": []
+}, {
+    "_id": "sedotan",
+    "IsInternalApp": true,
+    "InstallScript": {
+    	"linux": "cd $EC_APP_PATH/cli && ./sedotand -config=\"$EC_APP_PATH/config/webgrabbers.json\" -logpath=\"$EC_DATA_PATH/daemon\""
+	},
+    "AppsName": "Sedotan",
+    "Port": "",
+    "Type": "cli",
+    "ZipName": "",
+    "Enable": true,
+    "DeployedTo": [],
+    "Command": [],
+    "Variable": []
+}]
