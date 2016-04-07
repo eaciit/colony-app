@@ -1,6 +1,7 @@
 #installation /.sh
-#sourcepath : /home/vagrant/test/data-path/langenvironment/installer/java/linux/jdk-version.tar.gz
+#sourcepath : file
 #destpath : /usr/local/
+#projectpath : goproject
 sourcepath=$1
 destpath=$2
 
@@ -30,7 +31,7 @@ sudo rm tempextract.sh
 #finish extract file
 
 #chmod
-destpathchmod=$destpath'jdk1.8.0_77'
+destpathchmod=$destpath'scala/'
 sudo chmod -R 755 $destpathchmod
 
 #create folder project
@@ -39,19 +40,12 @@ projectpathhome=`pwd`
 mkdir -p "$projectpathhome/testing/src"
 
 #set profile
-# export JAVA_HOME=/usr/local/jdk1.7.0_13
-# export PATH=$PATH:$JAVA_HOME/bin
-pathprof=$destpath'jdk1.8.0_77'
-sed -i '/export JAVA_HOME/d' ~/.profile
-echo "export JAVA_HOME=$pathprof" >> ~/.profile
+# export SCALA_HOME=/usr/local/share/scala-2.11.8-linux-x86_64
+# export PATH=$PATH:$SCALA_HOME/bin
+pathprof=$destpath'scala-2.11.8'
 sed -i '/export PATH/d' ~/.profile
 echo "export PATH=$PATH:$pathprof/bin" >> ~/.profile
-$BASH ~/.profile
+#$BASH ~/.profile
+source ~/.profile
 
 #testing run project java
-mkdir -p "$projectpathhome/testing/src/test"
-touch "$projectpathhome/testing/src/test/helloworld.java"
-echo -e 'package testing.src.test;\n public class helloworld {\n public static void main (String[] args) {\n System.out.println("Hello World"); \n} \n}' > "$projectpathhome/testing/src/test/helloworld.java"
-javac "$projectpathhome/testing/src/test/helloworld.java"
-clear
-java "testing/src/test/helloworld"
