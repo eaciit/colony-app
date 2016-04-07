@@ -1,0 +1,140 @@
+{
+    "_id": "page01",
+	"parentMenu": "page/blank",
+	"title": "First Page",
+	"url": "/example",
+    "themeColor": "#9ba0a9"
+	"dataSources": [
+        "ds_json_from_web",
+		"connection_mongo_200_ecshell"
+		"connection_json_from_local"
+    ],
+    "widget": [
+        {
+			"_id": "wp1459947140191",
+			"widgetId": "widget1",
+			"title": "Sales Chart",
+			"position": "absolute",
+			"height": 400,
+			"width": 100,
+			"dataSources": [
+                {
+                    "ds01": "ds_json_from_web": [
+						{
+							"country": "country",
+							"fullname": "name",
+							"notes": "message"
+						}
+					]
+                },
+				{
+                    "ds02": "ds_mongo_200_ecshell_weisuserlogs": [
+						{
+							"mail": "email",
+							"user": "userName"
+						}
+					]
+                }
+            ],
+			"configWidget": [
+				{
+					"name": "area_color",
+					"type": "text",
+					"value": "#B3ECFF"		
+				},
+				{
+					"name": "title",
+					"type": "text",
+					"value": "Example Widget 1"		
+				},
+				{
+					"name": "title_align",
+					"type": "dropdown",
+					"data": "left,right",
+					"value": "left"		
+				}
+			],
+			"configDefault": [
+				{
+					"name": "area_color",
+					"type": "text",
+					"value": "#B3ECFF"		
+				},
+				{
+					"name": "title",
+					"type": "text",
+					"value": "Example Widget 1"		
+				},
+				{
+					"name": "title_align",
+					"type": "dropdown",
+					"data": "left,right",
+					"value": "left"		
+				}
+			]
+        },
+        {
+			"_id": "wp1459947698169",
+			"widgetId": "widget2",
+			"title": "Sales Grid",
+			"position": "absolute",
+			"height": 400,
+			"width": 100,
+			"dataSources": [
+                {
+                    "ds01": "ds_json_from_web": [
+						{
+							"country": "country",
+							"fullname": "name",
+							"notes": "message"
+						}
+					]
+                },
+				{
+                    "ds02": "ds_mongo_200_ecshell_weisuserlogs": [
+						{
+							"mail": "email",
+							"user": "userName"
+						}
+					]
+                }
+            ],
+			"configWidget": [
+				{
+					"name": "area_color",
+					"type": "text",
+					"value": "#B3ECFF"		
+				},
+				{
+					"name": "title",
+					"type": "text",
+					"value": "Example Widget 1"		
+				},
+				{
+					"name": "title_align",
+					"type": "dropdown",
+					"data": "left,right",
+					"value": "left"		
+				}
+			],
+			"configDefault": [
+				{
+					"name": "area_color",
+					"type": "text",
+					"value": "#B3ECFF"		
+				},
+				{
+					"name": "title",
+					"type": "text",
+					"value": "Example Widget 1"		
+				},
+				{
+					"name": "title_align",
+					"type": "dropdown",
+					"data": "left,right",
+					"value": "left"		
+				}
+			]
+        }
+    ]
+}
