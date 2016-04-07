@@ -4,7 +4,6 @@
 #projectpath : goproject
 sourcepath=$1
 destpath=$2
-projectpath=$3
 
 #extract file
 #self extracting script
@@ -47,13 +46,13 @@ sudo chmod -R 755 $destpathchmod
 #create folder project
 cd ~/
 projectpathhome=`pwd`
-mkdir -p "$projectpathhome/$projectpath/bin"
-mkdir -p "$projectpathhome/$projectpath/pkg"
-mkdir -p "$projectpathhome/$projectpath/src"
+mkdir -p "$projectpathhome/goproject/bin"
+mkdir -p "$projectpathhome/goproject/pkg"
+mkdir -p "$projectpathhome/goproject/src"
 
 #set environment go
 sed -i '/export GOPATH/d' ~/.bashrc
-echo "export GOPATH=$projectpathhome/$projectpath" >> ~/.bashrc
+echo "export GOPATH=$projectpathhome/goproject" >> ~/.bashrc
 #set profile
 pathprof=$destpath'go/bin'
 sed -i '/export PATH/d' ~/.profile
@@ -61,8 +60,9 @@ echo "export PATH=$PATH:$pathprof" >> ~/.profile
 $BASH ~/.profile
 
 #testing run project golang
-mkdir -p "$projectpathhome/$projectpath/src/test"
-touch "$projectpathhome/$projectpath/src/test/main.go"
-echo -e 'package main\n import "fmt"\n func main() {\nfmt.Println("Hello World .. ")\n}' >> "$projectpathhome/$projectpath/src/test/main.go"
-#go run "$projectpathhome/$projectpath/src/test/main.go"
+mkdir -p "$projectpathhome/goproject/src/test"
+touch "$projectpathhome/goproject/src/test/main.go"
+echo -e 'package main\n import "fmt"\n func main() {\nfmt.Println("Hello World .. ")\n}' >> "$projectpathhome/goproject/src/test/main.go"
+clear
+go run "$projectpathhome/goproject/src/test/main.go"
 
