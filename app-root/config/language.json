@@ -8,7 +8,7 @@
     "installer": [{
         "os": "linux",
         "installerFile": "install.sh",
-        "installerSource": "go1.6.installer.tar.gz"
+        "installerSource": "go1.6.linux-x86_64.tar.gz"
     }, {
         "os": "windows",
         "installerFile": "installer.bat",
@@ -24,7 +24,23 @@
     "installer": [{
         "os": "linux",
         "installerFile": "install.sh",
-        "installerSource": "jdk-8u77-linux-x86_64.tar.gz"
+        "installerSource": "jdk-1.8.0_77-linux-x86_64.tar.gz"
+    }, {
+        "os": "windows",
+        "installerFile": "installer.bat",
+        "installerSource": "go.6.installer.exe"
+    }]
+}, {
+    "language": "scala",
+    "commands": {
+        "compile": "",
+        "run": "",
+        "version": ""
+    },
+    "installer": [{
+        "os": "linux",
+        "installerFile": "install.sh",
+        "installerSource": "scala-2.11.8-linux-x86_64.tgz"
     }, {
         "os": "windows",
         "installerFile": "installer.bat",
