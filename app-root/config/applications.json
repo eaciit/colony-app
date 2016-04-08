@@ -1,7 +1,6 @@
 [{
     "_id": "test",
     "IsInternalApp": false,
-    "InstallScript": {},
     "AppsName": "test",
     "Port": "8080",
     "Type": "web",
@@ -19,15 +18,27 @@
 }, {
     "_id": "sedotan",
     "IsInternalApp": true,
-    "InstallScript": {
-    	"linux": "cd $EC_APP_PATH/cli && ./sedotand -config=\"$EC_APP_PATH/config/webgrabbers.json\" -logpath=\"$EC_DATA_PATH/daemon\""
-	},
     "AppsName": "Sedotan",
     "Port": "",
     "Type": "cli",
     "ZipName": "",
     "Enable": true,
     "DeployedTo": [],
-    "Command": [],
-    "Variable": []
+    "Command": [{
+        "key": "start",
+        "value": "cd $EC_APP_PATH/cli && ./$BINARY_NAME -config=\"$EC_APP_PATH/config/webgrabbers.json\" -logpath=\"$EC_DATA_PATH/daemon\" &"
+    }, {
+        "key": "stop",
+        "value": "sudo kill -9 `pidof $BINARY_NAME`"
+    }, {
+        "key": "running_status",
+        "value": "if [[ $(pidof $BINARY_NAME) ]]; then echo \"OK\"; else echo \"NOPE\"; fi"
+    }, {
+        "key": "deploy_status",
+        "value": "if [ -d \"$EC_APP_PATH/src/$BINARY_NAME\" ]; then echo \"OK\"; else echo \"NOPE\"; fi"
+    }],
+    "Variable": [{
+        "key": "BINARY_NAME",
+        "value": "sedotand"
+    }]
 }]
