@@ -60,9 +60,9 @@ echo "export PATH=$PATH:$pathprof" >> ~/.profile
 $BASH ~/.profile
 
 #testing run project golang
-mkdir -p "$projectpathhome/goproject/src/testjava"
-touch "$projectpathhome/goproject/src/testjava/main.go"
-echo -e 'package main\n import "fmt"\n func main() {\nfmt.Println("Hello World .. ")\n}' > "$projectpathhome/goproject/src/testjava/main.go"
+mkdir -p "$projectpathhome/goproject/src/test"
+touch "$projectpathhome/goproject/src/test/main.go"
+echo -e 'package main\n import "fmt"\n func main() {\nfmt.Println("go : Hello World")\n}' > "$projectpathhome/goproject/src/test/main.go"
 #clear
 #/bin/bash -c 'go run "$projectpathhome/goproject/src/test/main.go"'
-go run "$projectpathhome/goproject/src/testjava/main.go"
+go run "$projectpathhome/goproject/src/test/main.go"

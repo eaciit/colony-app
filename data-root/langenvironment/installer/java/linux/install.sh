@@ -49,9 +49,9 @@ echo "export PATH=$PATH:$pathprof/bin" >> ~/.profile
 $BASH ~/.profile
 
 #testing run project java
-mkdir -p "$projectpathhome/testing/src/test"
-touch "$projectpathhome/testing/src/test/helloworld.java"
-echo -e 'package testing.src.test;\n public class helloworld {\n public static void main (String[] args) {\n System.out.println("Hello World"); \n} \n}' > "$projectpathhome/testing/src/test/helloworld.java"
-javac "$projectpathhome/testing/src/test/helloworld.java"
+mkdir -p "$projectpathhome/testing/src/testjava"
+touch "$projectpathhome/testing/src/testjava/helloworld.java"
+echo -e 'package testing.src.test;\n public class helloworld {\n public static void main (String[] args) {\n System.out.println("java : Hello World"); \n} \n}' > "$projectpathhome/testing/src/testjava/helloworld.java"
+javac "$projectpathhome/testing/src/testjava/helloworld.java"
 clear
 java "testing/src/test/helloworld"
