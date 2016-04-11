@@ -31,7 +31,7 @@ sudo rm tempextract.sh
 #finish extract file
 
 #chmod
-destpathchmod=$destpath'scala/'
+destpathchmod=$destpath'scala-2.11.8/'
 sudo chmod -R 755 $destpathchmod
 
 #create folder project
@@ -49,3 +49,9 @@ echo "export PATH=$PATH:$pathprof/bin" >> ~/.profile
 source ~/.profile
 
 #testing run project java
+mkdir -p "$projectpathhome/testing/src/testscala" 
+cd "$projectpathhome/testing/src/testscala"
+#touch "helloworld.scala"
+echo -e 'object helloworld extends App { \n println("scala : Hello World") \n}' > "$projectpathhome/testing/src/testscala/helloworld.scala"
+scalac "helloworld.scala"
+scala "helloworld"
