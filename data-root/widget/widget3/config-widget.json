@@ -1,0 +1,25 @@
+[
+  {
+    "dataSources": [
+      {
+        "ds01": "",
+        "fields": [
+          {
+            "country": "",
+            "fullname": "",
+            "notes": ""
+          }
+        ]
+      },
+      {
+        "ds02": "",
+        "fields": [
+          {
+            "mail": "",
+            "user": ""
+          }
+        ]
+      }
+    ]
+  }
+]
