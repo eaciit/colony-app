@@ -1,18 +1,20 @@
 [
 	{
-		"name": "area_color",
-		"type": "text",
-		"value": "#B3ECFF"		
+		"name": "pagesize",
+		"title": "page size",
+		"type": "number",
+		"value": "2"		
 	},
 	{
-		"name": "title",
-		"type": "text",
-		"value": "Example Widget 1"		
+		"name": "filterable",
+		"title": "filter",
+		"type": "bool",
+		"value": true		
 	},
 	{
-		"name": "title_align",
-		"type": "dropdown",
-		"data": "left,right",
-		"value": "left"		
+		"name": "columnMenu",
+		"title": "column menu",
+		"type": "bool",
+		"value": true		
 	}
 ]
