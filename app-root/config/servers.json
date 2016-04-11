@@ -39,15 +39,7 @@
     "dataPath": "/home/vagrant/data",
     "host": "localhost:2222",
     "hostAlias": [],
-    "installedLang": [{
-        "IsInstalled": true,
-        "Lang": "go",
-        "Version": "go version go1.6 linux/amd64"
-    }, {
-        "IsInstalled": true,
-        "Lang": "java",
-        "Version": ""
-    }],
+    "installedLang": [],
     "os": "linux",
     "serverType": "node",
     "sshfile": "",
