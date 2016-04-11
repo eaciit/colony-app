@@ -55,7 +55,7 @@ sed -i '/export GOPATH/d' ~/.bashrc
 echo "export GOPATH=$projectpathhome/goproject" >> ~/.bashrc
 #set profile
 pathprof=$destpath'go/bin'
-sed -i '/export PATH/d' ~/.profile
+sed -i -e '/export PATH/d' -e '/go/d' ~/.profile
 echo 'export PATH=$PATH:'$pathprof >> ~/.profile
 #$BASH ~/.profile
 source ~/.profile
