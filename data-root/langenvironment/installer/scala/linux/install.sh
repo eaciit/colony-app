@@ -44,7 +44,7 @@ mkdir -p "$projectpathhome/testing/src"
 # export PATH=$PATH:$SCALA_HOME/bin
 pathprof=$destpath'scala-2.11.8'
 sed -i '/export PATH/d' ~/.profile
-echo "export PATH=$PATH:$pathprof/bin" >> ~/.profile
+echo 'export PATH=$PATH:'$pathprof/bin >> ~/.profile
 #$BASH ~/.profile
 source ~/.profile
 

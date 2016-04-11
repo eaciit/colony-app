@@ -56,8 +56,9 @@ echo "export GOPATH=$projectpathhome/goproject" >> ~/.bashrc
 #set profile
 pathprof=$destpath'go/bin'
 sed -i '/export PATH/d' ~/.profile
-echo "export PATH=$PATH:$pathprof" >> ~/.profile
-$BASH ~/.profile
+echo 'export PATH=$PATH:'$pathprof >> ~/.profile
+#$BASH ~/.profile
+source ~/.profile
 
 #testing run project golang
 mkdir -p "$projectpathhome/goproject/src/test"

@@ -45,8 +45,9 @@ pathprof=$destpath'jdk1.8.0_77'
 sed -i '/export JAVA_HOME/d' ~/.profile
 echo "export JAVA_HOME=$pathprof" >> ~/.profile
 sed -i '/export PATH/d' ~/.profile
-echo "export PATH=$PATH:$pathprof/bin" >> ~/.profile
-$BASH ~/.profile
+echo 'export PATH=$PATH:'$pathprof/bin >> ~/.profile
+#$BASH ~/.profile
+source ~/.profile
 
 #testing run project java
 mkdir -p "$projectpathhome/testing/src/testjava"
