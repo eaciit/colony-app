@@ -5,6 +5,7 @@
 sourcepath=$1
 destpath=$2
 
+destpath=$destpath'share/'
 #extract file
 #self extracting script
 tarfileextract="'/^_TARFILE_FOLLOWS_/ { print NR + 1; exit 0; }'"
@@ -42,9 +43,20 @@ mkdir -p "$projectpathhome/testing/src"
 #set profile
 # export SCALA_HOME=/usr/local/share/scala-2.11.8-linux-x86_64
 # export PATH=$PATH:$SCALA_HOME/bin
-pathprof=$destpath'scala-2.11.8'
-sed -i '/export PATH/d' ~/.profile
-echo 'export PATH=$PATH:'$pathprof/bin >> ~/.profile
+pathprof=$destpath'scala-2.11.8/bin'
+sed -i '/export SCALA_HOME/d' ~/.profile
+
+checkpath=`sed -n -e '/export PATH/p' ~/.profile`
+if [ $checkpath=="" ]; then
+	echo "export SCALA_HOME=$pathprof" >> ~/.profile
+	echo 'export PATH=$PATH:$SCALA_HOME' >> ~/.profile
+else
+	sed -ri '/^export PATH/ i export SCALA_HOME='$pathprof ~/.profile
+	sed -ri 's/:[$]SCALA_HOME//g' ~/.profile
+	sed -ri '/^export PATH/ s/$/:$SCALA_HOME/' ~/.profile
+fi
+# sed -i '/export PATH/d' ~/.profile
+# echo 'export PATH=$PATH:'$pathprof/bin >> ~/.profile
 #$BASH ~/.profile
 source ~/.profile
 
