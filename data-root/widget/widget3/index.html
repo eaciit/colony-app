@@ -36,55 +36,56 @@
 				background: setting.area_color
 			},
 			categoryAxis: {
-				field: "year"
+				field: "totalStudents"
 			},
 			series: [
-				{ field: "value" }
+				{ field: "className" }
 			],
-			dataSource: datasource[0].data,
+			dataSource: datasource[0].Data,
 		});
 		$("#gridexample").kendoGrid({
 		    selectable: "multiple cell",
 		    allowCopy: true,
 		    columns: [
-		        { field: "productName" },
-		        { field: "category" }
+		        { field: "name" },
+		        { field: "country" },
+		        { field: "message" },
 		    ],
 		    filterable: setting.filterable,
 		    columnMenu: setting.columnMenu,
-		    dataSource: datasource[1].data,
+		    dataSource: datasource[1].Data,
 		    pageable: {
 				pageSize: setting.pagesize
 			}
 		});
 	}
-	$(function() {
-		var dataSource = [
-			{
-				id: "datasource1",
-				data: [
-					{ year: "2012", value: 1 },
-					{ year: "2013", value: 2 }
-				],
-			},
-			{
-				id: "datasource2",
-				data: [
-					{ productName: "Tea", category: "Beverages" },
-			        { productName: "Coffee", category: "Beverages" },
-			        { productName: "Ham", category: "Food" },
-			        { productName: "Bread", category: "Food" }
-		        ],
-			}
-		];
-		var setting = {
-			area_color: "#B3ECFF", 
-			title: "Example Widget 1",
-			title_align: "left",
-			pagesize: 2, 
-			filterable: true,
-			columnMenu: true,
-		};
-		Render(dataSource,setting,{});
-	});
+//	$(function() {
+//		var dataSource = [
+//			{
+//				id: "datasource1",
+//				data: [
+//					{ year: "2012", value: 1 },
+//					{ year: "2013", value: 2 }
+//				],
+//			},
+//			{
+//				id: "datasource2",
+//				data: [
+//					{ productName: "Tea", category: "Beverages" },
+//			        { productName: "Coffee", category: "Beverages" },
+//			        { productName: "Ham", category: "Food" },
+//			        { productName: "Bread", category: "Food" }
+//		        ],
+//			}
+//		];
+//		var setting = {
+//			area_color: "#B3ECFF", 
+//			title: "Example Widget 1",
+//			title_align: "left",
+//			pagesize: 2, 
+//			filterable: true,
+//			columnMenu: true,
+//		};
+//		Render(dataSource,setting,{});
+//	});
 </script>

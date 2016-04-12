@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Example Widget 2</title>
+	<title>Example Widget 1</title>
 	<script src="assets/jquery/jquery-2.1.0.min.js"></script>
 	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -15,8 +15,8 @@
 </head>
 <body>
 	<div class="row">
-		<div class="col-md-12" style="padding: 10px;">
-			<div id="gridexample"></div>
+		<div class="col-md-12">
+			<div id="chartexample"></div>
 		</div>
 	</div>
 </body>
@@ -24,36 +24,36 @@
 
 <script>
 	function Render(datasource, setting, settingpage){
-		$("#gridexample").kendoGrid({
-		    selectable: "multiple cell",
-		    allowCopy: true,
-		    columns: [
-		        { field: "productName" },
-		        { field: "category" }
-		    ],
-		    filterable: setting.filterable,
-		    columnMenu: setting.columnMenu,
-		    dataSource: datasource[0].data,
-		    pageable: {
-				pageSize: setting.pagesize
-			}
+		$("#chartexample").kendoChart({
+			title: {
+				text: setting.title,
+				align: setting.title_align
+			},
+			chartArea: {
+				background: setting.area_color
+			},
+			categoryAxis: {
+				field: "totalStudents"
+			},
+			series: [
+				{ field: "className" }
+			],
+			dataSource: datasource[0].Data,
 		});
 	}
-	$(function() {
-		var dataSource = [{
-			id: "datasource2",
-			data: [
-				{ productName: "Tea", category: "Beverages" },
-		        { productName: "Coffee", category: "Beverages" },
-		        { productName: "Ham", category: "Food" },
-		        { productName: "Bread", category: "Food" }
-			],
-		}];
-		var setting = {
-			pagesize: 2, 
-			filterable: true,
-			columnMenu: true,
-		};
-		Render(dataSource,setting,{});
-	});
+//	$(function() {
+//		var dataSource = [{
+//			id: "datasource1",
+//			data: [
+//				{ year: "2012", value: 1 },
+//				{ year: "2013", value: 2 }
+//			],
+//		}];
+//		var setting = {
+//			area_color: "#B3ECFF", 
+//			title: "Example Widget 1",
+//			title_align: "left",
+//		};
+//		Render(dataSource,setting,{});
+//	});
 </script>

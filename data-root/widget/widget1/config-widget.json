@@ -5,18 +5,9 @@
         "ds01": "",
         "fields": [
           {
+            "name": "",
             "country": "",
-            "fullname": "",
-            "notes": ""
-          }
-        ]
-      },
-      {
-        "ds02": "",
-        "fields": [
-          {
-            "mail": "",
-            "user": ""
+            "message": ""
           }
         ]
       }
