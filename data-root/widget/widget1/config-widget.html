@@ -12,6 +12,11 @@
 	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
 	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
 	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+	<style type="text/css">
+		.k-widget.k-dropdown, .k-widget.k-numerictextbox{
+			width: 100%;
+		}
+	</style>
 </head>
 	<body>
 		<form class="form-horizontal" id="widgetSettingForm">
@@ -22,7 +27,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">id</label>
+				<label class="col-sm-2 control-label">name</label>
 				<div class="col-sm-10">
 			  		<select class="form-control fields-ds" id="ds1">
 					  <option>1</option>
@@ -34,7 +39,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">priceunit</label>
+				<label class="col-sm-2 control-label">country</label>
 				<div class="col-sm-10">
 			  		<select class="form-control fields-ds" id="ds2">
 					  <option>1</option>
@@ -46,7 +51,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label for="inputPassword" class="col-sm-2 control-label">stockperunit</label>
+				<label for="inputPassword" class="col-sm-2 control-label">message</label>
 				<div class="col-sm-10">
 			  		<select class="form-control fields-ds" id="ds3">
 					  <option>1</option>
@@ -71,8 +76,8 @@
 
 <script type="text/javascript">
 	function DsFields(field, pageId, property){
-		// console.log(field, pageId)
-		$(".source1").val(field[0]._id)
+		// console.log(field, pageId, property)
+		$(".source1").val(property.dataSources[0][field[0]._id])
 		var dsArray = [1,2,3];
 		$.each(dsArray, function(key, val) {
 			$("#ds"+val).kendoDropDownList({
@@ -84,9 +89,9 @@
 		$("#save").click(function() {
 			fields = [];
 			obj = {};
-			obj.id = $("#ds1").val();
-			obj.priceunit = $("#ds2").val();
-			obj.stockperunit = $("#ds3").val();
+			obj.name = $("#ds1").val();
+			obj.country = $("#ds2").val();
+			obj.message = $("#ds3").val();
 			fields.push(obj)
 
 			objFields = {};
@@ -107,6 +112,7 @@
 				success: function(e) {
 					if (e.success == true) {
 						alert("Save Success")
+						// console.log(e.data)
 						window.parent.closeModal();
 					}
 				}

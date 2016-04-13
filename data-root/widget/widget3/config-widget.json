@@ -5,9 +5,8 @@
         "ds01": "",
         "fields": [
           {
-            "country": "",
-            "fullname": "",
-            "notes": ""
+            "className": "",
+            "totalStudents": ""
           }
         ]
       },
@@ -15,8 +14,9 @@
         "ds02": "",
         "fields": [
           {
-            "mail": "",
-            "user": ""
+            "name": "",
+            "country": "",
+            "message": ""
           }
         ]
       }

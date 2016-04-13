@@ -1,33 +1,39 @@
 [
 	{
-		"name": "area_color",
-		"type": "text",
-		"value": "#B3ECFF"
-	},
-	{
-		"name": "title",
-		"type": "text",
-		"value": "Example Widget 1"
-	},
-	{
-		"name": "title_align",
-		"type": "dropdown",
-		"data": "left,right",
-		"value": "left"
-	},
-	{
 		"name": "pagesize",
+		"title": "page size",
 		"type": "number",
-		"value": "2"
+		"value": "2"		
 	},
 	{
 		"name": "filterable",
+		"title": "filter",
 		"type": "bool",
-		"value": true
+		"value": true		
 	},
 	{
 		"name": "columnMenu",
+		"title": "column menu",
 		"type": "bool",
-		"value": true
+		"value": true		
+	},
+	{
+		"name": "area_color",
+		"title": "Area Color",
+		"type": "text",
+		"value": "#B3ECFF"		
+	},
+	{
+		"name": "title",
+		"title": "Title Chart",
+		"type": "text",
+		"value": "Example Widget 1"		
+	}, 
+	{
+		"name": "title_align",
+		"title": "column menu",
+		"type": "dropdown",
+		"data": "left,right",
+		"value": "left"		
 	}
 ]
