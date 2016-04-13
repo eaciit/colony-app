@@ -41,18 +41,27 @@ mkdir -p "$projectpathhome/testing/src"
 #set profile
 # export JAVA_HOME=/usr/local/jdk1.7.0_13
 # export PATH=$PATH:$JAVA_HOME/bin
-pathprof=$destpath'jdk1.8.0_77'
+pathprof=$destpath'jdk1.8.0_77/bin'
 sed -i '/export JAVA_HOME/d' ~/.profile
-echo "export JAVA_HOME=$pathprof" >> ~/.profile
-sed -i '/export PATH/d' ~/.profile
-echo 'export PATH=$PATH:'$pathprof/bin >> ~/.profile
+
+checkpath=`sed -n -e '/export PATH/p' ~/.profile`
+if [ $checkpath=="" ]; then
+	echo "export JAVA_HOME=$pathprof" >> ~/.profile
+	echo 'export PATH=$PATH:$JAVA_HOME' >> ~/.profile
+else
+	sed -ri '/^export PATH/ i export JAVA_HOME='$pathprof ~/.profile
+	sed -ri 's/:[$]JAVA_HOME//g' ~/.profile
+	sed -ri '/^export PATH/ s/$/:$JAVA_HOME/' ~/.profile
+fi
+# sed -i '/export PATH/d' ~/.profile
+# echo 'export PATH=$PATH:'$pathprof/bin >> ~/.profile
 #$BASH ~/.profile
 source ~/.profile
 
 #testing run project java
 mkdir -p "$projectpathhome/testing/src/testjava"
 touch "$projectpathhome/testing/src/testjava/helloworld.java"
-echo -e 'package testing.src.test;\n public class helloworld {\n public static void main (String[] args) {\n System.out.println("java : Hello World"); \n} \n}' > "$projectpathhome/testing/src/testjava/helloworld.java"
+echo -e 'package testing.src.testjava;\n public class helloworld {\n public static void main (String[] args) {\n System.out.println("java : Hello World"); \n} \n}' > "$projectpathhome/testing/src/testjava/helloworld.java"
 javac "$projectpathhome/testing/src/testjava/helloworld.java"
 clear
-java "testing/src/test/helloworld"
+java "testing/src/testjava/helloworld"
