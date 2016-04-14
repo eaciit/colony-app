@@ -81,6 +81,15 @@
       ],
       "link":""
    },
+     {
+      "_id":"colony.widetpage",
+      "accessId":"COLONY.WIDGETPAGE",
+      "title":"Widget Page",
+      "childrens":[
+
+      ],
+      "link":"/web/widgetpage"
+   },
    {
       "_id":"colony.application",
       "accessId":"COLONY.APPLICATION",
