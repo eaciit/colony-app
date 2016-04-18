@@ -1,1 +1,1 @@
-[{"_id":"page01","fileName":"page01.json","title":"First Page","url":"page1example"},{"_id":"page02","fileName":"page02.json","title":"Second Page","url":"page2example"},{"_id":"page03","fileName":"page03.json","title":"Third Page","url":"page3example"}]
+[{"_id":"test","title":"test page","url":"/test"}]
