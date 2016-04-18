@@ -83,12 +83,12 @@
    },
      {
       "_id":"colony.widetpage",
-      "accessId":"COLONY.WIDGETPAGE",
+      "accessId":"COLONY.PAGELIST",
       "title":"Page",
       "childrens":[
 
       ],
-      "link":"/web/widgetpage"
+      "link":"/web/pagelist"
    },
    {
       "_id":"colony.application",
