@@ -2,7 +2,7 @@
   {
     "dataSources": [
       {
-        "ds01": "",
+        "dataSource": "ds01",
         "fields": [
           {
             "className": "",
@@ -11,7 +11,7 @@
         ]
       },
       {
-        "ds02": "",
+        "dataSource": "ds02",
         "fields": [
           {
             "name": "",

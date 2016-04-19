@@ -2,7 +2,7 @@
   {
     "dataSources": [
       {
-        "ds01": "",
+        "dataSource": "ds01",
         "fields": [
           {
             "className": "",
