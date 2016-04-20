@@ -1,49 +1,68 @@
 [{
-    "_id": "test",
-    "appPath": "",
-    "cmdcopy": "",
-    "cmdextract": "",
-    "cmdmkdir": "",
-    "cmdnewfile": "",
-    "dataPath": "",
-    "host": "http://192.168.0.223:50070",
-    "hostAlias": [{
-        "hostName": "ecsbycdn01",
-        "ip": "192.168.0.223"
-    }, {
-        "hostName": "ecsbycdn02",
-        "ip": "192.168.0.224"
-    }, {
-        "hostName": "ecsbycdn03",
-        "ip": "192.168.0.225"
-    }, {
-        "hostName": "ecsbycdn04",
-        "ip": "192.168.0.226"
-    }, {
-        "hostName": "ecsbycdn11",
-        "ip": "192.168.0.231"
-    }],
+    "_id": "192.168.0.223",
+    "host": "192.168.0.223",
     "os": "linux",
-    "serverType": "hdfs",
-    "sshfile": "",
-    "sshpass": "",
-    "sshtype": "Credentials",
-    "sshuser": "hdfs"
-}, {
-    "_id": "localhost",
     "appPath": "/home/vagrant/app",
+    "dataPath": "/home/vagrant/data",
+
     "cmdcopy": "",
     "cmdextract": "unzip %1 -d %2",
     "cmdmkdir": "mkdir",
     "cmdnewfile": "",
-    "dataPath": "/home/vagrant/data",
-    "host": "localhost:2222",
-    "hostAlias": [],
+
     "installedLang": [],
+    "serviceHDFS": {
+        "host": "http://192.168.0.223:50070",
+        "hostAlias": [{
+            "hostName": "ecsbycdn01",
+            "ip": "192.168.0.223"
+        }, {
+            "hostName": "ecsbycdn02",
+            "ip": "192.168.0.224"
+        }, {
+            "hostName": "ecsbycdn03",
+            "ip": "192.168.0.225"
+        }, {
+            "hostName": "ecsbycdn04",
+            "ip": "192.168.0.226"
+        }, {
+            "hostName": "ecsbycdn11",
+            "ip": "192.168.0.231"
+        }],
+        "pass": "",
+        "user": "hdfs"
+    },
+    "serviceSSH": {
+        "file": "",
+        "host": "",
+        "pass": "",
+        "type": "Credentials",
+        "user": ""
+    }
+}, {
+    "_id": "127.0.0.1",
+    "host": "localhost",
     "os": "linux",
-    "serverType": "node",
-    "sshfile": "",
-    "sshpass": "vagrant",
-    "sshtype": "Credentials",
-    "sshuser": "vagrant"
+    "appPath": "/home/vagrant/app",
+    "dataPath": "/home/vagrant/data",
+
+    "cmdcopy": "",
+    "cmdextract": "unzip %1 -d %2",
+    "cmdmkdir": "mkdir",
+    "cmdnewfile": "",
+
+    "installedLang": [],
+    "serviceHDFS": {
+        "host": "",
+        "hostAlias": [],
+        "pass": "",
+        "user": ""
+    },
+    "serviceSSH": {
+        "file": "",
+        "host": "localhost:2222",
+        "pass": "vagrant",
+        "type": "Credentials",
+        "user": "vagrant"
+    }
 }]
