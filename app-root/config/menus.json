@@ -62,24 +62,8 @@
       "accessId":"COLONY.WIDGET",
       "title":"Widget",
       "childrens":[
-         {
-            "id":"widget",
-            "title":"Widget List",
-            "childrens":[
-
-            ],
-            "link":"/web/widget"
-         },
-         {
-            "id":"widgetsetting",
-            "title":"Widget Setting",
-            "childrens":[
-
-            ],
-            "link":"/web/widgetsetting"
-         }
       ],
-      "link":""
+      "link":"/web/widget"      
    },
      {
       "_id":"colony.widetpage",
