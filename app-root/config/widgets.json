@@ -1,1 +1,11 @@
-[{"_id":"widget1","config":[{"name":"pagesize","title":"page size","type":"number","value":"2"},{"name":"filterable","title":"filter","type":"bool","value":true},{"name":"columnMenu","title":"column menu","type":"bool","value":true}],"dataSourceId":["json_local"],"description":"sample widget 1, uploaded for testing purpose","params":null,"title":"widget 1","url":"localhost:3000/res-widget/widget1/widget1/"},{"_id":"widget2","config":[{"name":"area_color","title":"Area Color","type":"text","value":"#B3ECFF"},{"name":"title","title":"Title Chart","type":"text","value":"Example Widget 1"},{"data":"left,right","name":"title_align","title":"column menu","type":"dropdown","value":"left"}],"dataSourceId":["json_local"],"description":"sample widget 2, uploaded for testing purpose","params":null,"title":"widget 2","url":"localhost:3000/res-widget/widget2/widget2/"},{"_id":"widget3","config":[{"name":"pagesize","title":"page size","type":"number","value":"2"},{"name":"filterable","title":"filter","type":"bool","value":true},{"name":"columnMenu","title":"column menu","type":"bool","value":true},{"name":"area_color","title":"Area Color","type":"text","value":"#B3ECFF"},{"name":"title","title":"Title Chart","type":"text","value":"Example Widget 1"},{"data":"left,right","name":"title_align","title":"column menu","type":"dropdown","value":"left"}],"dataSourceId":["json_local"],"description":"sample widget 3, uploaded for testing purpose","params":null,"title":"widget 3","url":"localhost:3000/res-widget/widget3/widget3/"}]
+[{
+    "_id": "widget4",
+    "config": [{
+        "name": "chartBackground",
+        "title": "Chart Background",
+        "type": "text",
+        "value": "transparent"
+    }],
+    "description": "sample widget 4, uploaded for testing purpose",
+    "title": "widget 4"
+}]

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Widget Setting</title>
+	<script src="assets/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+	<!-- kendo-ui -->
+	<link href="assets/kendo-ui/styles/kendo.default.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.common-bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
+	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+	<style type="text/css">
+		.k-widget.k-dropdown, .k-widget.k-numerictextbox{
+			width: 100%;
+		}
+	</style>
+</head>
+	<body>
+		<div id="page-container">
+			<form class="form-horizontal" id="widgetSettingForm">
+				<div class="col-sm-12">
+					<div class="row">
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="col-sm-2 control-label">data Source 1 (dsChart)</label>
+								<div class="col-sm-10">
+							  		<input type="text" class="form-control" name="ds01" value="" disabled="disable" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Chart Title</label>
+								<div class="col-sm-10">
+							  		<input required type="text" class="form-control" name="chart-title" value="" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Use Legend ?</label>
+								<div class="col-sm-10">
+							  		<input required type="checkbox" class="form-control" name="chart-legend" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Series 1 (Bar)</label>
+								<div class="col-sm-10">
+							  		<select class="form-control fields-ds" name="chart-series-1"></select>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-2 control-label">Series 2 (Line)</label>
+								<div class="col-sm-10">
+							  		<select class="form-control fields-ds" name="chart-series-2"></select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	var $ds01 = $("[name='ds01']");
+	var $inputChartTitle = $("[name='chart-title']");
+	var $inputUseLegend = $("[name='chart-legend']");
+	var $inputSeries1 = $("[name='chart-series-1']");
+	var $inputSeries2 = $("[name='chart-series-2']");
+
+	function Load(dataSources, config) {
+		$ds01.val(dataSources.dsChart.dataSource);
+
+		$("<option />").val("").html("Select one").appendTo($inputSeries1);
+		$("<option />").val("").html("Select one").appendTo($inputSeries2);
+
+		dataSources.dsChart.fields.forEach(function (d) {
+			$("<option />").val(d).html(d).appendTo($inputSeries1);
+			$("<option />").val(d).html(d).appendTo($inputSeries2);
+		});
+
+		if ([undefined, null].indexOf(config) == -1) {
+			$inputChartTitle.val(config.chartTitle);
+			$inputUseLegend.val(config.useLegend);
+			$inputSeries1.val(config.series1);
+			$inputSeries2.val(config.series2);
+		}
+	};
+
+	function Save() {
+		var config = {
+			chartTitle: $inputChartTitle.val(),
+			useLegend: $inputUseLegend.val(),
+			series1: $inputSeries1.val(),
+			series2: $inputSeries2.val()
+		};
+
+		return config;
+	};
+</script>
