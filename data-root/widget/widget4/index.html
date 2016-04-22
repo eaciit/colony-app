@@ -23,22 +23,22 @@
 </html>
 
 <script>
-	function Render(dataSources, dataSourcesInfo, config) {
+	function Render(dataEachDS, configWidgetPage, configWidget) {
 		$("#chart").kendoChart({
 			title: {
-				text: setting.title,
-				align: setting.title_align
+				text: configWidgetPage.chartTitle
 			},
 			chartArea: {
-				background: setting.area_color
+				background: configWidget.chartBackground
 			},
 			categoryAxis: {
-				field: "className"
+				field: configWidgetPage.categoryAxis
 			},
 			series: [
-				{ field: dataSources.dsChart. }
+				{ field: configWidgetPage.series1, type: "line" },
+				{ field: configWidgetPage.series2, type: "bar" }
 			],
-			dataSource: datasource[0].Data,
+			dataSource: dataEachDS.dsChart
 		});
 	}
 </script>
