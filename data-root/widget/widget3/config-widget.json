@@ -1,25 +1,3 @@
-[
-  {
-    "dataSources": [
-      {
-        "dataSource": "ds01",
-        "fields": [
-          {
-            "className": "",
-            "totalStudents": ""
-          }
-        ]
-      },
-      {
-        "dataSource": "ds02",
-        "fields": [
-          {
-            "name": "",
-            "country": "",
-            "message": ""
-          }
-        ]
-      }
-    ]
-  }
-]
+{
+    "dataSources": ["dsGrid"]
+}
