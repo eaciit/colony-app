@@ -25,89 +25,24 @@
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">
-								<label class="col-sm-2 control-label">data source</label>
+								<label class="col-sm-2 control-label">data Source 1 (dsGrid)</label>
 								<div class="col-sm-10">
-							  		<input type="text" class="form-control source1" value="" disabled="disable" />
+							  		<input type="text" class="form-control" name="ds01" disabled="disable" />
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label">className</label>
+								<label class="col-sm-2 control-label">Column 1</label>
 								<div class="col-sm-10">
-							  		<select class="form-control fields-ds" id="ds11">
-									  <option>1</option>
-									  <option>2</option>
-									  <option>3</option>
-									  <option>4</option>
-									  <option>5</option>
-									</select>
+							  		<select required class="form-control" name="column-1"></select>
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-sm-2 control-label">totalStudents</label>
+								<label class="col-sm-2 control-label">Column 2</label>
 								<div class="col-sm-10">
-							  		<select class="form-control fields-ds" id="ds21">
-									  <option>1</option>
-									  <option>2</option>
-									  <option>3</option>
-									  <option>4</option>
-									  <option>5</option>
-									</select>
+							  		<select required class="form-control" name="column-2"></select>
 								</div>
 							</div>
 						</div>
-						<div class="col-sm-6">
-							<div class="form-group">
-								<label class="col-sm-2 control-label">data source</label>
-								<div class="col-sm-10">
-							  		<input type="text" class="form-control source2" value="" disabled="disable" />
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">name</label>
-								<div class="col-sm-10">
-							  		<select class="form-control fields-ds" id="ds12">
-									  <option>1</option>
-									  <option>2</option>
-									  <option>3</option>
-									  <option>4</option>
-									  <option>5</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">country</label>
-								<div class="col-sm-10">
-							  		<select class="form-control fields-ds" id="ds22">
-									  <option>1</option>
-									  <option>2</option>
-									  <option>3</option>
-									  <option>4</option>
-									  <option>5</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="inputPassword" class="col-sm-2 control-label">message</label>
-								<div class="col-sm-10">
-							  		<select class="form-control fields-ds" id="ds32">
-									  <option>1</option>
-									  <option>2</option>
-									  <option>3</option>
-									  <option>4</option>
-									  <option>5</option>
-									</select>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label for="inputPassword" class="col-sm-2 control-label"></label>
-					<div class="col-sm-10">
-				  		<button type="button" class="btn btn-sm btn-primary" id="save">
-							<span class="glyphicon glyphicon-save"></span> Save
-						</button>
 					</div>
 				</div>
 			</form>
@@ -116,70 +51,33 @@
 </html>
 
 <script type="text/javascript">
-	parent.pde.AdjustIframeHeight(document.getElementById("page-container").scrollHeight); //mandatory, adjust for your iframe height
+	var $ds01 = $("[name='ds01']");
+	var $column1 = $("[name='column-1']");
+	var $column2 = $("[name='column-2']");
 
-	function DsFields(field, pageId, property){
-		// console.log(field, pageId, property)
-		$(".source1").val(property.dataSources[0][field[0]._id])
-		var dsArray1 = [11,21];
-		$.each(dsArray1, function(key, val) {
-			$("#ds"+val).kendoDropDownList({
-				dataSource: field[0].fields,
-				optionLabel: "Choose One"
-			});
+	function SetFormData(dataSources, config) {
+		$ds01.val(dataSources.dsGrid.dataSource);
+
+		$("<option />").val("").html("Select one").appendTo($column1);
+		$("<option />").val("").html("Select one").appendTo($column2);
+
+		dataSources.dsGrid.fields.forEach(function (d) {
+			$("<option />").val(d).html(d).appendTo($column1);
+			$("<option />").val(d).html(d).appendTo($column2);
 		});
 
-		$(".source2").val(property.dataSources[1][field[1]._id])
-		var dsArray2 = [12,22,32];
-		$.each(dsArray2, function(key, val) {
-			$("#ds"+val).kendoDropDownList({
-				dataSource: field[1].fields,
-				optionLabel: "Choose One"
-			});
-		});
+		if ([undefined, null].indexOf(config) == -1) {
+			$column1.val(config.column1);
+			$column2.val(config.column2);
+		}
+	};
 
-		$("#save").click(function() {
-			ds1fields = [];
-			ds1obj = {};
-			ds1obj.className = $("#ds11").val();
-			ds1obj.totalStudents = $("#ds21").val();
-			ds1fields.push(ds1obj)
+	function GetFormData() {
+		var config = {
+			column1: $column1.val(),
+			column2: $column2.val()
+		};
 
-			ds1objFields = {};
-			ds1objFields.fields = ds1fields
-
-			ds2fields = [];
-			ds2obj = {};
-			ds2obj.name = $("#ds12").val();
-			ds2obj.country = $("#ds22").val();
-			ds2obj.message = $("#ds32").val();
-			ds2fields.push(ds2obj)
-
-			ds2objFields = {};
-			ds2objFields.fields = ds2fields
-
-			// property.dataSources
-			$.extend(property.dataSources[0], ds1objFields);
-			$.extend(property.dataSources[1], ds2objFields);
-			var param = {
-				pageId: pageId,
-				widget: property
-			}
-			// console.log(property.dataSources)
-			$.ajax({
-				type: "POST",
-				url: "/page/savedesigner",
-				dataType: "json",
-				data: JSON.stringify(param),
-				contentType: 'application/json; charset=utf-8',
-				success: function(e) {
-					if (e.success == true) {
-						alert("Save Success")
-						// console.log(e.data)
-						window.parent.closeModal();
-					}
-				}
-			});
-		});
-	}
+		return config;
+	};
 </script>

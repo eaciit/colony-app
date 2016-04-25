@@ -1,1 +1,16 @@
-[{"_id":"widget4","config":[{"name":"chartBackground","title":"Chart Background","type":"text","value":"transparent"}],"description":"sample widget 4, uploaded for testing purpose","title":"widget 4 testing"}]
+[{
+    "_id": "widget4",
+    "config": [{
+        "name": "chartBackground",
+        "title": "Chart Background",
+        "type": "text",
+        "value": "transparent"
+    }],
+    "description": "sample widget 4, uploaded for testing purpose",
+    "title": "Chart Widget"
+},{
+    "_id": "widget3",
+    "config": [],
+    "description": "sample widget 3, uploaded for testing purpose",
+    "title": "Grid Widget"
+}]

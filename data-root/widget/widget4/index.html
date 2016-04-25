@@ -24,7 +24,7 @@
 
 <script>
 	function Render(dataEachDS, configWidgetPage, configWidget) {
-		$("#chart").kendoChart({
+		var config = {
 			title: {
 				text: configWidgetPage.chartTitle
 			},
@@ -38,7 +38,12 @@
 				{ field: configWidgetPage.series1, type: "line" },
 				{ field: configWidgetPage.series2, type: "bar" }
 			],
-			dataSource: dataEachDS.dsChart
-		});
+			dataSource: {
+				data: dataEachDS.dsChart
+			}
+		};
+
+		$("#chart").replaceWith('<div id="chart"></div>');
+		$("#chart").kendoChart(config);
 	}
 </script>
