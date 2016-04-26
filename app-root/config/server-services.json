@@ -1,0 +1,7 @@
+[
+    { "name": "Hive", "_id": "hive" },
+    { "name": "Hive Server 2", "_id": "hiveserver2" },
+    { "name": "Pig", "_id": "pig" },
+    { "name": "Sqoop", "_id": "sqoop" },
+    { "name": "Map Reduce", "_id": "mapred" }
+]
