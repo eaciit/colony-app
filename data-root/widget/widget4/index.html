@@ -23,6 +23,55 @@
 </html>
 
 <script>
+	var dataEachDS = {
+        "dsChart": [{
+            "className": "10 RPL 1",
+            "totalStudents": 30
+        }, {
+            "className": "10 RPL 2",
+            "totalStudents": 30
+        }, {
+            "className": "10 TKJ 1",
+            "totalStudents": 30
+        }, {
+            "className": "10 TKJ 2",
+            "totalStudents": 30
+        }, {
+            "className": "11 RPL 1",
+            "totalStudents": 30
+        }, {
+            "className": "11 RPL 2",
+            "totalStudents": 30
+        }]
+    };
+
+    var configWidgetPage = {
+        "categoryAxis": "className",
+        "chartTitle": "ez chart",
+        "series1": "totalStudents",
+        "series2": "totalStudents",
+        "useLegend": true
+    };
+
+    var configWidget = {
+        "name": "chartBackground",
+        "title": "Chart Background",
+        "type": "text",
+        "value": "transparent"
+    };
+
+    function Test() {
+    	Render(dataEachDS, configWidgetPage, configWidget);
+    }
+
+    $(function () {
+    	if (document.URL.search("file") > -1) {
+    		Test();
+    	}
+    });
+</script>
+
+<script>
 	function Render(dataEachDS, configWidgetPage, configWidget) {
 		var config = {
 			title: {
