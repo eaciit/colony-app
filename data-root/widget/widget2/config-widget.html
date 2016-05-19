@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Widget Setting</title>
+	<script src="assets/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+	<!-- kendo-ui -->
+	<link href="assets/kendo-ui/styles/kendo.default.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.common-bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
+	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+	<script src="assets/knockout/knockout-3.4.0.js"></script>
+	<script src="assets/knockout/knockout.mapping.js"></script>
+	<style type="text/css">
+		.k-widget.k-dropdown, .k-widget.k-numerictextbox{
+			width: 100%;
+		}
+		.align-right {
+			text-align: right;
+		}
+	</style>
+	<script>var vm = new Object();</script>
+	<script type="text/javascript">
+		vm.templateColumn = {
+			name: "",
+			field: ""
+		};
+		vm.templateConfig = {
+			columns: [],
+			filterable: false,
+			sortable: true,
+			resizable: false
+		};
+		vm.config = ko.mapping.fromJS(vm.templateConfig);
+		vm.addColumn = function () {
+			var column = ko.mapping.fromJS(vm.templateColumn);
+			vm.config.columns.push(column);
+		};
+
+		window.top.window.vm1 = vm;
+
+		console.log(vm);
+
+
+		function SetFormData(dataSources, config) {
+			// $ds01.val(dataSources.dsGrid.dataSource);
+
+			// $("<option />").val("").html("Select one").appendTo($column1);
+			// $("<option />").val("").html("Select one").appendTo($column2);
+
+			// dataSources.dsGrid.fields.forEach(function (d) {
+			// 	$("<option />").val(d).html(d).appendTo($column1);
+			// 	$("<option />").val(d).html(d).appendTo($column2);
+			// });
+
+			// if ([undefined, null].indexOf(config) == -1) {
+			// 	$column1.val(config.column1);
+			// 	$column2.val(config.column2);
+			// }
+		};
+
+		function GetFormData() {
+			return "";
+			// var config = {
+			// 	column1: $column1.val(),
+			// 	column2: $column2.val()
+			// };
+
+			// return config;
+		};
+	</script>
+</head>
+	<body>
+		<div id="page-container">
+			<form class="form-horizontal" id="widgetSettingForm" data-bind="with: vm">
+				<div class="col-md-4 col-xs-4">
+					<input type="checkbox" data-bind="checked: config.filterable" />
+					<label>Filterable</label>
+				</div>
+				<div class="col-md-4 col-xs-4">
+					<input type="checkbox" data-bind="checked: config.sortable" />
+					<label>Sortable</label>
+				</div>
+				<div class="col-md-4 col-xs-4">
+					<input type="checkbox" data-bind="checked: config.resizable" />
+					<label>Resizable</label>
+				</div>
+				<div class="clearfix"></div>
+				<div class="col-md-12 col-xs-12">
+					Columns
+					<button class="btn btn-sm btn-primary" data-bind="click: addColumn">
+						<span class="glyphicon glyphicon-plus"></span> Add Column
+					</button>
+				</div>
+				<div class="col-md-12 col-xs-12" data-bind="foreach: config.columns">
+					<div class="col-md-6 col-xs-6">
+						<label class="col-md-6 col-xs-6 align-right">Name :</label>
+						<input type="text" data-bind="value: name" />
+					</div>
+					<div class="col-md-6 col-xs-6">
+						<label class="col-md-6 col-xs-6 align-right">Field :</label>
+						<input type="text" data-bind="value: field" />
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</form>
+		</div>
+		<script>ko.applyBindings(vm);</script>
+	</body>
+</html>
