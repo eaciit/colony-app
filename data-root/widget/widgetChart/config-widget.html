@@ -7,6 +7,9 @@
 	<script src="assets/knockout/knockout-3.4.0.js"></script>
 	<script src="assets/knockout/knockout.mapping.js"></script>	
 	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+
+	<script src="assets/knockout-kendo/knockout-kendo.min.js"></script>
+	
 	<!-- <script src="assets/jscolor.js"></script> -->
 	<script src="assets/moment/moment.min.js"></script>
 	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -21,7 +24,7 @@
 			width: 100%;
 		}
 		body {
-			height: 2000px;
+			height: 1000px;
 		}
 
 		.head_title {
@@ -40,254 +43,203 @@
 			padding: 6px 6px 6px 6px;
 		}
 	</style>
+	<script>var vm = new Object();</script>
+	<script type="text/javascript">
+
+		vm.templateConfig = {
+			title : {
+		 		text: ""
+		 	},
+		 	defaultType:"",
+			legend:{
+		 		visible:"",
+		 		position:""
+		 	},
+		 	chartArea:{
+		 		background:""
+		 	},
+		 	categoryAxis: {
+				field:""
+		 	},
+			tooltip:"",
+		 	series: []
+		}
+		
+		vm.templateConfigSeries  =  {
+			name :"",
+			field:"",
+			type :"",
+			data :"",
+			id   :""
+		}
+		
+		vm.templateDataSource = {
+			dsChart:{
+				dataSource:"",
+				fields:""
+			}
+		}
+		
+		vm.templateFields = {
+			name:""
+		}
+		
+		vm.tamplateLegend = [{
+			name:"top",
+		},{
+			name:"bottom",
+		},{
+			name:"right",
+		},{
+			name:"left",
+		}];
+		
+		vm.templateTypeSeries =[{
+			name:"line",
+		},{
+			name:"bar"
+		}];
+
+		vm.config = ko.mapping.fromJS(vm.templateConfig);
+		vm.dataSource = ko.mapping.fromJS(vm.templateDataSource);
+		vm.fields = ko.observableArray([])
+		vm.legend = ko.mapping.fromJS(vm.tamplateLegend)
+		vm.typeSeries = ko.mapping.fromJS(vm.templateTypeSeries)
+
+		vm.addSeries = function () {
+			var series = $.extend(true, {}, vm.templateConfigSeries);
+	    	series.id = "s" + moment.now();
+
+	    	var config = ko.mapping.toJS(vm.config);
+	    	config.series.push(series);
+	    	ko.mapping.fromJS(config, vm.config);
+		};
+
+		vm.getConfig = function () {
+			return ko.mapping.toJS(vm.config);
+		}
+
+		// ko.mapping.toJS($("#WidgetSetting iframe")[0].contentWindow.vm.config)
+
+		vm.removeSeries = function(each){
+			return function () {
+				vm.config.series.remove(each);
+			};
+	    };
+
+		function SetFormData(dataSources, config) {
+			ko.mapping.fromJS(dataSources, vm.dataSource);
+		
+			dataSources.dsChart.fields.forEach(function (d) {
+            	var each = $.extend(true, {}, vm.templateFields);
+            	each.name = ko.observable(d);
+      
+           		vm.fields.push(each);
+      		});
+
+      		ko.mapping.fromJS(config,vm.config)
+		};
+
+		function GetFormData() {
+			config = ko.mapping.toJS(vm.config);
+			config.legend.visible = (config.legend.position === "")? false : true; 
+			
+			$.each(config.series,function(index,value){
+				// console.log(value.type)
+				if(value.type === ""){
+					config.series[index].type = config.defaultType;
+				}
+				// console.log(config.series[index].type)
+			});
+			// console.log(config)
+		return config;
+		};
+	</script>
 </head>
 	<body>
 		<div id="page-container">
-			<form class="form-horizontal" id="widgetSettingForm">
-				<div class="col-sm-12">
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="form-group">
-								<label class="col-sm-2 control-label">data Source 1 (dsChart)</label>
-								<div class="col-sm-10">
-							  	<input type="text" class="form-control" name="ds01" disabled="disable" />
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Category Axis</label>
-								<div class="col-sm-10">
-							  		<select required class="form-control" name="chart-category-axis"></select>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Chart Title</label>
-								<div class="col-sm-10">
-							  		<input required type="text" class="form-control" name="chart-title"></select>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Legend</label>
-								<div class="col-sm-10">
-								<select style="width: 100%;" class="form-control" name="chart-legend">
-							  			<option value="">None</option>
-							  			<option value="top">Top</option>
-							  			<option value="bottom">Bottom</option>
-							  			<option value="left">Left</option>
-							  			<option value="right">Right</option>
-							  		</select>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Series Default</label>
-								<div class="col-sm-10">
-							  		<select style="width: 100%;" class="form-control" name="chart-default-type-series">
-							  			<option value="line">line</option>
-										<option value="bar">Bar</option>
-							  		</select>
-								</div>
-							</div>
-						</div>
-						</div>
-
-						<div class="head_title">series</div>
-						<div class="col-xs-12">
-						<div class="form-group">
-								<button type='button' class="btn btn-primary btn-sm" 
-								data-bind="click: addSeries()">
-				        			<span class="glyphicon glyphicon-plus"></span> Add
-				        		</button>
-				       	</div>
-						</div>
-						<table width="100%">
-							<thead>
-							<tr>
-								<td width="30%">
-									<div class="form-group">
-									<label class="col-sm-2 control-label">Name</label>
-									
-									</div>
-								</td>
-								<td width="30%"
-									<div class="form-group">
-									<label class="col-sm-2 control-label">Field</label>
-								
-									</div>
-								</td>
-								<td width="30%"
-									<div class="form-group">
-									<label class="col-sm-2 control-label">Type</label>
-
-									</div>
-								</td>
-								<td width="30%"
-									<div class="form-group" align="center">
-									<label class="col-sm-2 control-label">Options</label>
-									</div>
-								</td>
-								</tr>
-							</thead>
-						<tbody data-bind="foreach: series">
-							<tr>
-							<td>
-			        			<input required type="text" class="form-control" name="chart-series-name"></select>
-			        		</td>
-			        		<td>
-
-			        			<select required class="form-control" name="chart-series-field"></select>
-			        		</td>
-			        		<td>
-			        			<select style="width: 100%;" class="form-control" name="chart-series-type">
-							  	<option value="">Select one</option>
-							  	<option value="line">line</option>
-								<option value="bar">Bar</option>
-							  	</select>
-			        		</td>
-			        		<td>
-			        			<button  type='button' class="btn btn-sm btn-danger" data-bind="visible: ($index() > 0)">
-			        			<span index='0' class="glyphicon glyphicon-remove" data-bind="click: vm.removeSeries($data)" ></span>
-			        			</button>
-			        		</td>
-							</tr>
-						</tbody>
-						</table>
-						</div>
+			<form class="form-horizontal" id="widgetSettingForm" data-bind="with: vm">
+			<div class="col-sm-12">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">data Source 1 (dsChart)</label>
+					<div class="col-sm-10">
+					<input type="text" class="form-control" data-bind="value:dataSource.dsChart.dataSource" disabled="disable" />
 					</div>
 				</div>
-			</form>
+
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Chart Title</label>
+					<div class="col-sm-10">
+					<input required type="text" class="form-control" data-bind="value: config.title.text">
+					</div>
+				</div>
+
+				<div class="form-group">
+			 	<label class="col-sm-2 control-label">Catgory Axis</label>
+			 		<div class="col-sm-10">
+					<input name="" style="width: 100%;" required data-bind="kendoDropDownList : {value: config.categoryAxis.field, data: fields, dataTextField: 'name', dataValueField: 'name', optionLabel: 'Select one'}" id="appLanguage"/>
+					</div>
+				</div>
+				<div class="form-group">
+			 	<label class="col-sm-2 control-label">Legend</label>
+			 		<div class="col-sm-10">
+					<input style="width: 100%;" required data-bind="kendoDropDownList : {value:config.legend.position, data: legend, dataTextField: 'name', dataValueField: 'name', optionLabel: 'none'}" id="appLanguage"/>
+					</div>
+				</div>
+				<div class="form-group">
+			 	<label class="col-sm-2 control-label">Series Type Default</label>
+			 		<div class="col-sm-10">
+					<input  style="width: 100%;" required data-bind="kendoDropDownList : {value:config.defaultType, data: typeSeries, dataTextField: 'name', dataValueField: 'name', optionLabel: 'none'}" id="appLanguage"/>
+					</div>
+				</div>
+				</div>
+
+				<div class="clearfix"></div>
+				<div class="col-md-12 col-xs-12">
+					
+					<button class="btn btn-sm btn-primary" data-bind="click: addSeries">
+						<span class="glyphicon glyphicon-plus"></span> Add Series
+					</button>
+				</div>
 			
+				<div  data-bind="foreach: config.series">
+					<div class="col-md-12 col-xs-12">
+					
+					<div class="col-md-3 col-xs-3">
+						<label class="col-md-12 col-xs-12">Name :</label>
+						<input class="form-control" type="text" data-bind="value: name" />
+					</div>
+					
+					<div class="col-md-3 col-xs-3">
+						<label class="col-md-12 col-xs-12">Field :</label>
+					
+							<input style="width: 100%;" required data-bind="kendoDropDownList : {value: field, data: vm.fields, dataTextField: 'name', dataValueField: 'name', optionLabel: 'Select one'}" id="appLanguage"/>
+
+					</div>
+					
+					<div class="col-md-3 col-xs-3">
+						<label class="col-md-12 col-xs-12">Type :</label>
+						<input style="width: 100%;" required data-bind="kendoDropDownList : {value: vm.config.series()[$index()].type, data: vm.typeSeries, dataTextField: 'name', dataValueField: 'name', optionLabel: 'none'}" id="appLanguage"/>
+					</div>
+					
+					
+					<div class="col-md-3 col-xs-3" style="padding: 10">
+						<label class="col-md-12 col-xs-12" >Option</label>
+
+						<button  type='button' class="btn btn-sm btn-danger" 
+						 data-bind="click: vm.removeSeries($data)">
+			        	
+			        	<span index='0' class="glyphicon glyphicon-remove" ></span>
+			        	
+			        	</button>
+			        </div>
+
+					</div>
+				</div>
+				<div class="clearfix"></div>
+				<button onclick="GetFormData()"></button>
+			</form>
 		</div>
-		<button style="margin-top:100px" onclick="GetFormData()">Check</button>
+		<script>ko.applyBindings(vm);</script>
 	</body>
 </html>
-
-<script type="text/javascript">
-	var indexSeries = 1;
-	var $ds01 = $("[name='ds01']");
-	var $inputChartTitle = $("[name='chart-title']");
-	var $inputCategoryAxis = $("[name='chart-category-axis']");
-	var $inputLegend  = $("[name='chart-legend']");
-	var $inputDefTypeSeries  = $("[name='chart-default-type-series']");
-	var $inputSeriesName   = $("[name='chart-series-name']");
-	var $inputSeriesField  = $("[name='chart-series-field']");
-	var $inputSeriesType  = $("[name='chart-series-type']");
-
-	var templateConfig = {
-		 title : {
-		 	text: ""
-		 },
-		 legend:{
-		 	visible:"",
-		 	position:""
-		 },
-		 chartArea:{
-		 	background:""
-		 },
-		 categoryAxis: {
-			field:""
-		 },
-		 tooltip:"",
-		 series: []
-	}
-	var templateConfigSeries  =  {
-		name :"",
-		field:"",
-		type :"",
-		data :""
-	}
-	var configMap = ko.mapping.fromJS(templateConfig)
-	var configSeriesMap = ko.mapping.fromJS(templateConfigSeries)
-
-	templateSeries = { id: ''};
-
-	function VM(){
-		self = this;
-		self.series = ko.observableArray();
-	    self.addSeries = function(){
-	    	return function () {
-	    		var newSeries = $.extend(true, {}, templateSeries);
-	    		newSeries.id = "s" + moment.now();
-			 	indexSeries += 1;
-			 	self.series.push(newSeries);
-	    	}
-		};
-	    self.removeSeries = function(each){
-			return function () {
-				self.series.remove(each);
-				indexSeries -= 1;
-				console.log(indexSeries);
-			}
-	    };
-	}
-
-
-
-	function SetFormData(dataSources, config) {
-		
-		$ds01.val(dataSources.dsChart.dataSource);
-		$("<option />").val("").html("Select one").appendTo($inputCategoryAxis);
-		$("<option />").val("").html("Select one").appendTo($inputSeriesField);
-
-		dataSources.dsChart.fields.forEach(function (d) {
-			$("<option />").val(d).html(d).appendTo($inputCategoryAxis);
-			$("<option />").val(d).html(d).appendTo($inputSeriesField);
-		});
-
-		vm = new VM();
-		ko.applyBindings(vm);
-
-		if ([undefined, null].indexOf(config) == -1) {
-			$inputChartTitle.val(config.title.text);
-			$inputCategoryAxis.val(config.categoryAxis.field);
-			$inputLegend.val(config.legend.position);
-			
-			indexSeries = Object.keys(config.series).length;
-			for(i=0; i<indexSeries; i++){
-				newSeries = $.extend(true, {}, templateSeries);
-	    		newSeries.id = "s" + moment.now();
-			 	vm.series.push(newSeries);
-				$("[name='chart-series-name']").eq(i).val(config.series[i].name);
-				$("[name='chart-series-field']").eq(i).val(config.series[i].field);
-				$("[name='chart-series-type']").eq(i).val(config.series[i].type);
-			}	
-		}else{
-			vm.series().push(templateSeries);
-			vm.series.valueHasMutated()
-		}
-	};
-
-	function GetFormData() {
-		var currentConfig = ko.mapping.toJS(configMap);
-
-		currentConfig.title.text = $inputChartTitle.val();
-		currentConfig.legend.visible = ($inputLegend.val() ==="" )? false :true;
-	    currentConfig.legend.position = ($inputLegend.val() === "" )? "" :$inputLegend.val();
-		currentConfig.categoryAxis.field = $inputCategoryAxis.val();
-		
-
-		var currentConfigSeries =  ko.mapping.toJS(configSeriesMap);
-
-		currentConfig.series = [];
-		for(i=0; i<indexSeries; i++){
-			
-			seriesNameVal  = String($("[name='chart-series-name']").eq(i).val());
-			seriesFieldVal = String($("[name='chart-series-field']").eq(i).val());
-			seriesTypeVal  = String($("[name='chart-series-type']").eq(i).val());
-			
-
-			currentConfigSeries.name = (seriesNameVal === "")? seriesFieldVal :seriesNameVal;
-			currentConfigSeries.field = seriesFieldVal;
-			currentConfigSeries.type = seriesTypeVal;
-		
-			currentConfig.series.push(currentConfigSeries);
-		
-		}
-		console.log(currentConfig.series)
-	
-		return currentConfig;
-	};
-
-</script>
