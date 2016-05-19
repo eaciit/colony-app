@@ -1,0 +1,11 @@
+[{
+	"name": "filterable",
+	"title": "Filterable",
+	"type": "checkbox",
+	"value": false
+}, {
+	"name": "resizable",
+	"title": "Resizable",
+	"type": "checkbox",
+	"value": false
+}]

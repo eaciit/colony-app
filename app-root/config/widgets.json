@@ -1,4 +1,14 @@
 [{
+    "_id": "widget2",
+    "config": [],
+    "description": "sample widget 2, uploaded for testing purpose",
+    "title": "Grid Testing"
+},{
+    "_id": "widget3",
+    "config": [],
+    "description": "sample widget 3, uploaded for testing purpose",
+    "title": "Grid Widget"
+},{
     "_id": "widget4",
     "config": [{
         "name": "chartBackground",
@@ -8,9 +18,4 @@
     }],
     "description": "sample widget 4, uploaded for testing purpose",
     "title": "Chart Widget"
-},{
-    "_id": "widget3",
-    "config": [],
-    "description": "sample widget 3, uploaded for testing purpose",
-    "title": "Grid Widget"
 }]
