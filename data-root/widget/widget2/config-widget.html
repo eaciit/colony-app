@@ -12,14 +12,22 @@
 	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
 	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
 	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+	<!-- knockout -->
 	<script src="assets/knockout/knockout-3.4.0.js"></script>
 	<script src="assets/knockout/knockout.mapping.js"></script>
+	<!-- knockout-kendo -->
+	<script src="assets/knockout-kendo/knockout-kendo.min.js"></script>	
+	<!-- lazyjs -->
+	<script src="assets/lazyjs/lazy.min.js"></script>
 	<style type="text/css">
 		.k-widget.k-dropdown, .k-widget.k-numerictextbox{
 			width: 100%;
 		}
 		.align-right {
 			text-align: right;
+		}
+		.mgBtm7{
+			margin-bottom: 7px;
 		}
 	</style>
 	<script>var vm = new Object();</script>
@@ -28,8 +36,16 @@
 			name: "",
 			field: ""
 		};
+		vm.pagesize = ko.observableArray([
+			{ value: "5", title: "5" },
+			{ value: "10", title: "10" },
+			{ value: "20", title: "20" },
+			{ value: "25", title: "25" },
+			{ value: "show all", title: "Show All" },
+		]);
 		vm.templateConfig = {
 			columns: [],
+			pagesize: vm.pagesize,
 			filterable: false,
 			sortable: true,
 			resizable: false
@@ -39,10 +55,16 @@
 			var column = ko.mapping.fromJS(vm.templateColumn);
 			vm.config.columns.push(column);
 		};
+		vm.deleteColumn = function (index) {
+			return function () {
+				var item = vm.config.columns()[index];
+				vm.config.columns.remove(item);
+			};
+		};	
 
 		window.top.window.vm1 = vm;
 
-		console.log(vm);
+		// console.log(vm);
 
 
 		function SetFormData(dataSources, config) {
@@ -76,36 +98,59 @@
 	<body>
 		<div id="page-container">
 			<form class="form-horizontal" id="widgetSettingForm" data-bind="with: vm">
-				<div class="col-md-4 col-xs-4">
-					<input type="checkbox" data-bind="checked: config.filterable" />
-					<label>Filterable</label>
-				</div>
-				<div class="col-md-4 col-xs-4">
-					<input type="checkbox" data-bind="checked: config.sortable" />
-					<label>Sortable</label>
-				</div>
-				<div class="col-md-4 col-xs-4">
-					<input type="checkbox" data-bind="checked: config.resizable" />
-					<label>Resizable</label>
-				</div>
-				<div class="clearfix"></div>
-				<div class="col-md-12 col-xs-12">
-					Columns
-					<button class="btn btn-sm btn-primary" data-bind="click: addColumn">
-						<span class="glyphicon glyphicon-plus"></span> Add Column
-					</button>
-				</div>
-				<div class="col-md-12 col-xs-12" data-bind="foreach: config.columns">
-					<div class="col-md-6 col-xs-6">
-						<label class="col-md-6 col-xs-6 align-right">Name :</label>
-						<input type="text" data-bind="value: name" />
+				<div class="col-sm-6">
+					<div class="form-group">
+						<div class="col-sm-12 col-xs-12">
+							<label class="control-label">data Source 1 (dsGrid)</label>
+					  		<input type="text" class="form-control" name="ds01" disabled="disable" />
+						</div>
 					</div>
-					<div class="col-md-6 col-xs-6">
-						<label class="col-md-6 col-xs-6 align-right">Field :</label>
-						<input type="text" data-bind="value: field" />
+					<div class="form-group">
+						<label class="col-sm-2 col-xs-2 control-label">Column(s)</label>
+						<div class="col-sm-10 col-xs-10">
+							<a class="btn btn-info btn-xs" data-bind="click: addColumn">
+								<span class="glyphicon glyphicon-plus"></span>
+							</a>											
+						</div>
+					</div>
+					<div class="form-group" data-bind="foreach: config.columns">
+						<div class="col-sm-12 col-xs-12 mgBtm7">
+							<label class="col-sm-1 col-xs-1 control-label">Name</label>
+							<div class="col-sm-5 col-xs-5">
+				  				<input required type="text" data-bind="value: name" name="col-name" />
+							</div>
+							<label class="col-sm-1 col-xs-1 control-label">Field</label>
+							<div class="col-sm-4 col-xs-4">
+				  				<input required type="text" data-bind="value: field" name="col-field" />
+							</div>
+							<div class="col-sm-1 col-xs-1">
+									<a class="btn btn-danger btn-xs pull-right" data-bind="click: vm.deleteColumn($index())">
+										<span class="glyphicon glyphicon-remove"></span>
+									</a>											
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-12 col-xs-12">
+							<label class="control-label">Page Size</label>
+					  		<select name="pagesize" class="full-width" data-bind="kendoDropDownList: { data: vm.pagesize, dataValueField: 'value', dataTextField: 'title', optionLabel: 'Select one' }"></select>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-4 col-xs-4">
+							<input type="checkbox" data-bind="checked: config.filterable" />
+							<label>Filterable</label>
+						</div>
+						<div class="col-md-4 col-xs-4">
+							<input type="checkbox" data-bind="checked: config.sortable" />
+							<label>Sortable</label>
+						</div>
+						<div class="col-md-4 col-xs-4">
+							<input type="checkbox" data-bind="checked: config.resizable" />
+							<label>Resizable</label>
+						</div>
 					</div>
 				</div>
-				<div class="clearfix"></div>
 			</form>
 		</div>
 		<script>ko.applyBindings(vm);</script>
