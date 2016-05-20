@@ -22,98 +22,20 @@
 </body>
 </html>
 <script>
-    // var dataEachDS = {
-    //     "dsChart": [{
-    //         "className": "10 RPL 1",
-    //         "totalStudents": 30
-    //     }, {
-    //         "className": "10 RPL 2",
-    //         "totalStudents": 30
-    //     }, {
-    //         "className": "10 TKJ 1",
-    //         "totalStudents": 30
-    //     }, {
-    //         "className": "10 TKJ 2",
-    //         "totalStudents": 30
-    //     }, {
-    //         "className": "11 RPL 1",
-    //         "totalStudents": 30
-    //     }, {
-    //         "className": "11 RPL 2",
-    //         "totalStudents": 30
-    //     }]
-    // };
-
-    // var configWidgetPage = {
-    //     "categoryAxis": "className",
-    //     "chartTitle": "ez chart",
-    //     "series1": "totalStudents",
-    //     "visibleSeries1":true,
-    //     "series2": "totalStudents",
-    //     "visibleSeries2":true,
-    //     "useLegend": false,
-    //     "useTooltip": true,
-    //     "backgroundColor": true
-    // };
-
-    // var configWidget = {
-    //     "name": "chartBackground",
-    //     "title": "Chart Background",
-    //     "type": "text",
-    //     "value": "transparent"
-    // };
-
-    // function Test() {
-    //     Render(dataEachDS, configWidgetPage, configWidget);
-    // }
-
-    // $(function () {
-    //     if (document.URL.search("file") > -1) {
-    //         Test();
-    //     }
-    // });
 </script>
 
 
 <script>
 	function Render(dataEachDS, configWidgetPage, configWidget) {
+        
         $.each(configWidgetPage.series, function(i,val){
             val.data  = dataEachDS.dsChart;
         });
         configWidgetPage.categoryAxis = configWidget.backgroundColor
-        console.log(configWidgetPage)   
-        // check(dataEachDS)
-        // var tooltip = (configWidgetPage.useTooltip === false) ? {}
-        //        : {
-        //             visible: true,
-        //             background: "green"
-        //          };
-        // var colorSeries1 = (String(configWidgetPage.colorSeries1) === "") ? "" : "#"+configWidgetPage.colorSeries1;
-        // var colorSeries2 = (String(configWidgetPage.colorSeries2) === "") ? "" : "#"+configWidgetPage.colorSeries2
-
-		// var config = {
-
-		// 	title: {
-		// 		text: configWidgetPage.chartTitle
-		// 	},
-		// 	chartArea: {
-		// 		background: configWidget.backgroundColor
-		// 	},
-		// 	categoryAxis: {
-		// 		field: configWidgetPage.categoryAxis
-		// 	},
-  //           tooltip:tooltip,
-            
-		// 	series: [
-		// 		{ name:"dsd", field: configWidgetPage.series1, type: "line", visible:configWidgetPage.visibleSeries1,color:colorSeries1,data: dataEachDS.dsChart},
-		// 		{ name:"dsf", field: configWidgetPage.series2, type: "bar", visible:configWidgetPage.visibleSeries2,color:colorSeries2,data: dataEachDS.dsChart}
-		// 	]
-		// };
+        
 
 		$("#chart").replaceWith('<div id="chart"></div>');
 		$("#chart").kendoChart(configWidgetPage);
 	}
-    function check(ds){
-        console.log(ds);
-    }
+
 </script>
