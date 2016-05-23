@@ -29,32 +29,40 @@
 			width: 100%;
 		}
 		body {
-			height: 1000px;
+			
 			font-size: 13px;
 		}
-
-		.head_title {
-    		background-color: #81daf6;
-    		border-left-color: #7acee9;
-    		border-left-style: solid;
-    		border-left-width: 10px;
-    		color: #FFFFFF;
-    		font-weight: bold;
-    		padding: 5px 5px 5px 5px;
-    		width: 100%;
-    		margin-top: 10px;
-    		margin-bottom: 10px;
+		#page-container{
+			height: 900px;
+			overflow: scroll;
 		}
-		table td{
-			padding: 6px 6px 6px 6px;
-		}
+	/*	.series {
+			height: 250px;
+			overflow: scroll;
+		}*/
+		
 	</style>
 	<script>var vm = new Object();</script>
 	<script type="text/javascript">
 
 		vm.templateConfig = {
 			title : {
-		 		text: ""
+		 		text: "",
+		 		position:"",
+                margin:{
+                	visible: 0,
+                	top:0,
+                	right:0,
+                	bottom:0,
+                	left:0
+                },
+                padding:{
+                	visible: 0,
+                	top:0,
+                	right:0,
+                	bottom:0,
+                	left:0
+                }
 		 	},
 		 	defaultType:"",
 			legend:{
@@ -63,7 +71,13 @@
 		 		position:"",
 		 		labels:{
 		 			font:"",
-		 			color:""
+		 			color:"",
+		 			border: {
+		 				visible: "",
+                        dashType: "",
+                        width: "",
+                    	color:""
+                    }
 		 		}
 		 	},
 		 	tooltip:{
@@ -73,7 +87,7 @@
 		 		background:"",
 		 		border:{
 		 			visible: "",
-		 			width:'',
+		 			width:"",
 		 			color:""
 		 		}
 		 	},
@@ -91,7 +105,8 @@
 			field:"",
 			type :"",
 			data :"",
-			id   :""
+			id   :"",
+			color:""
 		}
 		
 		vm.templateDataSource = {
@@ -105,7 +120,7 @@
 			name:""
 		}
 		
-		vm.tamplateLegend = [{
+		vm.tamplatePositions = [{
 			name:"top",
 		},{
 			name:"bottom",
@@ -121,21 +136,32 @@
 			name:"bar"
 		}];
 		
-		// vm.templateConfigColor = {
-		// 	legendBackColor:"",
-		// 	legendFontColor:"",
-		// 	tooltipBackColor:"",
-		// 	tooltipFontColor:"",
-		// 	tooltipBorderColor:""
-		// };
-		
+		vm.templateBorderStyle = [{
+			name:"dash"
+		},{
+			name:"dashDot"
+		},{
+			name:"dot"
+		},{
+			name:"longDash"
+		},{
+			name:"longDashDot"
+		},{
+			name:"solid"
+		}];
+	
 		vm.config = ko.mapping.fromJS(vm.templateConfig);
-		// vm.configColor = ko.mapping.fromJS(vm.templateConfigColor);
-
 		vm.dataSource = ko.mapping.fromJS(vm.templateDataSource);
 		vm.fields = ko.observableArray([])
-		vm.legend = ko.mapping.fromJS(vm.tamplateLegend)
+		vm.positions = ko.mapping.fromJS(vm.tamplatePositions)
 		vm.typeSeries = ko.mapping.fromJS(vm.templateTypeSeries)
+		vm.borderStyle = ko.mapping.fromJS(vm.templateBorderStyle)
+		
+		vm.showLegend = ko.observable(false);
+		vm.showTooltip = ko.observable(false);
+		vm.showTooltipBorder = ko.observable(false);
+		vm.showTitleMargin = ko.observable(false);
+		vm.showTitlePadding= ko.observable(false);
 
 		vm.addSeries = function () {
 			var series = $.extend(true, {}, vm.templateConfigSeries);
@@ -145,12 +171,12 @@
 
 	    	config.series.push(series);
 	    	ko.mapping.fromJS(config, vm.config);
+	    	$("input[id^='seriesColor']").kendoColorPicker()
 		};
 
 		vm.getConfig = function () {
 			return ko.mapping.toJS(vm.config);
 		}
-
 
 		// ko.mapping.toJS($("#WidgetSetting iframe")[0].contentWindow.vm.config)
 
@@ -159,8 +185,50 @@
 				vm.config.series.remove(each);
 			};
 	    };
+	    vm.titleMarginCheckVisible = function(){
+			config = ko.mapping.toJS(vm.config);
+			vm.showTitleMargin(!config.title.margin.visible)
+	    }
+	     vm.titlePaddingCheckVisible = function(){
+			config = ko.mapping.toJS(vm.config);
+			vm.showTitlePadding(!config.title.padding.visible)
+	    }
+		vm.legendCheckVisible =function(){
+			config = ko.mapping.toJS(vm.config);
+			vm.showLegend(!config.legend.visible);
+			vm.renderColorPicker("legend");
+		}
 
-		
+	    vm.tooltipCheckVisible =function(){
+	    	config = ko.mapping.toJS(vm.config);
+			vm.showTooltip(!config.tooltip.visible);
+			vm.renderColorPicker("tooltip");
+		}
+
+		vm.tooltipBorderCheckVisible =function(){
+			config = ko.mapping.toJS(vm.config);
+			vm.showTooltipBorder(!config.tooltip.border.visible);
+			vm.renderColorPicker("tooltipBorderColor");
+		}
+
+		vm.renderColorPicker = function(id=""){
+			idColor =["legendBackColor","legendFontColor","tooltipBackColor","tooltipFontColor","tooltipBorderColor","seriesColor","legendBorderColor","titleBorderColor"]
+
+      		idColor.forEach(function(e,i){
+      			if(id === ""){
+      				if(e === "seriesColor"){
+      					$("input[id^='"+e+"']").kendoColorPicker()
+      				}
+      				$("#"+e).kendoColorPicker();
+      			}else{
+      				if(e.indexOf(id) !== -1){
+      					$("#"+e).kendoColorPicker();
+      				}
+      			}
+      		});
+      		
+
+		}
 	   
 		function SetFormData(dataSources, config) {
 			ko.mapping.fromJS(dataSources, vm.dataSource);
@@ -170,41 +238,48 @@
       
            		vm.fields.push(each);
       		});
+      		if ([undefined, null].indexOf(config) == -1) {
+	      		vm.showLegend(config.legend.visible)
+	      		vm.showTooltip(config.tooltip.visible)
+				vm.showTooltipBorder(config.tooltip.border.visible)
+				vm.showTitleMargin(config.title.margin.visible)
+				vm.showTitlePadding(config.title.padding.visible)
+			}
       		ko.mapping.fromJS(config,vm.config);
 
-			idColor =["legendBackColor","legendFontColor","tooltipBackColor","tooltipFontColor","tooltipBorderColor"]
-
-      		idColor.forEach(function(e,i){
-      			$("#"+e).kendoColorPicker();
-      		});
-
+			vm.renderColorPicker();
+			
 		};
-		// vm.onChange = function(){
-		// 	console.log("ds")
-		// }
+		
 		function GetFormData() {
-			config = ko.mapping.toJS(vm.config);
-			// configColor = ko.mapping.toJS(vm.configColor);
 
+			config = ko.mapping.toJS(vm.config);
+	
 			config.legend.visible = (config.legend.position === "")? false : true; 
 			
 			$.each(config.series,function(index,value){
-				if(value.type === ""){
+				if(value.type === "")
 					config.series[index].type = config.defaultType;
-				}
 			});
-			console.log(config)
 
-			// idColor.forEach(function(e,i){
-   //    			configColor[e] = $("#"+e).data("kendoColorPicker").value();
-   //    		});
-      		
-			// config.legend.background 	= configColor.legendBackColor;
-			// config.legend.labels.color 	= configColor.legendFontColor;
-			// config.tooltip.color 		= configColor.tooltipFontColor;
-			// config.tooltip.background 	= configColor.tooltipBackColor;
-			// config.tooltip.border.color = configColor.tooltipBorderColor;
+			(config.title.position ==="" )?"top":config.title.position;
+
+
+
+			config.legend.labels.border.width= parseInt(config.legend.labels.border.width);
+			config.tooltip.border.width = parseInt(config.tooltip.border.width)
 			
+			["top","left","bottom","right"].forEach(function(e,i){
+				if(config.title.margin.visible === false){
+					config.title.margin[e] = 0;
+				}
+				if(config.title.padding.visible === false){
+					config.title.padding[e] = 0;
+				}else{
+					config.title.margin[e] = parseInt(config.title.margin[e])
+					config.title.padding[e] = parseInt(config.title.padding[e])
+				}
+			})
 			return config;
 		};
 	</script>
@@ -213,20 +288,166 @@
 		<div id="page-container">
 			<form class="form-horizontal" id="widgetSettingForm" data-bind="with: vm">
 			<div class="col-sm-12">
+
 				<div class="form-group">
 					<label class="col-sm-2 control-label">data Source 1 (dsChart)</label>
 					<div class="col-sm-10">
 					<input type="text" class="form-control" data-bind="value:dataSource.dsChart.dataSource" disabled="disable" />
 					</div>
 				</div>
-					
+			</div>
+
+			<div class="col-xs-8">
 				<div class="form-group">
 					<label class="col-sm-2 control-label">Chart Title</label>
 					<div class="col-sm-10">
 					<input required type="text" class="form-control" data-bind="value: config.title.text">
 					</div>
 				</div>
+			</div>	
+			<div class="col-xs-4">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Title Position</label>
+					<div class="col-sm-10">
+					<input style="width: 100%;" required data-bind="kendoDropDownList : {value:config.title.position, data: positions, dataTextField: 'name', dataValueField: 'name', optionLabel: 'Select One'}"/>
+					</div>
+				</div>
+			</div>
+			
+			<div class="clearfix"></div>
+
+			<div class="col-sm-12">
+				<!-- <div class="col-xs-3 col-md-3">
+				<div class="form-group">
+			 		<label class="col-xs-9 control-label" style="padding: 10">Use Border</label>
+			 		<div class="col-sm-3">
+			 		<input type="checkbox" data-bind="checked: config.title.border.visible" />
+					</div>
+
+				</div>
+				</div>
+
+				<div data-bind="style: { 'visibility': config.title.border.visible() ? 'visible' : 'hidden' }">
+					<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Border width (Px)</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.border.width" class="form-control" >
+					 	</div>
+					</div>
+					</div>
+
+					<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Border Color</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input id="titleBorderColor" data-bind="value: config.title.border.color" type="color" class="form-control" />
+					 	</div>
+					</div>
+					</div>
+
+					<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Border Style</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input style="width: 100%;" required data-bind="kendoDropDownList : {value: config.title.border.dashType, data: borderStyle, dataTextField: 'name', dataValueField: 'name', optionLabel: 'Solid'}"/>
+					 	</div>
+					</div>
+					</div>
+				</div> -->
 				
+			<div class="col-xs-12 col-md-12">
+				<div class="form-group">
+			 	<label class="col-xs-2 control-label">Margin</label>
+			 		<div class="col-sm-10">
+			 		<input type="checkbox" data-bind="checked: config.title.margin.visible" onclick="vm.titleMarginCheckVisible()" />
+					</div> 
+				</div>
+				<div data-bind="if:showTitleMargin">
+
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Top</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.margin.top" class="form-control" >
+					 	</div>
+					</div>
+				</div>
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Right</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.margin.right" class="form-control" >
+					 	</div>
+					</div>
+				</div>	
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Bottom</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.margin.bottom" class="form-control" >
+					 	</div>
+					</div>
+				</div>	
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Left</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.margin.left" class="form-control" >
+					 	</div>
+					</div>
+				</div>
+				</div>	
+			</div>
+
+			<div class="col-xs-12 col-md-12">
+				<div class="form-group">
+			 	<label class="col-xs-2 control-label">Padding</label>
+			 		<div class="col-sm-10">
+			 		<input type="checkbox" data-bind="checked: config.title.padding.visible" onclick="vm.titlePaddingCheckVisible()" />
+					</div> 
+				</div>
+
+				<div data-bind="if:showTitlePadding">
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Top</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.padding.top" class="form-control" >
+					 	</div>
+					</div>
+				</div>
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Right</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.padding.right" class="form-control" >
+					 	</div>
+					</div>
+				</div>	
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Bottom</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.padding.bottom" class="form-control" >
+					 	</div>
+					</div>
+				</div>	
+				<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+					 	<label class="col-sm-2 control-label">Left</label>
+					 	<div class="col-xs-12 col-md-12">
+					 	<input required type="number" data-bind="value: config.title.padding.left" class="form-control" >
+					 	</div>
+					</div>
+				</div>
+				</div>	
+			</div>
+			</div>
+
+			<div class="clearfix"></div>
+
+			<div class="col-sm-12">
 				<div class="form-group">
 			 	<label class="col-sm-2 control-label">Catgory Axis</label>
 			 		<div class="col-sm-10">
@@ -245,24 +466,25 @@
 				<div class="form-group">
 			 	<label class="col-xs-2 control-label">Use Legend</label>
 			 		<div class="col-sm-10">
-			 		<input type="checkbox" data-bind="checked: config.legend.visible" />
+			 		<input type="checkbox" data-bind="checked: config.legend.visible" onclick="vm.legendCheckVisible()" />
 					</div> 
 				</div>
 			
-				<div data-bind="style: { 'visibility': config.legend.visible() ? 'visible' : 'hidden' }">
+				<!-- <div data-bind="style: { 'visibility': config.legend.visible() ? 'visible' : 'hidden' }"> -->
+				<div data-bind="if:showLegend">
 
 					<div class="col-xs-3 col-md-3">
 					<div class="form-group">
 			 		<label class="col-sm-2 control-label">Legend Position</label>
 			 			<div class="col-xs-12 col-md-12">
-						<input style="width: 100%;" required data-bind="kendoDropDownList : {value:config.legend.position, data: legend, dataTextField: 'name', dataValueField: 'name', optionLabel: 'Select One'}"/>
+						<input style="width: 100%;" required data-bind="kendoDropDownList : {value:config.legend.position, data: positions, dataTextField: 'name', dataValueField: 'name', optionLabel: 'Select One'}"/>
 						</div>
 					</div>
 					</div>
 
 					<div class="col-xs-3 col-md-3">
 					<div class="form-group">
-			 			<label class="col-sm-2 control-label">Background Color</label>
+			 			<label class="col-sm-2 control-label">Background</label>
 			 			<div class="col-xs-12 col-md-12">
 			 			<input id="legendBackColor"  data-bind="  value: config.legend.background" type="color" class="form-control" />
 
@@ -286,26 +508,68 @@
 				 		
 						<input id="legendFontColor"  data-bind="  value: config.legend.labels.color" type="color" class="form-control" />
 				 		</div>
-
 					</div>
+					</div>
+					
+					<div class="clearfix"></div>
+
+					<div class="col-xs-3 col-md-3">
+					<div class="form-group">
+			 			<label class="col-xs-10 control-label" style="padding: 10">Use Border</label>
+			 			<div class="col-sm-2">
+			 			<input type="checkbox" data-bind="checked: config.legend.labels.border.visible"/>
+						</div> 
+					</div>
+					</div>
+
+					<div data-bind="style: { 'visibility': config.legend.labels.border.visible() ? 'visible' : 'hidden' }">
+						<div class="col-xs-3 col-md-3">
+						<div class="form-group">
+					 		<label class="col-sm-2 control-label">Border width (Px)</label>
+					 		<div class="col-xs-12 col-md-12">
+					 		<input required type="number" data-bind="value: config.legend.labels.border.width" class="form-control" >
+					 		</div>
+						</div>
+						</div>
+
+						<div class="col-xs-3 col-md-3">
+						<div class="form-group">
+					 		<label class="col-sm-2 control-label">Border Color</label>
+					 		<div class="col-xs-12 col-md-12">
+
+					 		<input id="legendBorderColor" data-bind="value: config.legend.labels.border.color" type="color" class="form-control" />
+					 		</div>
+						</div>
+						</div>
+
+						<div class="col-xs-3 col-md-3">
+						<div class="form-group">
+					 		<label class="col-sm-2 control-label">Border Style</label>
+					 		<div class="col-xs-12 col-md-12">
+					 		<input style="width: 100%;" required data-bind="kendoDropDownList : {value: config.legend.labels.border.dashType, data: borderStyle, dataTextField: 'name', dataValueField: 'name', optionLabel: 'Solid'}"/>
+					 		</div>
+						</div>
+						</div>
+
 					</div>
 
 				</div>
+				
 				
 				<div class="clearfix"></div>
 
 				<div class="form-group">
 			 	<label class="col-xs-2 control-label">Use Tooltip</label>
 			 		<div class="col-sm-10">
-			 		<input type="checkbox" data-bind="checked: config.tooltip.visible" />
+			 		<input type="checkbox" data-bind="checked: config.tooltip.visible" onclick="vm.tooltipCheckVisible()" />
 					</div> 
 				</div>
 
-				<div data-bind="style: { 'visibility': config.tooltip.visible() ? 'visible' : 'hidden' }">
-					
+				<div data-bind="if:showTooltip">
+					<!-- <div data-bind="style: { 'visibility': config.tooltip.visible() ? 'visible' : 'hidden' }"> -->
 					<div class="col-xs-3 col-md-3">
 					<div class="form-group">
-				 		<label class="col-sm-2 control-label">Background Color</label>
+				 		<label class="col-sm-2 control-label">Background</label>
 				 		<div class="col-xs-12 col-md-12">
 				 		<input id="tooltipBackColor"  data-bind="value: config.tooltip.background" type="color" class="form-control" />
 				 		</div>
@@ -334,15 +598,15 @@
 					<div class="form-group">
 			 			<label class="col-sm-9 control-label">Use Border</label>
 			 			<div class="col-md-3">
-			 			<input type="checkbox" data-bind="checked: config.tooltip.border.visible" />
+			 			<input type="checkbox" data-bind="checked: config.tooltip.border.visible" onclick="vm.tooltipBorderCheckVisible()" />
 						</div>
 					</div>
 					</div>
 					
 					<div class="clearfix"></div>
 
-					<div data-bind="style: { 'visibility': (config.tooltip.border.visible() && config.tooltip.visible() ) ? 'visible' : 'hidden' }">
-						
+					<!-- <div data-bind="style: { 'visibility': (config.tooltip.border.visible() && config.tooltip.visible() ) ? 'visible' : 'hidden' }"> -->
+					<div data-bind="if:showTooltipBorder">
 						<div class="col-xs-6 col-md-6">
 						<div class="form-group">
 					 		<label class="col-sm-2 control-label">Border width (Px)</label>
@@ -356,7 +620,8 @@
 						<div class="form-group">
 					 		<label class="col-sm-2 control-label">Tooltip Border Color</label>
 					 		<div class="col-xs-12 col-md-12">
-					 		<input id="tooltipBorderColor" data-bind="config.tooltip.border.color" type="color" class="form-control" />
+
+					 		<input id="tooltipBorderColor" data-bind="value: config.tooltip.border.color" type="color" class="form-control" />
 					 		</div>
 						</div>
 						</div>
@@ -371,11 +636,11 @@
 					<span class="glyphicon glyphicon-plus"></span> Add Series
 				</button>
 				
-				<div  data-bind="foreach: config.series">
+				<div  data-bind="foreach: config.series" class="series">
 					<div class="col-md-12 col-xs-12">
 					
 					<div class="col-md-3 col-xs-3">
-						<label class="col-md-12 col-xs-12">Name :</label>
+						<label class="col-md-12 col-xs-12">Name:</label>
 						<input class="form-control" type="text" data-bind="value: name" />
 					</div>
 					
@@ -386,13 +651,16 @@
 
 					</div>
 					
-					<div class="col-md-3 col-xs-3">
-						<label class="col-md-12 col-xs-12">Type :</label>
+					<div class="col-md-2 col-xs-2 ">
+						<label class="col-md-12 col-xs-12">Type</label>
 						<input style="width: 100%;" required data-bind="kendoDropDownList : {value: vm.config.series()[$index()].type, data: vm.typeSeries, dataTextField: 'name', dataValueField: 'name', optionLabel: 'none'}" id="appLanguage"/>
 					</div>
-					
-					
-					<div class="col-md-3 col-xs-3" style="padding: 10">
+					<div class="col-md-2 col-xs-2">
+						<label class="col-md-12 col-xs-12" >Color</label>
+						<input data-bind="value: color, attr: {'id': 'seriesColor' + $index()}" type="color" class="form-control" />
+			        </div>
+					 
+					<div class="col-md-2 col-xs-2" style="padding: 10">
 						<label class="col-md-12 col-xs-12" >Option</label>
 
 						<button  type='button' class="btn btn-sm btn-danger" 
@@ -406,7 +674,7 @@
 					</div>
 				</div>
 				<div class="clearfix"></div>
-				<button onclick="GetFormData()">S</button>
+			<!-- 	<button onclick="GetFormData()">S</button> -->
 			</form>
 		</div>
 		<script>ko.applyBindings(vm);</script>

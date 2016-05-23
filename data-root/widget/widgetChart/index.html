@@ -31,9 +31,9 @@
         $.each(configWidgetPage.series, function(i,val){
             val.data  = dataEachDS.dsChart;
         });
-        configWidgetPage.categoryAxis = configWidget.backgroundColor
+        configWidgetPage.chartArea.background = configWidget.backgroundColor
         
-
+        console.log(configWidgetPage)
 		$("#chart").replaceWith('<div id="chart"></div>');
 		$("#chart").kendoChart(configWidgetPage);
 	}
