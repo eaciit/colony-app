@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Widget 1</title>
+	<script src="assets/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+	<!-- kendo-ui -->
+	<link href="assets/kendo-ui/styles/kendo.default.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.common-bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
+	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-10">
+			<div id="chart"></div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+</script>
+
+
+<script>
+	function Render(dataEachDS, configWidgetPage, configWidget) {
+        
+        $.each(configWidgetPage.series, function(i,val){
+            val.data  = dataEachDS.dsChart;
+        });
+        configWidgetPage.categoryAxis = configWidget.backgroundColor
+        
+
+		$("#chart").replaceWith('<div id="chart"></div>');
+		$("#chart").kendoChart(configWidgetPage);
+	}
+
+</script>
