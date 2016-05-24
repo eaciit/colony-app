@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Widget Setting</title>
+   <script src="assets/jquery/jquery-2.1.0.min.js"></script>
+   <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+   <!-- kendo-ui -->
+   <link href="assets/kendo-ui/styles/kendo.default.min.css" rel="stylesheet">
+   <link href="assets/kendo-ui/styles/kendo.common-bootstrap.min.css" rel="stylesheet">
+   <link href="assets/kendo-ui/styles/kendo.bootstrap.min.css" rel="stylesheet">
+   <link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
+   <link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
+   <script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+   <!-- knockout -->
+   <script src="assets/knockout/knockout-3.4.0.js"></script>
+   <script src="assets/knockout/knockout.mapping.js"></script>
+   <!-- knockout-kendo -->
+   <script src="assets/knockout-kendo/knockout-kendo.min.js"></script>
+
+   <style type="text/css">
+      .k-widget.k-dropdown, .k-widget.k-numerictextbox{
+         width: 100%;
+      }
+   </style>
+</head>
+   <body>
+      <div id="page-container">
+         <form class="form-horizontal" id="widgetSettingForm">
+            <div class="col-sm-12">
+               <div class="row">
+                  <div class="col-sm-6">
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">data Source 1 (dsSelector)</label>
+                        <div class="col-sm-10">
+                           <input type="text" class="form-control" name="ds01" disabled="disable" />
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Fields</label>
+                        <div class="col-sm-10">
+                           <select required class="form-control" name="fields" multiple></select>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Data Source Destination(s)</label>
+                        <div class="col-sm-10">
+                           <select required class="form-control" name="datasource-destinations" multiple></select>
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Filter Caption</label>
+                        <div class="col-sm-10">
+                           <input required class="form-control" name="filter-caption" />
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Placeholder</label>
+                        <div class="col-sm-4">
+                           <input required class="form-control" name="filter-placeholder" />
+                        </div>
+                     </div>
+                     <div class="form-group">
+                        <label class="col-sm-2 control-label">Filter Value</label>
+                        <div class="col-sm-4">
+                           <input required class="form-control" name="filter-value" />
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
+
+<script type="text/javascript">
+   var $ds01 = $("[name='ds01']");
+   var $fields = $("[name='fields']");
+   var $dsDestination = $("[name='datasource-destinations']");
+   var $filterCaption = $("[name='filter-caption");
+   var $filterPlaceholder = $("[name='filter-placeholder']");
+   var $filterValue = $("[name='filter-value']");
+
+   var datasources = [
+     {
+      "_id":"ds_local_JSONS_file_3",
+      "ConnectionID":"connection_JSONS_from_local",
+      "QueryInfo":{
+         "from":"sample-json-3",
+         "select":"*"
+      },
+      "MetaData":[
+         {
+            "_id":"Duration",
+            "Label":"Duration",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"Email",
+            "Label":"Email",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"LastUpdate",
+            "Label":"LastUpdate",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"LogType",
+            "Label":"LogType",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"Time",
+            "Label":"Time",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"UserName",
+            "Label":"UserName",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"_id",
+            "Label":"_id",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         }
+      ]
+   },
+   {
+      "_id":"ds_JSONS_from_local",
+      "ConnectionID":"connection_JSONS_from_local",
+      "QueryInfo":{
+         "from":"sample-json-2",
+         "select":"*",
+         "take":6,
+         "where":"[{\"key\":\"Eq\",\"field\":\"totalStudents\",\"value\":\"30\"}]"
+      },
+      "MetaData":[
+         {
+            "_id":"className",
+            "Label":"className",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"totalStudents",
+            "Label":"totalStudents",
+            "Type":"double",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         }
+      ]
+   },
+   {
+      "_id":"ds_json_from_web",
+      "ConnectionID":"connection_JSON_from_web",
+      "QueryInfo":{
+         "from":"json",
+         "select":"country,message,name"
+      },
+      "MetaData":[
+         {
+            "_id":"country",
+            "Label":"country",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"message",
+            "Label":"message",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"name",
+            "Label":"name",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         }
+      ]
+   },
+   {
+      "_id":"json_local",
+      "ConnectionID":"connection_JSON_from_local",
+      "QueryInfo":{
+         "from":"json",
+         "select":"*"
+      },
+      "MetaData":[
+         {
+            "_id":"answer",
+            "Label":"answer",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         },
+         {
+            "_id":"question",
+            "Label":"question",
+            "Type":"string",
+            "Format":"",
+            "Sub":null,
+            "Lookup":{
+               "_id":"",
+               "DataSourceID":"",
+               "IDField":"",
+               "DisplayField":"",
+               "LookupFields":[
+
+               ]
+            }
+         }
+      ]
+   }
+   ];
+   function SetFormData(dataSources, config) {
+      $ds01.val(dataSources.dsSelector.dataSource);
+      
+      $fields.kendoMultiSelect({
+        dataSource: dataSources.dsSelector.fields,
+        autoClose: false
+      });
+
+      $dsDestination.kendoMultiSelect({
+        dataTextField: "_id",
+        dataValueField: "_id",
+        dataSource: datasources,
+        autoClose: false
+      });
+
+      if ([undefined, null].indexOf(config) == -1) {
+         $filterCaption.val(config.filterCaption);
+         $filterPlaceholder.val(config.filterPlaceholder);
+         $fields.getKendoMultiSelect().value($.map(config.fields, function(el) { return el; }));
+         $dsDestination.getKendoMultiSelect().value($.map(config.dsDestination, function(el) { return el; }));
+         $filterValue.val(config.filterValue);
+      }
+   };
+
+   function GetFormData() {
+      var config = {
+         fields: $fields.val(),
+         dsDestination: $dsDestination.val(),
+         filterCaption: $filterCaption.val(),
+         filterPlaceholder: $filterPlaceholder.val(),
+         filterValue: $filterValue.val(),
+      };
+
+      return config;
+   };
+</script>

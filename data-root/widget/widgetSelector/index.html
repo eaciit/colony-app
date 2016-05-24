@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Example Widget 1</title>
+	<script src="assets/jquery/jquery-2.1.0.min.js"></script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
+	<!-- kendo-ui -->
+	<link href="assets/kendo-ui/styles/kendo.default.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.common-bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.bootstrap.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
+	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
+	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+	   <!-- knockout -->
+   <script src="assets/knockout/knockout-3.4.0.js"></script>
+   <script src="assets/knockout/knockout.mapping.js"></script>
+   <!-- knockout-kendo -->
+   <script src="assets/knockout-kendo/knockout-kendo.min.js"></script>
+</head>
+<style type="text/css">
+	.row .field{
+		padding-top: 20px;
+	}
+
+</style>
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row field">
+			  <div class="col-lg-12">
+			    <div class="input-group">
+			      <span class="input-group-btn">
+			        <button class="btn btn-default" type="button" id="btnFilterCaption" disabled>Filter</button>
+			      </span>
+			       <input type="text" class="form-control" id="txtFilter" name="txtFilter">
+			       <input type="hidden" class="form-control" id="txtDatasource" name="txtDatasource">
+			       <input type="hidden" class="form-control" id="txtFields" name="txtFields">
+			       <span class="input-group-btn">
+			        <button class="btn btn-primary" type="button" onclick="Selector();"><i class="glyphicon glyphicon-search"></i></button>
+			      </span>
+			    </div>
+			  </div>
+		</div>
+	</div>
+</body>
+</html>
+<script>
+
+	var $filter = $("[name='txtFilter']");
+	var $dataSources = $("[name='txtDatasource']");
+	var $fields = $("[name='txtFields']");
+	var $caption = $("#btnFilterCaption");
+
+	function Render(dataEachDS, configWidgetPage, configWidget) {
+
+		 var suggestions = [];
+		 var fields = "";
+		 if ([undefined, null].indexOf(dataEachDS.dsSelector) == -1) {
+		 	$.each(dataEachDS.dsSelector, function(index, result){
+		 		$.each(configWidgetPage.fields, function(i, val){
+					suggestions.push((result[val]).toString());
+				});
+				
+		 	});
+
+		 	$.each(configWidgetPage.fields, function(a, data){
+				fields += data + ", ";
+			});
+			
+			fields = fields.substr(0, fields.length-2);
+			$fields.val(fields);
+			$caption.html(configWidgetPage.filterCaption);
+			$filter.val(configWidgetPage.filterValue);
+			$dataSources.val(dataEachDS.dataSources.dsSelector);
+			
+		 }
+
+	     $filter.kendoAutoComplete({
+	     	dataSource: $.unique(suggestions),
+	        filter: "startswith",
+	        placeholder: configWidgetPage.filterPlaceholder,
+	      });	
+	}
+
+	function Selector(){
+		 var data  = {
+	        dataSources : $dataSources.val(),
+	        fields: $fields.val(),
+	        filter: $filter.val()
+  		 };
+  		 $filter.val() == '' ? parent.pv.doRefresh() : parent.pv.mapWidgets(data);
+	}
+</script>

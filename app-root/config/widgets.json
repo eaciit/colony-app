@@ -1,16 +1,1 @@
-[{
-    "_id": "widget4",
-    "config": [{
-        "name": "chartBackground",
-        "title": "Chart Background",
-        "type": "text",
-        "value": "transparent"
-    }],
-    "description": "sample widget 4, uploaded for testing purpose",
-    "title": "Chart Widget"
-},{
-    "_id": "widget3",
-    "config": [],
-    "description": "sample widget 3, uploaded for testing purpose",
-    "title": "Grid Widget"
-}]
+[{"_id":"widget4","config":[{"name":"chartBackground","title":"Chart Background","type":"text","value":"transparent"}],"description":"sample widget 4, uploaded for testing purpose","title":"Chart Widget"},{"_id":"widget3","config":[],"description":"sample widget 3, uploaded for testing purpose","title":"Grid Widget"},{"_id":"widgetSelector","config":[],"description":"sample widget selector, uploaded for testing purpose","title":"Selector Widget"}]
