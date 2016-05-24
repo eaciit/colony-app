@@ -24,15 +24,19 @@
 
 <script>
 	function Render(dataEachDS, configWidgetPage, configWidget) {
-		var config = {
-			columns: [
-				{ field: configWidgetPage.column1 },
-				{ field: configWidgetPage.column2 },
-			],
-			dataSource: {
-				data: dataEachDS.dsGrid
-			}
-		};
+		// var config = {
+		// 	columns: [
+		// 		{ field: configWidgetPage.column1 },
+		// 		{ field: configWidgetPage.column2 },
+		// 	],
+		// 	dataSource: {
+		// 		data: dataEachDS.dsGrid
+		// 	}
+		// };
+
+		$.each(configWidgetPage.series, function(i,val){
+			val.data  = dataEachDS.dsGrid;
+		});
 
 		["filterable", "sortable", "resizable"].forEach(function (d) {
 			if (configWidget.hasOwnProperty(d)) {
@@ -41,6 +45,6 @@
 		});
 
 		$("#grid").replaceWith('<div id="grid"></div>');
-		$("#grid").kendoGrid(config);
+		$("#grid").kendoGrid(configWidgetPage);
 	}
 </script>
