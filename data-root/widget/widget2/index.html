@@ -24,27 +24,28 @@
 
 <script>
 	function Render(dataEachDS, configWidgetPage, configWidget) {
-		// var config = {
-		// 	columns: [
-		// 		{ field: configWidgetPage.column1 },
-		// 		{ field: configWidgetPage.column2 },
-		// 	],
-		// 	dataSource: {
-		// 		data: dataEachDS.dsGrid
-		// 	}
-		// };
+		if ([undefined, null].indexOf(dataEachDS.dsGrid) == -1) {
+			
+			var columns = [];
+			$.each(configWidgetPage.columns, function(index, result){
+				columns.push({"title" : result.name, "field" : result.field});
+			});
 
-		$.each(configWidgetPage.series, function(i,val){
-			val.data  = dataEachDS.dsGrid;
-		});
+			var config = {
+				columns: columns,
+				dataSource: {
+					data: dataEachDS.dsGrid
+				}
+			};
 
-		["filterable", "sortable", "resizable"].forEach(function (d) {
-			if (configWidget.hasOwnProperty(d)) {
-				config[d] = configWidget[d];
-			}
-		});
+			["filterable", "resizable"].forEach(function (d) {
+				if (configWidget.hasOwnProperty(d)) {
+					config[d] = configWidget[d];
+				}
+			});
 
-		$("#grid").replaceWith('<div id="grid"></div>');
-		$("#grid").kendoGrid(configWidgetPage);
+			$("#grid").replaceWith('<div id="grid"></div>');  
+			$("#grid").kendoGrid(config);
+		}
 	}
 </script>
