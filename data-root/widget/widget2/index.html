@@ -34,18 +34,18 @@
 			var config = {
 				columns: columns,
 				dataSource: {
-					data: dataEachDS.dsGrid
-				}
+					data: dataEachDS.dsGrid,
+					pageSize: configWidgetPage.pagesize,
+				},
+				pageable: true,
+				filterable: configWidgetPage.filterable,
+				sortable: configWidgetPage.sortable,
+				resizable: configWidgetPage.resizable,
 			};
-
-			["filterable", "resizable"].forEach(function (d) {
-				if (configWidget.hasOwnProperty(d)) {
-					config[d] = configWidget[d];
-				}
-			});
 
 			$("#grid").replaceWith('<div id="grid"></div>');  
 			$("#grid").kendoGrid(config);
 		}
+		console.log(configWidgetPage.pagesize);
 	}
 </script>
