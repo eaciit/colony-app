@@ -49,6 +49,7 @@
 			datasource: vm.dataSource,
 			columns: [],
 			pagesize: vm.pagesize,
+			// pagename: vm.pagename,
 			filterable: false,
 			sortable: true,
 			resizable: false
@@ -60,6 +61,7 @@
 			{ value: "25", title: "25" },
 			{ value: "show all", title: "Show All" },
 		]);
+		// vm.pagename = ko.observable(true);
 		vm.pagesize = ko.observableArray([]);
 		vm.dataSource = ko.mapping.fromJS(vm.templateDataSource);
 		vm.config = ko.mapping.fromJS(vm.templateConfig);
@@ -73,9 +75,8 @@
 				var item = vm.config.columns()[index];
 				vm.config.columns.remove(item);
 			};
-		};	
-
-		window.top.window.vm1 = vm;
+		};
+		window.top.window.vm1 = vm;		
 
 		function SetFormData(dataSources, config) {
 			ko.mapping.fromJS(dataSources, vm.dataSource);
@@ -132,7 +133,7 @@
 					<div class="form-group">
 						<div class="col-sm-12 col-xs-12">
 							<label class="control-label">Page Size</label>
-					  		<select name="pagesize" class="full-width" data-bind="kendoDropDownList: { data: vm.templatePagesize, value: config.pagesize, dataValueField: 'value', dataTextField: 'title', optionLabel: 'Select one' }"></select>
+					  		<select name="pagesize" class="full-width" id="pagesize" data-bind="kendoDropDownList: { data: vm.templatePagesize, value: config.pagesize, dataValueField: 'value', dataTextField: 'title', optionLabel: 'Select one' }"></select>
 						</div>
 					</div>
 					<div class="form-group">

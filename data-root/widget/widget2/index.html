@@ -25,27 +25,33 @@
 <script>
 	function Render(dataEachDS, configWidgetPage, configWidget) {
 		if ([undefined, null].indexOf(dataEachDS.dsGrid) == -1) {
-			
 			var columns = [];
 			$.each(configWidgetPage.columns, function(index, result){
 				columns.push({"title" : result.name, "field" : result.field});
 			});
 
+
 			var config = {
 				columns: columns,
 				dataSource: {
 					data: dataEachDS.dsGrid,
-					pageSize: configWidgetPage.pagesize,
+					pageSize: (configWidgetPage.pagesize == 'show all' ? dataEachDS.dsGrid.total :  configWidgetPage.pagesize),
 				},
-				pageable: true,
+				pageable: (configWidgetPage.pagesize != 'show all' ? configWidgetPage.pagename : false),
 				filterable: configWidgetPage.filterable,
 				sortable: configWidgetPage.sortable,
 				resizable: configWidgetPage.resizable,
 			};
 
-			$("#grid").replaceWith('<div id="grid"></div>');  
+			$("#grid").replaceWith('<div id="grid"></div>'); 
 			$("#grid").kendoGrid(config);
+			// $("#pagesize").kendoDropDownList({
+			// 	change: function(){
+			// 		// if (configWidgetPage.pagesize == "show all") {
+			// 		// 	configWidgetPage.pagename(false);
+			// 		// };
+			// 	},
+			// });
 		}
-		console.log(configWidgetPage.pagesize);
 	}
 </script>
