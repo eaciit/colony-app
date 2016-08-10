@@ -28,7 +28,7 @@ colony_manager_new_port='server.Address = "localhost:'$colony_manager_port'"'
 sed -i "s%$colony_manager_old_port%$colony_manager_new_port%g" colony.go
 
 # ---- kill previous process
-# kill -9 `lsof -i:$colony_manager_port -t`
+kill -9 `lsof -i:$colony_manager_port -t`
 
 cd $GOPATH/src/github.com/eaciit/colony-manager
 go build colony.go && mv colony colony_manager && nohup ./colony_manager &
