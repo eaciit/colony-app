@@ -11,11 +11,13 @@
 	<link href="assets/kendo-ui/styles/kendo.bootstrap.min.css" rel="stylesheet">
 	<link href="assets/kendo-ui/styles/kendo.dataviz.min.css" rel="stylesheet">
 	<link href="assets/kendo-ui/styles/kendo.dataviz.bootstrap.min.css" rel="stylesheet">
-	<script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+    <script src="assets/kendo-ui/js/kendo.all.min.js"></script>
+    <!-- lazy -->
+    <script src="assets/lazyjs/lazy.min.js"></script>
 </head>
 <body>
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" style="overflow-x: scroll; padding-bottom: 10px;">
 			<div id="chart"></div>
 		</div>
 	</div>
@@ -72,7 +74,45 @@
 </script>
 
 <script>
+    // http://stackoverflow.com/questions/6491463/accessing-nested-javascript-objects-with-string-key
+    Object.byString = function(o, s) {
+        s = s.replace(/\[(\w+)\]/g, '.$1'); // convert indexes to properties
+        s = s.replace(/^\./, '');           // strip a leading dot
+        var a = s.split('.');
+        for (var i = 0, n = a.length; i < n; ++i) {
+            var k = a[i];
+            if (k in o) {
+                o = o[k];
+            } else {
+                return;
+            }
+        }
+        return o;
+    }
+
 	function Render(dataEachDS, configWidgetPage, configWidget) {
+        var data = []
+
+        if (dataEachDS.dsChart.length > 0) {
+            data = Lazy(dataEachDS.dsChart).groupBy(function (d) {
+                let cond1 = Object.byString(d, configWidgetPage.categoryAxis)
+                let cond2 = Object.byString(d, configWidgetPage.categoryAxis2)
+
+                return [cond1, cond2].join('')
+            }).map(function (v, d) {
+                let o = {}
+                o.key1 = Object.byString(v[0], configWidgetPage.categoryAxis)
+                o.key2 = Object.byString(v[0], configWidgetPage.categoryAxis2)
+                o.value = Math.abs(Lazy(v).sum(function (e) { 
+                    return e[configWidgetPage.series1]
+                }))
+
+                return o
+            }).sortBy(function (d) {
+                return d 
+            }, false).toArray();
+        }
+        
 		var config = {
 			title: {
 				text: configWidgetPage.chartTitle
@@ -80,19 +120,25 @@
 			chartArea: {
 				background: configWidget.chartBackground
 			},
-			categoryAxis: {
-				field: configWidgetPage.categoryAxis
-			},
+			categoryAxes: [{
+                field: 'key1'
+            }, {
+                field: 'key2'
+            }],
 			series: [
-				{ field: configWidgetPage.series1, type: "line" },
-				{ field: configWidgetPage.series2, type: "bar" }
+				{ field: 'value', type: "column" }
 			],
 			dataSource: {
-				data: dataEachDS.dsChart
+				data: data
 			}
 		};
 
-		$("#chart").replaceWith('<div id="chart"></div>');
+        var width = '100%';
+        if (data.length > 4) {
+            width = (data.length * 100) + 'px';
+        }
+
+		$("#chart").replaceWith('<div id="chart" style="width: ' + width + ';"></div>');
 		$("#chart").kendoChart(config);
 	}
 </script>
