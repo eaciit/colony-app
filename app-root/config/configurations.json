@@ -1,1 +1,1 @@
-[{"Value":{"db":"test","driver":"mongo","host":"localhost:27017","pass":"","user":""},"_id":"db_acl"},{"Value":"eaciit","_id":"default_username"},{"Value":"Password.1","_id":"default_password"}]
+[{"Value":{"db":"eccolony","driver":"mongo","host":"go.eaciit.com:27123","pass":"","user":""},"_id":"db_acl"},{"Value":"eaciit","_id":"default_username"},{"Value":"Password.1","_id":"default_password"}]
