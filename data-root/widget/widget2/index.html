@@ -24,23 +24,34 @@
 
 <script>
 	function Render(dataEachDS, configWidgetPage, configWidget) {
-		var config = {
-			columns: [
-				{ field: configWidgetPage.column1 },
-				{ field: configWidgetPage.column2 },
-			],
-			dataSource: {
-				data: dataEachDS.dsGrid
-			}
-		};
+		if ([undefined, null].indexOf(dataEachDS.dsGrid) == -1) {
+			var columns = [];
+			$.each(configWidgetPage.columns, function(index, result){
+				columns.push({"title" : result.name, "field" : result.field});
+			});
 
-		["filterable", "resizable"].forEach(function (d) {
-			if (configWidget.hasOwnProperty(d)) {
-				config[d] = configWidget[d];
-			}
-		});
 
-		$("#grid").replaceWith('<div id="grid"></div>');
-		$("#grid").kendoGrid(config);
+			var config = {
+				columns: columns,
+				dataSource: {
+					data: dataEachDS.dsGrid,
+					pageSize: (configWidgetPage.pagesize == 'show all' ? dataEachDS.dsGrid.total :  configWidgetPage.pagesize),
+				},
+				pageable: (configWidgetPage.pagesize != 'show all' ? configWidgetPage.pagename : false),
+				filterable: configWidgetPage.filterable,
+				sortable: configWidgetPage.sortable,
+				resizable: configWidgetPage.resizable,
+			};
+
+			$("#grid").replaceWith('<div id="grid"></div>'); 
+			$("#grid").kendoGrid(config);
+			// $("#pagesize").kendoDropDownList({
+			// 	change: function(){
+			// 		// if (configWidgetPage.pagesize == "show all") {
+			// 		// 	configWidgetPage.pagename(false);
+			// 		// };
+			// 	},
+			// });
+		}
 	}
 </script>
