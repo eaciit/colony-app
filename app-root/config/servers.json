@@ -1,1 +1,40 @@
-[{"_id":"192.168.0.223","appPath":"/home/vagrant/app","cmdcopy":"","cmdextract":"unzip %1 -d %2","cmdmkdir":"mkdir","cmdnewfile":"","dataPath":"/home/vagrant/data","host":"192.168.0.223","installedLang":[],"os":"linux","serviceHDFS":{"host":"http://192.168.0.223:50070","hostAlias":[{"hostName":"ecsbycdn01","ip":"192.168.0.223"},{"hostName":"ecsbycdn02","ip":"192.168.0.224"},{"hostName":"ecsbycdn03","ip":"192.168.0.225"},{"hostName":"ecsbycdn04","ip":"192.168.0.226"},{"hostName":"ecsbycdn11","ip":"192.168.0.231"}],"pass":"","user":"hdfs"},"serviceSSH":{"file":"","host":"","pass":"","type":"Credentials","user":""}},{"_id":"local","appPath":"/home/vagrant/app","cmdcopy":"","cmdextract":"unzip %1 -d %2","cmdmkdir":"mkdir","cmdnewfile":"","dataPath":"/home/vagrant/data","installedLang":[{"IsInstalled":true,"Lang":"go","Version":"go version go1.6 linux/amd64"},{"IsInstalled":false,"Lang":"java","Version":""},{"IsInstalled":false,"Lang":"scala","Version":""}],"isColonyServer":true,"os":"linux","serverServices":[],"serviceHDFS":{"host":"","hostAlias":[],"pass":"","user":""},"serviceSSH":{"file":"","host":"localhost:2222","pass":"vagrant","type":"Credentials","user":"vagrant"}}]
+[{
+    "_id": "localhost",
+    "appPath": "/data/goapp/src/github.com/eaciit/colony-app/app-root",
+    "cmdcopy": "",
+    "cmdextract": "unzip %1 -d %2",
+    "cmdmkdir": "mkdir",
+    "cmdnewfile": "",
+    "dataPath": "/data/goapp/src/github.com/eaciit/colony-app/data-root",
+    "installedLang": [{
+        "IsInstalled": true,
+        "Lang": "go",
+        "Version": "go version go1.6 linux/amd64"
+    }, {
+        "IsInstalled": false,
+        "Lang": "java",
+        "Version": ""
+    }, {
+        "IsInstalled": false,
+        "Lang": "scala",
+        "Version": ""
+    }],
+    "isColonyServer": true,
+    "os": "linux",
+    "serverServices": [],
+    "serviceHDFS": {
+        "host": "",
+        "hostAlias": [],
+        "pass": "",
+        "user": ""
+    },
+    "serviceSSH": {
+        "file": "/data/goapp/src/github.com/eaciit/colony-app/data-root",
+        "host": "localhost",
+        "pass": "",
+        "type": "File",
+        "user": ""
+    }
+}]
+
+
