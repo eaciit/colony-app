@@ -112,7 +112,7 @@
                 return d 
             }, false).toArray();
         }
-        
+
 		var config = {
 			title: {
 				text: configWidgetPage.chartTitle
@@ -125,6 +125,18 @@
             }, {
                 field: 'key2'
             }],
+            seriesDefaults: {
+                tooltip: {
+                    visible: true,
+                    template: function (d) {
+                        return [d.dataItem.key1,, d.dataItem.key2, ':', kendo.toString(d.value, 'n0')].join(' ')
+                    }
+                },
+                labels: {
+                    visible: true,
+                    format: '{0:n0}'
+                } 
+            },
 			series: [
 				{ field: 'value', type: "column" }
 			],
