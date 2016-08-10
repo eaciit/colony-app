@@ -1,5 +1,5 @@
 [{
-    "_id": "localhost",
+    "_id": "52.220.25.190",
     "appPath": "/data/goapp/src/github.com/eaciit/colony-app/app-root",
     "cmdcopy": "",
     "cmdextract": "unzip %1 -d %2",
@@ -29,8 +29,8 @@
         "user": ""
     },
     "serviceSSH": {
-        "file": "/data/goapp/src/github.com/eaciit/colony-app/data-root",
-        "host": "localhost",
+        "file": "/data/goapp/src/github.com/eaciit/colony-app/data-root/developer.pem",
+        "host": "52.220.25.190:22",
         "pass": "",
         "type": "File",
         "user": ""
