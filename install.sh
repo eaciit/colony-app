@@ -1,8 +1,8 @@
 # ---- ssh to server
-# ssh developer@go.eaciit.com -i /Users/novalagung/Downloads/developer.pem
+# ssh toserver
 
 # ---- copy installer
-# scp -i /Users/novalagung/Downloads/developer.pem /Users/novalagung/Desktop/installer.zip developer@go.eaciit.com:/data/goapp/src/github.com/eaciit/colony-app-installer
+# scp -i /Users/novalagung/Downloads/developer.pem /Users/novalagung/Desktop/installer.zip toserver:/data/goapp/src/github.com/eaciit/colony-app-installer
 
 # ---- colony nginx conf
 # cd /data/nginx/ && 8026_colony-dev.conf
